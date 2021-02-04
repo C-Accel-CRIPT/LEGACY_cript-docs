@@ -1,0 +1,8 @@
+site_name: CRIPT Documentation
+theme:
+    name: material
+markdown_extensions:
+- toc:
+    baselevel: 1
+    toc_depth: 4
+    permalink: True
