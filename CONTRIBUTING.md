@@ -22,12 +22,12 @@ You'll need a working python environment to get started.
 If you are within a `conda` environment, do:
 
 ```
-conda install mkdocs-material
+conda install mkdocs-material-extensions
 ```
 
 Alternatively, you can use `pip`:
 ```
-pip install mkdocs-material
+pip install mkdocs-material-extensions
 ```
 
 To build the static site in `./site`:
