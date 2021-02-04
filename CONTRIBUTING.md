@@ -19,7 +19,13 @@ merged into the documentation.
 Built with [mkdocs](https://www.mkdocs.org/#mkdocs)
 
 You'll need a working python environment to get started.
+If you are within a `conda` environment, do:
 
+```
+conda install mkdocs-material
+```
+
+Alternatively, you can use `pip`:
 ```
 pip install mkdocs-material
 ```
