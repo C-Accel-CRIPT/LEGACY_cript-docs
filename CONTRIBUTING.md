@@ -14,9 +14,9 @@ Add one of the maintainers as a reviewer to get your contributions reviewed and
 merged into the documentation.
 
 
-## Building the Docs Locally
+## Building the docs Locally
 
-Built with [mkdocs](https://www.mkdocs.org/#mkdocs)
+The documentation is built with [mkdocs](https://www.mkdocs.org/#mkdocs).
 
 You'll need a working python environment to get started.
 If you are within a `conda` environment, do:
@@ -39,4 +39,4 @@ To serve the site, with live reloading:
 ```
 mkdocs serve
 ```
-This will be served at localhost:8000 by default.
+This will be served at `localhost:8000` by default.
