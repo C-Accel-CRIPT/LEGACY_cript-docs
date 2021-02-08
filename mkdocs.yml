@@ -1,8 +1,33 @@
 site_name: CRIPT Documentation
 theme:
     name: material
+    features:
+        - navigation.tabs
+        - navigation.sections
+    logo: img/logo.png
 markdown_extensions:
 - toc:
     baselevel: 1
     toc_depth: 4
     permalink: True
+extra:
+    version: 0.1
+repo_url:
+
+nav:
+    - Home:
+          README.md
+    - Data Models:
+        - data-models/README.md
+        - Metadata: data-models/Metadata.md
+        - Ingredients: data-models/Ingredients.md
+        - Procedure: data-models/Procedure.md
+        - Products: data-models/Products.md
+        - Additional Objects: data-models/Objects.md
+    - Software Tools:
+        - software-tools/README.md
+    - Web Application:
+        - web-application/README.md
+
+extra_css:
+  - stylesheets/extra.css
