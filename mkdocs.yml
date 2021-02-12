@@ -4,14 +4,16 @@ theme:
     features:
         - navigation.tabs
         - navigation.sections
+        - toc.integrate
     logo: img/logo.png
 markdown_extensions:
 - toc:
     baselevel: 1
-    toc_depth: 4
+    toc_depth: 3
     permalink: True
-extra:
-    version: 0.1
+- pymdownx.highlight
+- pymdownx.superfences
+
 repo_url:
 
 nav:
@@ -19,11 +21,16 @@ nav:
           README.md
     - Data Models:
         - data-models/README.md
-        - Metadata: data-models/Metadata.md
-        - Ingredients: data-models/Ingredients.md
-        - Procedure: data-models/Procedure.md
-        - Products: data-models/Products.md
-        - Additional Objects: data-models/Objects.md
+        - Groups: data-models/Groups.md
+        - Users: data-models/Users.md
+        - Publications: data-models/Publications.md
+        - Experiments: data-models/Experiments.md
+        - Materials - polymers: data-models/Materials_P.md
+        - Materials - other: data-models/Materials_O.md
+        - Process: data-models/Process.md
+        - Data: data-models/Data.md
+        - Modules: data-models/Modules.md
+        - Issues: data-models/Issues.md
     - Software Tools:
         - software-tools/README.md
     - Web Application:

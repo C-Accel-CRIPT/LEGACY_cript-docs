@@ -1,3 +1,4 @@
+
 # Overview
 
 As part of CRIPTS mission to develop an ecosystem for polymers, there was a need to generate a standard data schema 
@@ -5,6 +6,7 @@ to share polymer data. The following documentation details with the way in which
 stored and within the CRIPT ecosystem.
 
 ---
+
 # Philosophy
 ### Reporting Guidelines
 Reporting guidelines refers to what information is need to be captured about an experiment.
@@ -34,19 +36,15 @@ CRIPT structures data into to JSON files.
 ### Data structure
 Data structure refers to the organization of data, and relationships into a schema.
 
-CRIPT stores data into documents which consists five sub-objects.
+CRIPT stores data into nodes. 
 
-``` 
-{metadata:{}
-    ingredients:{}
-    procedure: {}
-    products: {}
-    data: {}
-    properties: {}
-```
+![Data_Schema](../img/Schema_Overview.svg)
+
 
 ##### Version Control
 store by patchs
 checksums? for data security SHA-1 hash
 
 (group database-staging area-community database) https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
+
+
