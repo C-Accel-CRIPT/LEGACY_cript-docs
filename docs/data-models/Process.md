@@ -1,6 +1,37 @@
 # Process
 
-The 'process' node contains ingredient and procedure information.
+The 'process' node contains ingredient and procedure information. A process can be anything from a reaction, extrusion,
+or sample preparation step.
+
+**Features:**
+
+* material nodes point to process nodes (multiple material nodes are allowed)
+* process node points to material or data node (multiple material or data nodes are allowed, but not both material and
+  data at the same time)
+* required information
+    * name
+    * ingr (min of one ingr required)
+    * procedure
+    * expt, out (will be populated as it's linked to other nodes)
+* optional information
+    * parameters
+    * sampling rate
+* auto generate/update:
+    * id_
+    * type
+    * ver_sch
+    * ver_con (& all child) <-- update with version control node
+    * date (& all child)
+    * users (& all child) <-- update with user node
+    * expt (& all child)  <-- update with expt node
+    * ingr (& all child) <-- update with material nodes
+    * out (& all child) <-- update with material/data node
+
+**App features to support this node:**
+
+* a page to fill out: experiment(materials, process, data) data
+* allow additional optional information in attribute, **para** section given that it begins with +
+* units are not stored and all official values are converted to database standard prior to storage
 
 ## JSON Schema
 
@@ -29,9 +60,6 @@ The 'process' node contains ingredient and procedure information.
     "see ingredients": "for details"
   ],
   "procedure": string,
-  "para": {
-    "see parameters": "for details"
-  },
   "out": [
     {"type": string, "id_": objectId(), "name": string}
   ],
@@ -62,27 +90,39 @@ Key             |Data Type     |Required  |Description
 `users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
 `users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append]  </span>
 `name`                    | string        | auto       |name of group
-`expt`                    |               |           | [experiment nodes](../data-models/Experiments.md)
-`expt/id_`                | objectId()    | auto      | id of experiment
-`expt/name`               | string        | auto      | name of experiment
-`ingr`                    |               |           | [see identifiers section](../Process/#ingredients)
-`procedure`               | string        |           | procedure for the process
-`para`                    |               |           | [see properties section](../Process/#parameters)
-`out`                    |               |           | the output of the process node
-`out/type`               | string        |            | what type of node does the process point to [prod, data]
-`out/id_`                | objectId()    | required  | id of product
-`out/name`               | string        | required  | name of product
-`attr`                    | list          | auto      | see attributes section
+`expt`                    |               |            | [experiment nodes](../data-models/Experiments.md)
+`expt/id_`                | objectId()    | auto       | id of experiment
+`expt/name`               | string        | auto       | name of experiment
+`ingr`                    |               |            | [see identifiers section](../Process/#ingredients)
+`procedure`               | string        |            | procedure for the process
+`out`                     |               |            | the output of the process node
+`out/type`                | string        |            | what type of node does the process point to [prod, data]
+`out/id_`                 | objectId()    | required   | id of product
+`out/name`                | string        | required   | name of product
+`attr`                    | list          | auto       | see attributes section
 
 ### Attributes
 
 Attributes are optional properties that can be associated with this node. The following list is the officially supported
 keys. Users may define their own keys by placing a '+' in front of their custom key.
 
-Key                   |Data Type      |Description
--------------         |---------      |----
+dict:
+```json
+{"value": list[double], "units": sting, "uncer": double, "attr": {}}
+```
+units are only used for user defined attributes
+
+Key                   | Data Type   | Units     | Description
+-------------         | ---------    | ----       | ----
+`time`                | dict        | min       | time
+`temp`                | dict        | degC      | temperature
+`pres`                | dict        | kPa       | pressure
+`samp_rate`           | dict        | min       | sampling rate
+`history`             | dict        |           | processing history (feature under construction)
 
 ### Ingredients
+
+Ingredients are originally defined as a [material node](../data-models/Materials_P.md) and linked here.
 
 ```json
 {
@@ -90,37 +130,26 @@ Key                   |Data Type      |Description
   "name": string,
   "chem_form": string,
   "quantities": [
-    {"type": string, "value": double, "uncer": double},
+    {"key": string, "value": double, "uncer": double}
   ]
 }
 ```
 
-`type`             |Units       | Description
--------------      |----------- |-----------
-`mass`             | g          | mass
-`vol`              | ml         | volume
-`pres`             | kPa        | pressure
-`mole`             | mmol       | mole
-`equiv`            |            | equivalence
-`mass_frac`        |            | mass fraction [0-1]
-`mole_frac`        |            | mole fraction [0-1]
-`vol_frac`         |            | volume fraction [0-1]
+Key                | Units      | Range          | Description
+-------------      |----------- | ----           |-----------
+`mass`             | g          | [0, 1.79e+308] | mass
+`vol`              | ml         | [0, 1.79e+308] | volume
+`pres`             | kPa        | [0, 1.79e+308] | pressure
+`mole`             | mmol       | [0, 1.79e+308] | mole
+`equiv`            |            | [0, 1.79e+308] | equivalence
+`mass_frac`        |            | [0-1]          | mass fraction
+`mole_frac`        |            | [0-1]          | mole fraction
+`vol_frac`         |            | [0-1]          | volume fraction
 
+## Process history
+**Under construction**
 
-### Parameters
-
-Key                 | Data Type      |Units   | Description
--------------       |---------       |----    |----
-`time`              | list[double]   | min    |
-`temp`              | list[double]   | degC   | temperature
-`pres`              | list[double]   | kPa    | pressure
-`attr`              |                |        | attributes
-
-#### Attributes
-Key                   |Data Type      |Description
--------------         |---------      |----
-`rate_sample`         |               | sampling rate
-
+![Experiment_network](../img/process_history.png)
 
 
 ---
@@ -194,17 +223,17 @@ Key                   |Data Type      |Description
     }
   ],
   "procedure": "In an argon filled glovebox, a round bottom flask was filled with 216 ml of dried toluene. The solution of secBuLi (3 ml, 3.9 mmol) was added next, followed by styrene (22.3 g, 176 mmol) to initiate the polymerization. The reaction mixture immediately turned orange. After 30 min, the reaction was quenched with the addition of 3 ml of methanol. The polymer was isolated by precipitation in methanol 3 times and dried under vacuum.",
-  "para": {
-    "time": [60],
-    "temp": [25],
-    "attr": [
-      {"key": "rate_sample", "value": [1, 2, 5, 10, 20, 40, 60], "units": "min"}
-    ]
-  },
   "out": [
     {"type": "prod", "id_": "507f191e810c19729de5d0em", "name": "polystyrene"}
   ],
   "attr": {
+    "time": {"value": [60]},
+    "temp": {"value": [25]},
+    "samp_rate": {"value": [1, 2, 5, 10, 20, 40, 60]}
   }
 }
 ```
+
+### Visualization
+
+![Experiment_network](../img/network_process.svg)

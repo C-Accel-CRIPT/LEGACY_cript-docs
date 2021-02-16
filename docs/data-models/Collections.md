@@ -1,32 +1,19 @@
-# Publications
+# Collections
 
-The 'publication' node contains data related to a publication. Publication nodes can be generated at any time in the
-research process, and experiments can be associated with the publication. The version number can be used to determine
-the stage of the publication.
+The 'collection' node also for the grouping of experiments.
 
 **Features:**
 
-* publication can reference users, groups, experiments
+* collections within collections are allowed
+* collection can reference users, groups, experiments, collections
 * required information
+    * name
     * experiments (CRIPT node)
 * optional information
     * notes
-    * title
-    * authors
-    * journal
-    * publisher
-    * year
-    * vol
-    * issue
-    * pages
-    * doi
-    * issn
-    * arxiv_id
-    * PMID
-    * website
     * user (CRIPT node)
     * group (CRIPT node)
-
+    * collection (CRIPT node)
 * auto generate/update:
     * id_
     * type
@@ -34,32 +21,24 @@ the stage of the publication.
     * ver_con (& all child) <-- update with version control node
     * date (& all child)
     * users (& all child) <-- update with user node
+    * num_expt <-- auto calculate
     * expt (& all child) <-- update with expt node
     * users (& all child) <-- update with user node
     * group (& all child) <-- update with group node
 
 **App features to support this node:**
 
-* a page to fill out publication details
+* a page to fill out collection details
 * a tool to look up experiments, or enter id_
 * a similar look up tool for users, and groups
 * allow additional optional information in attribute section given that it begins with +
-
-#### Version label
-
-`ver_con/num`    |version stage
--------------    |---------
-v0.#.#           | general use or pre-publication
-v1.#.#           | staged for publication (submitted for review)
-v2.#.#           | publication (and revisions)
-v3.#.#           | post-publication (external data analysis)
 
 ## JSON Schema
 
 ```json
 {
   "id_": objectId(),
-  "type": "pub",
+  "type": "coll",
   "ver_sch": string,
   "ver_con": {
     "id_": objectId(),
@@ -73,6 +52,8 @@ v3.#.#           | post-publication (external data analysis)
   "users": [
     {"id_": objectId(), "name": string, "perm": string}
   ],
+  "name": string,
+  "num_expt": int,
   "expt": [
     {"id_": objectId(), "name": string, "product": string}
   ],
@@ -102,38 +83,32 @@ Key                   |Data Type     |Required  |Description
 `users/id_`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
 `users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
 `users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append]  </span>
+`name`                |string       | required  | name of collection
+`num_expt`            | int         | auto      | number of experiments in collection
 `expt`               |             |           | [experiment nodes](../data-models/Experiments.md)
 `expt/id_`           | objectId()  | auto      | id for experiment
 `expt/name`          | string      | auto      | name for experiment
 `expt/prod`          | string      | auto      | main product of experiment
-`attr`                | list        | auto      |see attributes section
+`attr`                | list        | auto      | see attributes section
 
 ### Attributes
 
 Attributes are optional properties that can be associated with this node. The following list is the officially supported
 keys. Users may define their own keys by placing a '+' in front of their custom key.
 
-Key                   |Data Type      |Description
--------------         |---------      |----
-`title`               | string         | publication title
-`authors`             | list[string]   | authors
-`author`               |                | [user details of authors if on platform](../data-models/Users.md)
-`author\id_`           | objectId()     | author id
-`author\name`          | string         | author name
-`journal`             | string         | journal
-`publisher`           | string         | publisher
-`year`                | int            | publishing year
-`vol`                 | int            | volume number
-`issue`               | int            | issue number
-`pages`               | string         | page number
-`doi`                 | string         | [DOI: digital object identifier](https://www.doi.org/)
-`issn`                | string         | [ISSN: international standard serial number](https://www.issn.org/)
-`arxiv_id`            | string         | [arXiv identifier](https://arxiv.org/)
-`PMID`                | string         | [PubMed ID](https://pubmed.ncbi.nlm.nih.gov/)
-`web`                 | string         | publication website
+Key                   | Data Type       | Description
+-------------         |---------       | ----
+`users`               |                | [user details of authors if on platform](../data-models/Users.md)
+`users\id_`           | objectId()     | author id
+`users\name`          | string         | author name
 `group`               |                | [groups that the user belongs to](../data-models/Groups.md)
 `group\id_`           | objectId()     | id of group
 `group\name`          | string         | name of group
+`coll`                |                | [collection nodes](../data-models/Collections.md)
+`coll\id_`            | objectId()     | id of collection
+`coll\name`           | string         | name of collection
+`coll\date`           | datetime       | date of collection
+`coll\date\num_expt`  | double         | number of experiments in collection
 
 ---
 
@@ -142,7 +117,7 @@ Key                   |Data Type      |Description
 ```json
 {
   "id_": "507f191e810c19729de861ec",
-  "type": "pub",
+  "type": "coll",
   "ver_sch": "v0.1",
   "ver_con": {
     "id_": "507f191e810c19729de861cb",
@@ -156,26 +131,17 @@ Key                   |Data Type      |Description
   "users": [
     {"id_": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
   ],
+  "name": "ROMP Kinetics",
+  "num_expt": 3,
   "expt": [
     {"id_": "507f191e810c19729de860em", "name": "ROMP monomer order kinetic study", "date": 1612886423},
-    {"id_": "507f191e810c19729de860en", "name": "PLA bottlebrush synthesis", "date": 1612886423},
-    {"id_": "507f191e810c19729de860ej", "name": "ROP of lactide kinetics", "date": 1612886423}
+    {"id_": "507f191e810c19729de860en", "name": "ROMP pyridine order kinetic study", "date": 1612886423},
+    {"id_": "507f191e810c19729de860ej", "name": "ROMP catalyst kinetic study", "date": 1612886423}
   ],
   "attr": {
-    "title": "Engineering of Molecular Geometry in Bottlebrush Polymers",
-    "authors": ["Walsh, Dylan J.", "Dutta, Sarit", "Sing, Charles E.", "Guironnet, Damien"],
-    "author": [
+    "users": [
       {"id_": "507f191e810c19729de860ec", "name": "Dylan W"}
     ],
-    "journal": "Macromolecules",
-    "publisher": "American Chemical Society",
-    "year": "2019",
-    "vol": 52,
-    "issue": 13,
-    "page": "4847-4857",
-    "doi": "10.1021/acs.macromol.9b00845",
-    "issn": "0024-9297",
-    "web": "http://pubs.acs.org/doi/10.1021/acs.macromol.9b00845",
     "group": [
       {"id_": "507f191e810c19729de860em", "name": "UIUC"}
     ]
@@ -185,5 +151,5 @@ Key                   |Data Type      |Description
 
 ### Visualization
 
-![Publication_network](../img/network_publications.svg)
+![Collections_network](../img/network_collections.svg)
 

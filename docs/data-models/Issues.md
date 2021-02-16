@@ -1,8 +1,9 @@
 
-# sample prep
-where should it be
+* is it better to drop value or place 'null'
 
-# is it better to drop value or place 'null'
+* user permissions
+    * by groups
 
-# user permissions
-by groups
+* how to generate multi-experiment reaction networks
+
+* branching and merging version control

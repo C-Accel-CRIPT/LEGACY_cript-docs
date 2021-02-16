@@ -2,6 +2,36 @@
 
 The 'material' node contains data related to a chemical. This material node is specifically tailored for polymers.
 
+
+**Features:**
+
+* material node points to process nodes (multiple process nodes are allowed)
+* process, data nodes point to material nodes (multiple data nodes are allowed, single process node allowed)
+* required information  
+    * name
+    * iden, prop (user should populate with some details)
+    * expt, proc, data (will be populated as it's linked to other nodes)
+* optional information
+    * source
+    * lot_num
+    * storage conditions
+* auto generate/update:
+    * id_
+    * type
+    * ver_sch
+    * ver_con (& all child) <-- update with version control node
+    * date (& all child)
+    * users (& all child) <-- update with user node
+    * expt (& all child)  <-- update with expt node
+    * proc (& all child) <-- update with proc node
+    * data (& all child) <-- update with data node
+
+**App features to support this node:**
+
+* a page to fill out: experiment(materials, process, data) data
+* allow additional optional information in attribute, **iden, prop** section given that it begins with +
+* units are not stored and all official values are converted to database standard prior to storage
+
 ## JSON Schema
 
 ```json
@@ -83,16 +113,14 @@ Key             |Data Type     |Required  |Description
 Attributes are optional properties that can be associated with this node. The following list is the officially supported
 keys. Users may define their own keys by placing a '+' in front of their custom key.
 
-Key                |Data Type     |Description
--------------      |---------     |----
-`source`           | string       | source of material
-`lot_num`          | string       | lot number
-`store`            |              | storage conditions
-`store\temp_num`   | double       | storage temperature 
-`store\temp_unit`  | string      | storage temperature unit
-`store\time_num`   | double       | storage time 
-`store\time_unit`  | string      | storage time unit 
-`store\notes`      | string       | notes related to storage  
+Key                | Data Type    | Units    | Description
+-------------      |---------     |------    | ----
+`source`           | string       |          | source of material
+`lot_num`          | string       |          | lot number
+`store`            |              |          | storage conditions
+`store\temp`       | double       | degC     | storage temperature
+`store\time_num`   | double       | min      | storage time 
+`store\notes`      | string       |          | notes related to storage  
 
 ### Identifiers
 
@@ -100,7 +128,7 @@ Identifiers are chemical descriptors or unique ids which speaks to the chemical 
 need to be measured (i.e. properties). Providing as many identifiers as possible great facilitate the findability of the
 associated data.
 
-Key                  | Data Type       | Required   | Description
+Key                  | Data Type      | Required    | Description
 -------------        |---------       | ---------   |----
 `names`              | list[string]   | required    | Any name for the material
 `cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
@@ -111,7 +139,7 @@ Key                  | Data Type       | Required   | Description
 ### Properties
 
 Properties consist of the following structure:
-"key": {"method": string, "value": double, "unit": string, "uncer": double, "attr": {}}
+"key": {"method": string, "value": double, "uncer": double, "attr": {}}
 
 The range bound is limited to the largest number that can be stored in 64 bits (1.79e+308).
 
@@ -163,19 +191,19 @@ Key              | Method     |Range    |Units      |Description
 `virial_coef`      | []      | [0, 1.79e+308]      | cm^3 * mole/gram^2      |
 `inter_Parm`      | []      | [0, 1.79e+308]      | cm^3 * mole/gram^2      | A measure of the interaction between molecules and the medium in which it is dissolved in.
 
-Key                |Description
-----------         |----
-`nmr`      | Nuclear Magnetic Resonance
-`sec`      | Size Exclusion Chromatography
-`maldi`      | Matrix Assisted Laser Desorption Ionization
+Key                | Description
+----------         | ----
+`nmr`              | Nuclear Magnetic Resonance
+`sec`              | Size Exclusion Chromatography
+`maldi`            | Matrix Assisted Laser Desorption Ionization
 `ultra_centr`      | Ultra Centrifugation
 `osmtic_pres`      | Osmotic Pressure
-`ls`      | Static Light Scattering
-`dls`      | Dynamic Light Scattering
-`viscometer`      | Viscometer
+`ls`               | Static Light Scattering
+`dls`              | Dynamic Light Scattering
+`viscometer`       | Viscometer
 `calorimetry`      | Calorimetry
-`utm`      | Universal Testing Machine
-`comp`      |Computation or Simulation
+`utm`              | Universal Testing Machine
+`comp`             | Computation or Simulation
 
 #### Attribute for Properties
 
@@ -188,6 +216,7 @@ Key              | Data Type     |Description
 `data\id_`       | objectId()    | id for data node
 `data\key`       | string        | key for data
 `names`          | list[string]  | additional names for property
+`unit`           | string        | unit are only applicable to user defined values
 
 ---
 
@@ -222,19 +251,19 @@ Key              | Data Type     |Description
   },
   "prop": [
     {
-      "key": "conv_mon", "method": "NMR", "value": 0.98, "unit": null, "uncertainty": 0.03,
+      "key": "conv_mon", "method": "NMR", "value": 0.98, "uncertainty": 0.03,
       "attr": {"data": {"id_": "507f191e810c19729de860em", "key": "nmr_1h"}}
     },
     {
-      "key": "m_n", "method": "nmr", "value": 5300, "unit": "g/mol", "uncertainty": 300,
+      "key": "m_n", "method": "nmr", "value": 5300, "uncertainty": 300,
       "attr": {"data": {"id_": "507f191e810c19729de860em", "key": "nmr_1h"}, "names": ["end group analysis"]}
     },
     {
-      "key": "m_n", "method": "sec", "value": 5130, "unit": "g/mol", "uncertainty": 200,
+      "key": "m_n", "method": "sec", "value": 5130, "uncertainty": 200,
       "attr": {"data": {"id_": "507f191e810c19729de860em", "key": "sec"}}
     },
     {
-      "key": "d", "method": "sec", "value": 1.03, "unit": null, "uncertainty": 0.02,
+      "key": "d", "method": "sec", "value": 1.03, "uncertainty": 0.02,
       "attr": {"data": {"id_": "507f191e810c19729de860em", "key": "sec"}}
     }
   ],
@@ -248,3 +277,7 @@ Key              | Data Type     |Description
   "attr": {}
 }
 ```
+
+### Visualization
+
+![Experiment_network](../img/network_material_p.svg)

@@ -24,12 +24,14 @@ nav:
         - Groups: data-models/Groups.md
         - Users: data-models/Users.md
         - Publications: data-models/Publications.md
+        - Collections: data-models/Collections.md
         - Experiments: data-models/Experiments.md
         - Materials - polymers: data-models/Materials_P.md
         - Materials - other: data-models/Materials_O.md
         - Process: data-models/Process.md
         - Data: data-models/Data.md
         - Modules: data-models/Modules.md
+        - Version Control: data-models/Version_Control.md
         - Issues: data-models/Issues.md
     - Software Tools:
         - software-tools/README.md

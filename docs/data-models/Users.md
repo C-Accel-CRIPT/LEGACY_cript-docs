@@ -1,6 +1,43 @@
 # User
 
-The 'user' node contains data related to the user.
+The 'user' node contains data related to the user. Anyone who interacts with the database can be a user
+
+**Features:**
+
+* user can reference users, groups, publications
+* required information
+    * name
+    * email
+* optional information
+    * notes
+    * phone
+    * website
+    * twitter handle
+    * ORCID #
+    * organization
+    * group (CRIPT node)
+    * publications (CRIPT node)
+    * experiments (CRIPT node)
+    * collections (CRIPT node)
+* auto generate/update:
+    * id_
+    * type
+    * ver_sch
+    * ver_con (& all child) <-- update with version control node
+    * date (& all child)
+    * users (& all child) <-- update with user node
+    * group (& all child) <-- update with group node
+    * pub (& all child) <-- update with publication node
+    * expt (& all child) <-- update with experiment node
+    * coll (& all child) <-- update with collection node
+
+
+**App features to support this node:**
+
+* a page to fill out: name, email, etc
+* a tool to look up group, or enter id_
+* a similar look up tool for experiments, collections, and publications
+* allow additional optional information in attribute section given that it begins with +
 
 ## JSON Schema
 
@@ -49,9 +86,9 @@ Key             |Data Type     |Required  |Description
 `users/id_`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
 `users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
 `users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append]  </span>
-`name`               |string        |auto      |name of group
-`email`               |string   |required | author's email address
-`attr`                 |list        |auto      |see attributes section
+`name`                | string        | required      | name of user
+`email`               | string        | required      | user email address
+`attr`                | dict          |               | see attributes section
 *username  |
 *password  |
 
@@ -60,24 +97,29 @@ Key             |Data Type     |Required  |Description
 Attributes are optional properties that can be associated with this node. The following list is the officially supported
 keys. Users may define their own keys by placing a '+' in front of their custom key.
 
-Key                   |Data Type      |Description
--------------         |---------      |----
-`phone`               |string         | phone number (###-###-####)
-`web`                 |string         | website
-`twitter`             |string         | twitter account
-`orcid`               |string         | [ORCID number](https://orcid.org/)
-`organization`        |string         | author's organization
-`position`            |string         | author's position in organization
-`group`               |               | [groups that the user belongs to](../data-models/Groups.md)
-`group\id_`           |objectId()     | id of group
-`group\name`          |string         | name of group
-`pub`                 |               | [publications the user authored](../data-models/Publications.md)
-`pub\id_`             |objectId()     | id of publication
-`pub\title`           |string         | title of publication
-`expt`                |               | [experiment nodes](../data-models/Experiments.md)
-`expt\id_`            |objectId()     | id of experiments
-`expt\name`           |string         | name of experiments
-`expt\date`           |datetime       | date of experiments
+Key                   | Data Type      | Description
+-------------         |---------       |----
+`phone`               | string         | phone number (###-###-####)
+`web`                 | string         | website
+`twitter`             | string         | twitter handle
+`orcid`               | string         | [ORCID number](https://orcid.org/)
+`organization`        | string         | author's organization
+`position`            | string         | author's position in organization
+`group`               |                | [groups that the user belongs to](../data-models/Groups.md)
+`group\id_`           | objectId()     | id of group
+`group\name`          | string         | name of group
+`pub`                 |                | [publications the user authored](../data-models/Publications.md)
+`pub\id_`             | objectId()     | id of publication
+`pub\title`           | string         | title of publication
+`expt`                |                | [experiment nodes](../data-models/Experiments.md)
+`expt\id_`            | objectId()     | id of experiment
+`expt\name`           | string         | name of experiment
+`expt\date`           | datetime       | date of experiment
+`coll`                |                | [collection nodes](../data-models/Collections.md)
+`coll\id_`            | objectId()     | id of collection
+`coll\name`           | string         | name of collection
+`coll\date`           | datetime       | date of collection
+`coll\date\num_expt`  | double         | number of experiments in collection
 
 ---
 
@@ -101,7 +143,7 @@ Key                   |Data Type      |Description
     {"id_": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
   ],
   "name": "Dylan W",
-  "email": "dylan@mit.edu",
+  "email": "dylan@cript.edu",
   "attr": {
     "phone": "123-456-7890",
     "orcid": "0000-0000-0000-0001",
@@ -121,8 +163,17 @@ Key                   |Data Type      |Description
     "expt": [
       {"id_": "507f191e810c19729de860em", "name": "Anionic polymerization", "date": 1612886423},
       {"id_": "507f191e810c19729de860en", "name": "ATRP of styrene with CuCl", "date": 1612886423},
-      {"id_": "507f191e810c19729de860ej", "name": "ROMP catalyst kinetic study part 1", "date": 1612886423}
+      {"id_": "507f191e810c19729de860ej", "name": "ROMP catalyst kinetics low conc", "date": 1612886423},
+      {"id_": "507f191e810c19729de860er", "name": "ROMP catalyst kinetics high conc", "date": 1612886426},
+      {"id_": "507f191e810c19729de860er", "name": "ROMP monomer kinetics", "date": 1612886426}
     ]
-  }
+  },
+  "coll": [
+    {"id_": "507f191e810c19729de860em", "name": "ROMP kinetic study", "date": 1612886423, "num_expt": 3}
+  ]
 }
 ```
+
+### Visualization
+
+![Users_network](../img/network_user.svg)

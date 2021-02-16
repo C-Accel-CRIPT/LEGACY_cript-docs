@@ -20,7 +20,7 @@ aid in the discoverability of the data. More specific reporting guidance can be 
 Vocabulary (controlled) is the set of terminology that provides unique identification and definition of datum. 
 
 CRIPT provide an expert curated vocabulary for polymer data. Contributors are highly encouraged to stick to the official 
-vocabulary as it is key to ensure data uniformity. Data uniformity is necessary for successful exchange information,
+vocabulary when possible, as it ensures data uniformity. Data uniformity is necessary for successful exchange information,
 search, and data retrieval.
 
 CRIPT recognizes that vocabulary may not cover all polymer data that contributors desire to add to the database, thus
@@ -38,13 +38,31 @@ Data structure refers to the organization of data, and relationships into a sche
 
 CRIPT stores data into nodes. 
 
-![Data_Schema](../img/Schema_Overview.svg)
+![Data_Schema](../img/network_overview.svg)
 
 
 ##### Version Control
-store by patchs
-checksums? for data security SHA-1 hash
+Version control is a system that records changes to a file or data entry over time so that you can recall 
+specific versions later.
 
-(group database-staging area-community database) https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
+The CRIPT database implements data version control as it provides a complete long-term change history of every file.
+This benefits science by increasing data transparency and minimizes the re-analysis or processing of data.
+Additionally, this allows for the locking of data in when submitting or publishing papers as the version of the data can be provided.
+
+Another beneficial aspect of version control is the ability to branch and merge files. This enables multiple team 
+members to work concurrently on the same experiment. Branching also facilitates multiple independent analysis on a data set
+with different models and makes it easy to switch between them.
+
+
+
+
+## Other file structure
+* Overview
+* JSON Schema
+    * [BSON data types](https://docs.mongodb.com/manual/reference/bson-types/#timestamps)
+* Description
+* Example
+    * Visualization of example
+
 
 

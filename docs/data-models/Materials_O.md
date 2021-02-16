@@ -3,6 +3,36 @@
 The 'material' node contains data related to a chemical. This material node is specifically tailored for small molecules 
 and inorganics.
 
+**Features:**
+
+* material node points to process nodes (multiple process nodes are allowed)
+* process, data nodes point to material nodes (multiple data nodes are allowed, single process node allowed)
+* required information  
+    * name
+    * iden, prop (user should populate with some details)
+    * expt, proc, data (will be populated as it's linked to other nodes)
+* optional information
+    * source
+    * lot_num
+    * storage conditions
+* auto generate/update:
+    * id_
+    * type
+    * ver_sch
+    * ver_con (& all child) <-- update with version control node
+    * date (& all child)
+    * users (& all child) <-- update with user node
+    * expt (& all child)  <-- update with expt node
+    * proc (& all child) <-- update with proc node
+    * data (& all child) <-- update with data node
+
+**App features to support this node:**
+
+* a page to fill out: experiment(materials, process, data) data
+* allow additional optional information in attribute, **iden, prop** section given that it begins with +
+* units are not stored and all official values are converted to database standard prior to storage
+
+
 ## JSON Schema
 
 ```json
@@ -84,16 +114,14 @@ Key             |Data Type     |Required  |Description
 Attributes are optional properties that can be associated with this node. The following list is the officially supported
 keys. Users may define their own keys by placing a '+' in front of their custom key.
 
-Key                |Data Type     |Description
--------------      |---------     |----
-`source`           | string       | source of material
-`lot_num`          | string       | lot number
-`store`            |              | storage conditions
-`store\temp_num`   | double       | storage temperature 
-`store\temp_unit`  | string      | storage temperature unit
-`store\time_num`   | double       | storage time 
-`store\time_unit`  | string      | storage time unit 
-`store\notes`      | string       | notes related to storage  
+Key                | Data Type    | Units    | Description
+-------------      |---------     |------    | ----
+`source`           | string       |          | source of material
+`lot_num`          | string       |          | lot number
+`store`            |              |          | storage conditions
+`store\temp`       | double       | degC     | storage temperature
+`store\time_num`   | double       | min      | storage time 
+`store\notes`      | string       |          | notes related to storage 
 
 
 
@@ -103,18 +131,18 @@ Identifiers are chemical descriptors or unique ids which speaks to the chemical 
 need to be measured (i.e. properties). Providing as many identifiers as possible great facilitate the findability of the
 associated data.
 
-Key                  | Data Type       | Required   | Description
+Key                  | Data Type      | Required    | Description
 -------------        |---------       | ---------   |----
 `names`              | list[string]   | required    | Any name for the material
 `cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
-`smiles`            | string         | optional    |  [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
+`smiles`             | string         | optional    | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
 `chem_form`          | string         | optional    | chemical formula, Ex. benzene: "C6H6"
 `id_`                | objectId()     | optional    | id number from CRIPT internal database
 
 ### Properties
 
 Properties consist of the following structure:
-“key”: {“method”: string, “value”: double, “unit”: string, “uncertainty”: double, “attr”: {}}
+“key”: {“method”: string, “value”: double, “uncertainty”: double, “attr”: {}}
 
 The range bound is limited to the largest number that can be stored in 64 bits (1.79e+308).
 
@@ -129,8 +157,8 @@ Key              | Method                |Range                |Units      |Desc
 `vis`            | ['viscometer']        | [0, 1.79e+308]      | dl/g      | viscosity
 
 
-Key              |Description
-----------       |----
+Key              | Description
+----------       | ----
 `nmr`            | Nuclear Magnetic Resonance
 `sec`            | Size Exclusion Chromatography
 `maldi`          | Matrix Assisted Laser Desorption Ionization
@@ -155,6 +183,8 @@ Key              | Data Type     |Description
 `data\id_`       | objectId()    | id for data node
 `data\key`       | string        | key for data
 `names`          | list[string]  | additional names for property
+`unit`           | string        | unit are only applicable to user defined values
+
 
 ---
 
@@ -189,13 +219,13 @@ Key              | Data Type     |Description
   },
   "prop": [
     {
-      "key": "mw", "value": 104.15, "unit": "g/mol","attr": {"ref": {"notes": "sigma aldrich website"}}
+      "key": "mw", "value": 104.15, "attr": {"ref": {"notes": "sigma aldrich website"}}
     },
     {
-      "key": "density", "value": 0.906, "unit": "g/ml"
+      "key": "density", "value": 0.906
     },
     {
-      "key": "bp", "value": 145, "unit": "degC", "attr": {"+vac": "1", "+vac_unit": "atm"}
+      "key": "bp", "value": 145, "attr": {"+vac": "1", "+vac_unit": "atm"}
     }
   ],
   "proc": [
@@ -209,4 +239,7 @@ Key              | Data Type     |Description
 }
 ```
 
+### Visualization
+
+![Experiment_network](../img/network_material_o.svg)
 
