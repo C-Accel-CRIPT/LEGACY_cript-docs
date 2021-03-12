@@ -19,8 +19,11 @@ repo_url:
 nav:
     - Home:
           README.md
-    - Data Models:
+    - Data Schema:
         - data-models/README.md
+        - Challanges of Polymers: data-models/Polymers.md
+        - Data Model: data-models/Data_Model.md
+        - How does it work: data-models/Data_Entry.md
         - Groups: data-models/Groups.md
         - Users: data-models/Users.md
         - Publications: data-models/Publications.md
@@ -29,6 +32,7 @@ nav:
         - Materials - polymers: data-models/Materials_P.md
         - Materials - other: data-models/Materials_O.md
         - Process: data-models/Process.md
+        - Sample: data-models/Sample.md
         - Data: data-models/Data.md
         - Modules: data-models/Modules.md
         - Version Control: data-models/Version_Control.md

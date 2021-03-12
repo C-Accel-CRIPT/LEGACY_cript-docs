@@ -24,7 +24,7 @@ molecular weight distribution, or stress-strain curve.
     * row headers
     * data
 * auto generate/update:
-    * id_
+    * _id
     * type
     * ver_sch
     * ver_con (& all child) <-- update with version control node
@@ -46,11 +46,11 @@ molecular weight distribution, or stress-strain curve.
 
 ```json
 {
-  "id_": objectId(),
+  "_id": objectId(),
   "type": "data",
   "ver_sch": string,
   "ver_con": {
-    "id_": objectId(),
+    "_id": objectId(),
     "num": string
   },
   "date": [
@@ -58,16 +58,13 @@ molecular weight distribution, or stress-strain curve.
     {"last_mod": datetime}
   ],
   "notes": string,
-  "users": [
-    {"id_": objectId(), "name": string, "perm": string}
-  ],
   "name": string,
   "source": string,
   "expt": [
-    {"id_": objectId(), "name": string, "date":  datetime}
+    {"_id": objectId(), "name": string, "date":  datetime}
   ],
   "mat": [
-    {"id_": objectId(), "name": string, "prop": string, "value": double}
+    {"_id": objectId(), "name": string, "prop": string, "value": double}
   ],
   "attr": {
     "see attributes": "for details"
@@ -81,28 +78,28 @@ molecular weight distribution, or stress-strain curve.
 
 Key             |Data Type     |Required  |Description
 -------------   |---------     |------    |----
-`id_`          |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
+`_id`          |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
 `type`          |<span style="color:rgb(0, 72, 189)">  string  </span> |<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
 `ver_sch`       |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
 `ver_con`       |              |          |<span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/id_`   |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`ver_con/_id`   |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
 `ver_con/num`   |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
 `date`          |              |          |<span style="color:rgb(0, 72, 189)">  datetime object  </span>
 `date/created`  |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  datetime created  </span>
 `type/last_mod` |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `notes`         |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span> |<span style="color:rgb(0, 72, 189)">  free-form space to store any text  </span>
 `users`               |     |      |<span style="color:rgb(12, 145, 3)">  user permissions </span>
-`users/id_`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
+`users/_id`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
 `users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
 `users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append]  </span>
 `name`                | string         | required  | user name for data
 `source`              | string         | required  | source of data [expt, proc, comp] experiment, processed data, computed data
 `expt`                |                |           | [experiment nodes](../data-models/Experiments.md)
-`expt\id_`            | objectId()     | auto      | id of experiments
+`expt\_id`            | objectId()     | auto      | id of experiments
 `expt\name`           | string         | auto      | name of experiments
 `expt\date`           | datetime       | auto      | date of experiments
 `mat`                 |                |           | [material nodes](../Materials_P/#properties)
-`mat\id_`             | objectId()     | auto      | id of material
+`mat\_id`             | objectId()     | auto      | id of material
 `mat\name`            | string         | auto      | name of material
 `mat\prop`            | string         | auto      | material property
 `mat\value`           | double         | auto      | value of material property
@@ -177,11 +174,11 @@ saxs_i         | distance          | nm**-1        | distance         | nm**-1  
 
 ```json
 {
-  "id_": "507f191e810c19729de860ec",
+  "_id": "507f191e810c19729de860ec",
   "type": "data",
   "ver_sch": "v0.1",
   "ver_con": {
-    "id_": "507f191e810c19729de860cb",
+    "_id": "507f191e810c19729de860cb",
     "num": "v0.1"
   },
   "date": [
@@ -190,16 +187,16 @@ saxs_i         | distance          | nm**-1        | distance         | nm**-1  
   ],
   "notes": "",
   "users": [
-    {"id_": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
+    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
   ],
   "name": "sec",
   "source": "expt",
   "expt": [
-    {"id_": "507f191e810c19729de860em", "name": "Anionic polymerization", "date": 1612886423}
+    {"_id": "507f191e810c19729de860em", "name": "Anionic polymerization", "date": 1612886423}
   ],
   "mat": [
-    {"id_": "507f191e810c19729de860ed", "name": "poly(styrene)", "prop": "m_n", "value": 5300},
-    {"id_": "507f191e810c19729de860ed", "name": "poly(styrene)", "prop": "d", "value": 1.03}
+    {"_id": "507f191e810c19729de860ed", "name": "poly(styrene)", "prop": "m_n", "value": 5300},
+    {"_id": "507f191e810c19729de860ed", "name": "poly(styrene)", "prop": "d", "value": 1.03}
   ],
   "attr": {
     "file": "507f191e810c19729de860ed",

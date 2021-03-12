@@ -1,13 +1,20 @@
 
 # Overview
-
-As part of CRIPTS mission to develop an ecosystem for polymers, there was a need to generate a standard data schema 
-to share polymer data. The following documentation details with the way in which polymer data is represented and 
+As part of CRIPTS mission to develop an ecosystem for polymers, there was a need to generate a standard data model and 
+schema to share polymer data. The following documentation details with the way in which polymer data is represented and 
 stored and within the CRIPT ecosystem.
+
+## Importance
+Having accessible well-structured data is the foundation of cheminformatics. The complexity of polymer 
+structures with the wide range of characterization techniques and properties poses significant challenges in the 
+formation of databases. This has led to several small, disparate data sets. The data structure presented here provides a
+universal system to capture all relevant polymer data in a manner optimized for large databases. It is designed to allow 
+anyone to contribute for the benefit of the polymer community; with to goal to ultimately speed the pace of material innovation.
 
 ---
 
-# Philosophy
+## Philosophy
+
 ### Reporting Guidelines
 Reporting guidelines refers to what information is need to be captured about an experiment.
 
@@ -23,22 +30,39 @@ CRIPT provide an expert curated vocabulary for polymer data. Contributors are hi
 vocabulary when possible, as it ensures data uniformity. Data uniformity is necessary for successful exchange information,
 search, and data retrieval.
 
-CRIPT recognizes that vocabulary may not cover all polymer data that contributors desire to add to the database, thus
-CRIPT accepts any user-defined vocabulary such that it begins with a `+`. Contributors can petition for the addition of
-new official vocabulary by emailing `cript@mit.edu` with the term, brief description, preferred units, and explanation
-of why it should be added to the official vocabulary.
+CRIPT recognizes that the current vocabulary may not cover all polymer data that contributors desire to add to the 
+database, thus CRIPT accepts any user-defined vocabulary such that it begins with a `+`. Contributors can petition for 
+the addition of new official vocabulary by emailing `cript@mit.edu` with the term, brief description, preferred units,
+and explanation of why it should be added to the official vocabulary.
+
+![Word_Cloud](../img/word_cloud_crop.png)
 
 ### Data exchange format
 Data exchange format is the specification of how data is encoded to be a computer-readable and -processable format.
 
-CRIPT structures data into to JSON files.
+CRIPT structures data is formatted as a JSON files which are stored in MongoDB as BSON (a byte version of JSON). Thus,
+[BSON data types](https://docs.mongodb.com/manual/reference/bson-types/#timestamps) are used.
 
-### Data structure
-Data structure refers to the organization of data, and relationships into a schema.
+### Data Schema
+Data Schema refers to the organization of key objects and entities, and their relationships. Data schemas are 
+independent of the database implementation. 
 
-CRIPT stores data into nodes. 
+CRIPT's data schema was designed to link together polymer materials, the processes that produced them, and the 
+associated data that characterize them in a graph. This enables the comprehensive store of all aspects of polymer
+data.
 
-![Data_Schema](../img/network_overview.svg)
+consists of four key objects: Material, Process, Sample, Data.
+More details regarding the data model can be found [here](../data-models/Data_Model.md).
+![Data_Model](../img/data_model.svg)
+
+### Data Model
+Data Model refers to a specific implementation of a data schema into a database. A data model includes additional 
+consideration with regard to app design, hardware use, and additional features. 
+
+CRIPT's data model is an explict embodymeny of the data schema for a document based database, 
+specifically [Mongodb](https://www.mongodb.com/).
+
+![Data_Schema](../img/Overview_Schema.svg)
 
 
 ##### Version Control
@@ -47,22 +71,12 @@ specific versions later.
 
 The CRIPT database implements data version control as it provides a complete long-term change history of every file.
 This benefits science by increasing data transparency and minimizes the re-analysis or processing of data.
-Additionally, this allows for the locking of data in when submitting or publishing papers as the version of the data can be provided.
+Additionally, this allows for the locking of data when submitting for publishing.
 
 Another beneficial aspect of version control is the ability to branch and merge files. This enables multiple team 
 members to work concurrently on the same experiment. Branching also facilitates multiple independent analysis on a data set
 with different models and makes it easy to switch between them.
 
-
-
-
-## Other file structure
-* Overview
-* JSON Schema
-    * [BSON data types](https://docs.mongodb.com/manual/reference/bson-types/#timestamps)
-* Description
-* Example
-    * Visualization of example
 
 
 

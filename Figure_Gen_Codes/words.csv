@@ -1,0 +1,100 @@
+﻿Polymer,0.984052996
+Polymerization,0.899726879
+Plastic,0.711306178
+Concentration,0.117640454
+Density,0.756705152
+Mn,0.176143956
+Mw,0.410041804
+Mw/Mn,0.961815346
+Mz,0.210225109
+Tm,0.760276795
+Tg,0.941889453
+Tc,0.210572559
+Crystal,0.429430691
+Cp,0.496621731
+Mark Houwink Parameter,0.192791982
+viscosity,0.259670144
+Yield Stress,0.22004035
+Yield Strain,0.718497912
+Tensile Strength,0.81695834
+Segment Relaxation Time,0.349049264
+Rg,0.837726589
+Rh,0.111835196
+Kuhn Length,0.824245285
+Isothermal Compressibility ,0.208248666
+Virial Coeffencent,0.102512539
+Persistence Length,0.408681514
+Characteristic Length,0.850216711
+NMR,0.384124298
+SEC,0.594695679
+MALDI,0.498068087
+LS,0.525132365
+DLS,0.328937654
+Viscometer,0.250312522
+Calorimety,0.986771654
+IR,0.2203625
+UV-Vis,0.068928905
+UTM,0.917474627
+Computation,0.872253606
+Simulation,0.877398626
+Molecular Wieght,0.174799518
+Conversion,0.990872414
+Kinetics,0.847828541
+Rate Constants,0.479492478
+Precipitation,0.114689363
+Reaction,0.656365694
+Distilation,0.874493735
+Heating,0.032909033
+Cooling,0.330254118
+Micelle,0.064302154
+Monomer,0.963056681
+Intiator,0.857007763
+Catalyst,0.11964457
+Solvent,0.582734476
+Network,0.038869855
+Thermoset,0.824456095
+Elastomer,0.725338771
+Rubber,0.339418257
+Extrusion,0.701942786
+Film,0.209249031
+Spin Coating,0.592900032
+Graft,0.892641752
+Star,0.780238593
+Ring,0.252376569
+Bottlebrush,0.401996409
+Branch,0.180069057
+Tacticity,0.94029935
+SMILES,0.759274167
+bigSMILES,0.558560852
+Repeat Unit,0.585161398
+CAS #,0.243175232
+Refractive Index,0.343351979
+Melting Point,0.80628809
+Spectra,0.622901404
+Chromatogram,0.465341933
+ATRP,0.23
+RAFT,0.45
+NMP,0.29
+ROP,0.12
+ROMP,0.73
+Olefin,0.76
+Anionic,0.45
+Cationic,0.34
+Chain Transfer,0.12
+TGA,0.54
+ADMET,0.12
+Chain Growth,0.56
+Step Growth,0.65
+Vulcanization,0.45
+Radical,0.78
+Flory-Schulz Distribution,0.02
+Gel Point,0.453
+Emulsion,0.43
+Macromonomers,0.78
+Telechelics,0.67
+Mayo-Lewis Equation,0.23
+Propagation,0.89
+Ring Strain,0.65
+Random Copolymer, 0.23
+Block Copolymer, 0.45
+Stereospecific,0.21

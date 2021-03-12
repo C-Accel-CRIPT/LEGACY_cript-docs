@@ -1,27 +1,27 @@
 # Experiment
 
-The 'experiment' node contains complete set of references nodes for an experiment. This can range from a synthesis, to scattering experiment, or
-a simulation.
+The 'experiment' node contains complete set of references nodes for an experiment. An experiment can range from a synthesis, to scattering experiment, or
+a simulation. A single experiment has can only have one process node.
 
 **Features:**
 
-* experiment parents references are publications
-* experiment child references are materials, process, data
+* experiment parents references are collections
+* experiment child references are materials, process, sample, data
 * required information  
     * name
-    * nodes (select)
+    * materials, process, sample, data nodes 
 * optional information
     * notes
     * keywords
     * publications (CRIPT node)
     * references (publication CRIPT node)
 * auto generate/update:
-    * id_
+    * _id
     * type
     * ver_sch
     * ver_con (& all child) <-- update with version control node
     * date (& all child)
-    * users (& all child) <-- update with user node
+    * creater (& all child) <-- update with user node
     * nodes (materials, process, data) <-- update with node
     * pub (& all child) <-- update with publication node
     * ref (& all child) <-- update with publication node
@@ -29,7 +29,7 @@ a simulation.
 **App features to support this node:**
 
 * a page to fill out: experiment(materials, process, data) data
-* a tool to look up publications, or enter id_
+* a tool to look up publications, or enter _id
 * allow additional optional information in attribute section given that it begins with +
 
 
@@ -38,11 +38,11 @@ a simulation.
 
 ```json
 {
-  "id_": objectId(),
+  "_id": objectId(),
   "type": "expt",
   "ver_sch": string,
   "ver_con": {
-    "id_": objectId(),
+    "_id": objectId(),
     "num": string
   },
   "date": [
@@ -50,19 +50,18 @@ a simulation.
     {"last_mod": datetime}
   ],
   "notes": string,
-  "users": [
-    {"id_": objectId(), "name": string, "perm": string}
-  ],
+  "creator": {"_id": objectId(), "name": string, "perm": string},
   "name": string,
   "nodes": {
     "materials": [
-      {"id_": objectid(), "name": string, "id_proc": objectid(), "role": string}
+      {"_id": objectid(), "name": string, "role": string}
     ],
-    "process": [
-      {"id_": objectid(), "name": string, "id_out": objectid()}
+    "process": {"_id": objectid(), "name": string},
+    "sample": [
+      {"_id": objectid(), "name": string, "id_link": objectid()}
     ],
     "data": [
-      {"id_": objectid(), "name": string, "id_prod": objectid()}
+      {"_id": objectid(), "name": string, "id_link": objectid()}
     ]
   },
   "attr": {
@@ -77,35 +76,35 @@ a simulation.
 
 Key             |Data Type     |Required  |Description
 -------------   |---------     |------    |----
-`id_`           |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
+`_id`           |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
 `type`          |<span style="color:rgb(0, 72, 189)">  string  </span> |<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
 `ver_sch`       |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
 `ver_con`       |              |          |<span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/id_`   |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`ver_con/_id`   |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
 `ver_con/num`   |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
 `date`          |              |          |<span style="color:rgb(0, 72, 189)">  datetime object  </span>
 `date/created`  |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  datetime created  </span>
 `type/last_mod` |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `notes`         |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span> |<span style="color:rgb(0, 72, 189)">  free-form space to store any text  </span>
-`users`         |     |      |<span style="color:rgb(12, 145, 3)">  user permissions   </span>
-`users/id_`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
-`users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
-`users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append] </span>
+`creator`         |     |      |<span style="color:rgb(12, 145, 3)">  user permissions   </span>
+`creator/_id`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  creator user id  </span>
+`creator/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
+`creator/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append] </span>
 `name`                    | string        | required  | name of experiment
 `nodes`                   |               |           | list of nodes that constitute an experiment
 `nodes/materials`         |               |           | [material nodes](../data-models/Materials_P.md)
-`nodes/materials/id_`     | objectId()    | auto      | id of material
+`nodes/materials/_id`     | objectId()    | auto      | id of material
 `nodes/materials/name`    | string        | auto      | name of material
-`nodes/materials/id_proc` | objectId()    | auto      | id of process material used in
+`nodes/materials/_idproc` | objectId()    | auto      | id of process material used in
 `nodes/materials/role`    | string        | auto      | material role [ingr, prod]
 `nodes/process`           |               |           | [process nodes](../data-models/Process.md)
-`nodes/process/id_`       | objectId()    | auto      | id of process
+`nodes/process/_id`       | objectId()    | auto      | id of process
 `nodes/process/name`      | string        | auto      | name of process
-`nodes/data/id_out`       | objectId()    | auto      | id of the node the process points to [material, data]
+`nodes/data/_idout`       | objectId()    | auto      | id of the node the process points to [material, data]
 `nodes/data`              |               |           | [data nodes](../data-models/Data.md)
-`nodes/data/id_`          | objectId()    | auto      | id of data
+`nodes/data/_id`          | objectId()    | auto      | id of data
 `nodes/data/name`         | string        | auto      | name of data
-`nodes/data/id_prod`       | objectId()    | auto     | id of material the data is associated with data
+`nodes/data/_idprod`       | objectId()    | auto     | id of material the data is associated with data
 `attr`                    | list          | auto      | see attributes section
 
 ### Attributes
@@ -117,10 +116,10 @@ Key                | Data Type     | Description
 -------------      |---------      |----
 `keywords`         | list[string]  | see keywords section below
 `pub`              |               | [publication node](../data-models/Publications.md) that this experiment was a part of
-`pub\id_`          | objectId()    | id for publication
+`pub\_id`          | objectId()    | id for publication
 `pub\title`        | string        | publication title
 `ref`              |               | [publication node](../data-models/Publications.md) that was a reference for this experiment
-`ref\id_`          | objectId()    | id for reference
+`ref\_id`          | objectId()    | id for reference
 `ref\title`        | string        | reference title
 
 #### Keywords (still under development)
@@ -152,11 +151,11 @@ Keywords are an optional field that allow users to classify the experiment. Sele
 
 ```json
 {
-  "id_": "607f191e810c19729de860ea",
+  "_id": "607f191e810c19729de860ea",
   "type": "expt",
   "ver_sch": "v0.1",
   "ver_con": {
-    "id_": "607f191e810c19729de860eb",
+    "_id": "607f191e810c19729de860eb",
     "num": "v0.1"
   },
   "date": [
@@ -165,32 +164,32 @@ Keywords are an optional field that allow users to classify the experiment. Sele
   ],
   "notes": "CRIPT development team is funded by NSF Convergence Accelerator.",
   "users": [
-    {"id_": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
+    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
   ],
   "name": "ROMP kinetic study",
   "nodes": {
     "materials": [
-      {"id_": "507f191e810c19729de860ec", "name": "G3 Catalyst", "id_proc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"id_": "507f191e810c19729de860ed", "name": "dichloromethane", "id_proc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"id_": "507f191e810c19729de860ee", "name": "norbornene-imide", "id_proc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"id_": "507f191e810c19729de860ef", "name": "ethyl vinyl ether", "id_proc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"id_": "507f191e810c19729de860ds", "name": "poly(norborene-imide)", "id_proc": "507f191e810c19729de860pe", "role": "prod"}
+      {"_id": "507f191e810c19729de860ec", "name": "G3 Catalyst", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
+      {"_id": "507f191e810c19729de860ed", "name": "dichloromethane", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
+      {"_id": "507f191e810c19729de860ee", "name": "norbornene-imide", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
+      {"_id": "507f191e810c19729de860ef", "name": "ethyl vinyl ether", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
+      {"_id": "507f191e810c19729de860ds", "name": "poly(norborene-imide)", "_idproc": "507f191e810c19729de860pe", "role": "prod"}
     ],
     "process": [
-      {"id_": "507f191e810c19729de860pe", "name": "ROMP polymerization", "id_out": "507f191e810c19729de860ds"}
+      {"_id": "507f191e810c19729de860pe", "name": "ROMP polymerization", "_idout": "507f191e810c19729de860ds"}
     ],
     "data": [
-      {"id_": "507f191e810c19729de860md", "name": "1H NMR", "id_prod": "507f191e810c19729de860ds", "id_prod": "507f191e810c19729de860ds"},
-      {"id_": "507f191e810c19729de860me", "name": "SEC", "id_prod": "507f191e810c19729de860ds", "id_prod": "507f191e810c19729de860ds"}
+      {"_id": "507f191e810c19729de860md", "name": "1H NMR", "_idprod": "507f191e810c19729de860ds", "_idprod": "507f191e810c19729de860ds"},
+      {"_id": "507f191e810c19729de860me", "name": "SEC", "_idprod": "507f191e810c19729de860ds", "_idprod": "507f191e810c19729de860ds"}
     ]
   },
   "attr": {
     "keywords": ["synthesis", "living_poly", "romp", "kinetics"],
     "pub": [
-      {"id_": "507f191e810c19729de860em", "title": "Kinetic Study of Living Ring-Opening Metathesis Polymerization"}
+      {"_id": "507f191e810c19729de860em", "title": "Kinetic Study of Living Ring-Opening Metathesis Polymerization"}
     ],
     "ref": [
-      {"id_": "507f191e810c19729de860en", "title": "Kinetic Study of Anionic Living Polymerization"}
+      {"_id": "507f191e810c19729de860en", "title": "Kinetic Study of Anionic Living Polymerization"}
     ]
   }
 }

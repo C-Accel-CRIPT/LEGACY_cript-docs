@@ -28,8 +28,8 @@ elements = [
             'label': 'Users'
         },
         'position': {
-            'x': 2*dim_x/6,
-            'y': 2*dim_y/5
+            'x': dim_x/6,
+            'y': 3*dim_y/5
         }
     },
     {
@@ -59,7 +59,7 @@ elements = [
         },
         'position': {
             'x': 2*dim_x/6,
-            'y': dim_y/5
+            'y': 2*dim_y/5
         }
     },
     {
@@ -68,9 +68,10 @@ elements = [
             'label': 'Materials\n(polymers)',
         },
         'position': {
-            'x': 4*dim_x/6,
-            'y': 1*dim_y/5
-        }
+            'x': 4.2*dim_x/6,
+            'y': 2*dim_y/6
+        },
+        'style': {'background-color': [10, 36, 204], 'color': [255, 255, 255]}
     },
     {
         'data': {
@@ -78,9 +79,10 @@ elements = [
             'label': 'Materials\n(other)',
         },
         'position': {
-            'x': 4.7*dim_x/6,
-            'y': 1*dim_y/5
-        }
+            'x': 4.9*dim_x/6,
+            'y': 2*dim_y/6
+        },
+        'style': {'background-color': [10, 36, 204], 'color': [255, 255, 255]}
     },
     {
         'data': {
@@ -88,9 +90,21 @@ elements = [
             'label': 'Process'
         },
         'position': {
-            'x': 4*dim_x/6,
-            'y': 2*dim_y/5
-        }
+            'x': 3.7*dim_x/6,
+            'y': dim_y/6
+        },
+        'style': {'background-color': [255, 192, 0], 'color': [255, 255, 255]}
+    },
+    {
+        'data': {
+            'id': 'Sam',
+            'label': 'Sample'
+        },
+        'position': {
+            'x': 4.5*dim_x/6,
+            'y': 3*dim_y/6
+        },
+        'style': {'background-color': [163, 31, 52], 'color': [255, 255, 255]}
     },
     {
         'data': {
@@ -98,28 +112,30 @@ elements = [
             'label': 'Data'
         },
         'position': {
-            'x': 4*dim_x/6,
-            'y': 3*dim_y/5
-        }
+            'x': 3.7*dim_x/6,
+            'y': 4*dim_y/6
+        },
+        'style': {'background-color': [6, 127, 16], 'color': [255, 255, 255]}
     },
     {
         'data': {
             'id': 'Mod',
-            'label': 'Modules'
+            'label': 'Model Lake'
         },
         'position': {
-            'x': 4*dim_x/6,
-            'y': 4*dim_y/5
-        }
+            'x': 3.7*dim_x/6,
+            'y': 5*dim_y/6
+        },
+        'style': {'background-color': [0, 0, 0], 'color': [255, 255, 255], 'border-color': [100, 100, 100]}
     },
     {
         'data': {
             'id': 'Lake',
-            'label': 'Date Lake'
+            'label': 'Data Lake'
         },
         'position': {
-            'x': 5*dim_x/6,
-            'y': 3*dim_y/5
+            'x': 4.7*dim_x/6,
+            'y': 4*dim_y/6
         }
     },
     {
@@ -153,6 +169,24 @@ elements = [
     },
     {
         'data': {
+            'source': 'Mat_p',
+            'target': 'Data'
+        }
+    },
+    {
+        'data': {
+            'source': 'Mat_p',
+            'target': 'Sam'
+        }
+    },
+    {
+        'data': {
+            'source': 'Data',
+            'target': 'Sam'
+        }
+    },
+    {
+        'data': {
             'source': 'Gr',
             'target': 'User'
         }
@@ -165,13 +199,19 @@ elements = [
     },
     {
         'data': {
-            'source': 'Pub',
-            'target': 'User'
+            'source': 'Gr',
+            'target': 'Gr'
+        },
+        'style': {
+            'loop-direction': 0,
+            'loop-sweep': '-40deg',
+            'source-arrow-shape': 'triangle',
+            'source-arrow-color': 'black'
         }
     },
     {
         'data': {
-            'source': 'Ex',
+            'source': 'Pub',
             'target': 'User'
         }
     },
@@ -185,6 +225,30 @@ elements = [
         'data': {
             'source': 'Ex',
             'target': 'Col'
+        }
+    },
+    {
+        'data': {
+            'source': 'Pub',
+            'target': 'Col'
+        }
+    },
+    {
+        'data': {
+            'source': 'Ex',
+            'target': 'Sam'
+        }
+    },
+    {
+        'data': {
+            'source': 'Col',
+            'target': 'Col'
+        },
+        'style': {
+            'loop-direction': 0,
+            'loop-sweep': '-40deg',
+            'source-arrow-shape': 'triangle',
+            'source-arrow-color': 'black'
         }
     },
     {

@@ -1,4 +1,4 @@
-# Process
+# Sample
 
 The 'process' node contains ingredient and procedure information. A process can be anything from a reaction,
 reation+seperation, extrusion, or sample preparation step. Typically, a process results in a change in the "identity"
@@ -143,18 +143,6 @@ Key                   | Data Type   | Description
 -------------         | ---------   | ---- 
 `history`             | dict        | processing history (feature under construction)
 
-### Properties
-
-Properties consist of the following structure:
-```json
-{"key":{"id": double, "value": double, "uncer": double, "unit": string, "method": string, "data":{"_id": ObjectID, "name": string}}}
-```
-
-`conv_mon`       | ['nmr', 'sec']      | [0, 1.2]      | None      | how much monomer that has reacted.
-`conv_init`      | ['nmr', 'sec']      | [0, 1.2]      | None      | how much monomer that has reacted.
-`init_eff`       | ['nmr', 'sec']      | [0, 1.2]      | None      | The proportion of initiators that result in an active propagating species.
-
-
 ### Process history
 
 **Under construction**
@@ -241,5 +229,3 @@ development.
 ```
 
 ### Visualization
-
-![Experiment_network](../img/network_process.svg)

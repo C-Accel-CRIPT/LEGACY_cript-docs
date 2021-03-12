@@ -20,7 +20,7 @@ The 'user' node contains data related to the user. Anyone who interacts with the
     * experiments (CRIPT node)
     * collections (CRIPT node)
 * auto generate/update:
-    * id_
+    * _id
     * type
     * ver_sch
     * ver_con (& all child) <-- update with version control node
@@ -35,7 +35,7 @@ The 'user' node contains data related to the user. Anyone who interacts with the
 **App features to support this node:**
 
 * a page to fill out: name, email, etc
-* a tool to look up group, or enter id_
+* a tool to look up group, or enter _id
 * a similar look up tool for experiments, collections, and publications
 * allow additional optional information in attribute section given that it begins with +
 
@@ -43,11 +43,11 @@ The 'user' node contains data related to the user. Anyone who interacts with the
 
 ```json
 {
-  "id_": objectId(),
+  "_id": objectId(),
   "type": "user",
   "ver_sch": string,
   "ver_con": {
-    "id_": objectId(),
+    "_id": objectId(),
     "num": string
   },
   "date": [
@@ -56,7 +56,7 @@ The 'user' node contains data related to the user. Anyone who interacts with the
   ],
   "notes": string,
   "users": [
-    {"id_": objectId(), "name": string, "perm": string}
+    {"_id": objectId(), "name": string, "perm": string}
   ],
   "name": string,
   "email": string,
@@ -72,18 +72,18 @@ The 'user' node contains data related to the user. Anyone who interacts with the
 
 Key             |Data Type     |Required  |Description
 -------------   |---------     |------    |----
-`id_`          |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
+`_id`          |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
 `type`          |<span style="color:rgb(0, 72, 189)">  string  </span> |<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
 `ver_sch`       |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
 `ver_con`       |              |          |<span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/id_`   |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`ver_con/_id`   |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
 `ver_con/num`   |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
 `date`          |              |          |<span style="color:rgb(0, 72, 189)">  datetime object  </span>
 `date/created`  |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  datetime created  </span>
 `type/last_mod` |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `notes`         |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span> |<span style="color:rgb(0, 72, 189)">  free-form space to store any text  </span>
 `users`               |     |      |<span style="color:rgb(12, 145, 3)">  user permissions </span>
-`users/id_`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
+`users/_id`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
 `users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
 `users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append]  </span>
 `name`                | string        | required      | name of user
@@ -106,17 +106,17 @@ Key                   | Data Type      | Description
 `organization`        | string         | author's organization
 `position`            | string         | author's position in organization
 `group`               |                | [groups that the user belongs to](../data-models/Groups.md)
-`group\id_`           | objectId()     | id of group
+`group\_id`           | objectId()     | id of group
 `group\name`          | string         | name of group
 `pub`                 |                | [publications the user authored](../data-models/Publications.md)
-`pub\id_`             | objectId()     | id of publication
+`pub\_id`             | objectId()     | id of publication
 `pub\title`           | string         | title of publication
 `expt`                |                | [experiment nodes](../data-models/Experiments.md)
-`expt\id_`            | objectId()     | id of experiment
+`expt\_id`            | objectId()     | id of experiment
 `expt\name`           | string         | name of experiment
 `expt\date`           | datetime       | date of experiment
 `coll`                |                | [collection nodes](../data-models/Collections.md)
-`coll\id_`            | objectId()     | id of collection
+`coll\_id`            | objectId()     | id of collection
 `coll\name`           | string         | name of collection
 `coll\date`           | datetime       | date of collection
 `coll\date\num_expt`  | double         | number of experiments in collection
@@ -127,11 +127,11 @@ Key                   | Data Type      | Description
 
 ```json
 {
-  "id_": "507f191e810c19729de860ec",
+  "_id": "507f191e810c19729de860ec",
   "type": "user",
   "ver_sch": "v0.1",
   "ver_con": {
-    "id_": "507f191e810c19729de860cb",
+    "_id": "507f191e810c19729de860cb",
     "num": "v0.1"
   },
   "date": [
@@ -140,7 +140,7 @@ Key                   | Data Type      | Description
   ],
   "notes": "",
   "users": [
-    {"id_": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
+    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
   ],
   "name": "Dylan W",
   "email": "dylan@cript.edu",
@@ -150,26 +150,26 @@ Key                   | Data Type      | Description
     "organization": "MIT",
     "position": "Research Assistant",
     "group": [
-      {"id_": "507f191e810c19729de860em", "name": "MIT"},
-      {"id_": "507f191e810c19729de860en", "name": "CRIPT"}
+      {"_id": "507f191e810c19729de860em", "name": "MIT"},
+      {"_id": "507f191e810c19729de860en", "name": "CRIPT"}
     ],
     "pub": [
-      {"id_": "507f191e810c19729de860eq", "name": "Recent trends in catalytic polymerizations"},
+      {"_id": "507f191e810c19729de860eq", "name": "Recent trends in catalytic polymerizations"},
       {
-        "id_": "507f191e810c19729de860er",
+        "_id": "507f191e810c19729de860er",
         "name": "Kinetic study of living ring-opening metathesis polymerization with third-generation Grubbs catalysts"
       }
     ],
     "expt": [
-      {"id_": "507f191e810c19729de860em", "name": "Anionic polymerization", "date": 1612886423},
-      {"id_": "507f191e810c19729de860en", "name": "ATRP of styrene with CuCl", "date": 1612886423},
-      {"id_": "507f191e810c19729de860ej", "name": "ROMP catalyst kinetics low conc", "date": 1612886423},
-      {"id_": "507f191e810c19729de860er", "name": "ROMP catalyst kinetics high conc", "date": 1612886426},
-      {"id_": "507f191e810c19729de860er", "name": "ROMP monomer kinetics", "date": 1612886426}
+      {"_id": "507f191e810c19729de860em", "name": "Anionic polymerization", "date": 1612886423},
+      {"_id": "507f191e810c19729de860en", "name": "ATRP of styrene with CuCl", "date": 1612886423},
+      {"_id": "507f191e810c19729de860ej", "name": "ROMP catalyst kinetics low conc", "date": 1612886423},
+      {"_id": "507f191e810c19729de860er", "name": "ROMP catalyst kinetics high conc", "date": 1612886426},
+      {"_id": "507f191e810c19729de860er", "name": "ROMP monomer kinetics", "date": 1612886426}
     ]
   },
   "coll": [
-    {"id_": "507f191e810c19729de860em", "name": "ROMP kinetic study", "date": 1612886423, "num_expt": 3}
+    {"_id": "507f191e810c19729de860em", "name": "ROMP kinetic study", "date": 1612886423, "num_expt": 3}
   ]
 }
 ```
