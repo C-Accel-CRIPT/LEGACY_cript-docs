@@ -1,8 +1,8 @@
-# Modules
+# Models
 
 **under construction**
 
-Modules are computation nodes. They input a data node, preform a mathematical operation and result in either 
+Modules are computation nodes. They input a data node, preform a mathematical operation, and result in either 
 another 'processed' data node or a material property.
 
 

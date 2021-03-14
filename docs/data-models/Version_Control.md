@@ -5,22 +5,18 @@ changes to a JSON document. Using a patch approach avoids saving the whole docum
 The file can only be created and appended to; no deletions allowed.
 
 
-
-** how do we do branching and merging?**
-
 ## JSON Schema
 
 ```json
 {
   "_id": objectId(),
-  "type": "vs_###",
+  "class": "vs_###",
   "ver_sch": string,
   "date": [
     {"created": datetime},
     {"last_mod": datetime}
   ],
-  "notes": string,
-  "_idchild": objectId(),
+  "id_child": objectId(),
   "patches": [
     {
       "_id": objectId()",
@@ -48,8 +44,7 @@ Key                   |Data Type     |Required  |Description
 `date`                |              |          |<span style="color:rgb(0, 72, 189)">  datetime object  </span>
 `date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  datetime created  </span>
 `type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
-`notes`               |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span> |<span style="color:rgb(0, 72, 189)">  free-form space to store any text  </span>
-`_idchild`            | objectId()      | auto      | id of node that the file is storing patches for
+`id_child`            | objectId()      | auto      | id of node that the file is storing patches for
 `patches`             |                 |           | document history
 `patches/_id`         | string          | auto      | id of user who made change
 `patches/name`        | string          | auto      | name of user who made change
@@ -65,14 +60,13 @@ Key                   |Data Type     |Required  |Description
 ```json
 {
   "_id": "507f191e810c19729de861ec",
-  "type": "vs_mat",
+  "class": "vs_mat",
   "ver_sch": "v0.1",
   "date": [
     {"created": 1612881183},
     {"last_mod": 1612881123}
   ],
-  "notes": "",
-  "_idchild": "507f191e810c19729de861ec",
+  "id_child": "507f191e810c19729de861ec",
   "patches": [
     {
       "_id": "507f191e810c19729de860ec",

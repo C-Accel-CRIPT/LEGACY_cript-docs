@@ -24,10 +24,38 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\docs\data-models\Data.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="|" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\docs\data-models\Data_Entry.md">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\docs\data-models\Experiments.md">
           <value>
             <Attribute>
               <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\docs\data-models\Groups.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\docs\data-models\Materials_O.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="|" />
             </Attribute>
           </value>
         </entry>
@@ -53,6 +81,13 @@
           </value>
         </entry>
         <entry key="\docs\data-models\README.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\docs\data-models\Sample.md">
           <value>
             <Attribute>
               <option name="separator" value="," />

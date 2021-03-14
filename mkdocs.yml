@@ -22,7 +22,6 @@ nav:
     - Data Schema:
         - data-models/README.md
         - Challanges of Polymers: data-models/Polymers.md
-        - Data Model: data-models/Data_Model.md
         - How does it work: data-models/Data_Entry.md
         - Groups: data-models/Groups.md
         - Users: data-models/Users.md
@@ -34,13 +33,14 @@ nav:
         - Process: data-models/Process.md
         - Sample: data-models/Sample.md
         - Data: data-models/Data.md
-        - Modules: data-models/Modules.md
+        - Models: data-models/Modules.md
         - Version Control: data-models/Version_Control.md
-        - Issues: data-models/Issues.md
     - Software Tools:
         - software-tools/README.md
     - Web Application:
         - web-application/README.md
+    - About:
+        - about/README.md
 
 extra_css:
   - stylesheets/extra.css

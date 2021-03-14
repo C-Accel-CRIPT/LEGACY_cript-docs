@@ -1,43 +1,54 @@
 # Challenges of Polymer Data
 
-**Under Construction**
+Polymers are large stochastic molecules which can assemble in hierarchical structures depending on processing conditions.
+Ultimately, this means that there is no single representation that can capture the full molecular detail of a polymer material. 
+This lack of a single identifier provides a significant challenge for large scale data analysis.
 
-Polymers are ensembles of molecules produced by stochastic systems of reactions, meaning that there is 
-no single representation that can capture the full molecular detail of a polymer. 
+![polymers](../img/polymers_data.svg)
 
+Polymers are a result of a system of stochastic reactions. This leads to distributions in chain length, composition, and topology
+making it impossible to completely represent a polymer in a single quantity. The combination of a structural description 
+(like a chemical drawing or bigSMILES), and distribution information would be required to completely define the identity of a polymer. 
+In practice, moments of distributions (average molecular weight) or ratio of composition are provided to approximately define a polymer
+as they are easier to work with and experiment obtain. Moreover, data collection methods are highly variable, typically provided relative 
+structure inform and/or use of theoretical models which requires expert knowledge to put into context. In some cases experimentally obtaining structural
+information is impossible, and information from prior processing steps is needed. To complicate the matters further, 
+polymers can assemble into a wide range of structures through phenomena like phase segregation and crystallization. 
+The formation of these structures can be highly influenced by the processing conditioning under which the material was made.
+Ultimately, this makes polymer-informatics messy as data set that do not completely capture of all the relevant polymer
+data will be incapable of proving reliable data and hindering large data science efforts.
 
-Additionally, 
-
-In practice, unless it is an aliquot of another polymer, each polymer can be effectively regarded as a unique chemical 
-object. This issue makes polymer data largely disparate and presents significant challenges to curating high-quality polymer datasets.
- polymer researchers rely on a series of chemical characterizations that each reveal partial information on the distribution.
-characterization data are aggregated and reported, is largely nonstandard across the polymer community
-
+ 
 
 ## Comparison to small molecules 
- molecule-property tuple/pair style format that relates desired properties with the structures of the molecules of 
- interest. Data in this format fits naturally into widely available and well-supported relational database technologies,
- which store data in series of data tables relating molecular properties with the corresponding chemical descriptors.
-Assimilating data from different sources is straightforward as the chemical descriptors can be used unambiguously to 
- define the chemical system and provide a handle to collate and aggregate distinct instances of data for the same chemical object.
+Molecule-property tuple/pair style of data storage relates desired properties with the structures of a molecule. 
+Data in this format fits naturally into widely available and well-supported database technologies, which store data in a
+series of tables relating molecular properties with the corresponding chemical descriptors. Assimilating data from 
+different sources is straightforward as the chemical descriptors can be used unambiguously to define the chemical system 
+and provide a handle to collate and aggregate distinct instances of data for the same chemical object.
 For most molecules, this information is conveniently encoded with representations that detail their chemical connectivity, 
- such as SMILES ([simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)) strings for organic molecules, 
- nucleic acid sequences for RNA, or amino acid sequences for proteins.
+such as SMILES ([simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)) strings for organic molecules, 
+nucleic acid sequences for RNA, or amino acid sequences for proteins.
+
+![small molecules](../img/small_mol.svg)
+
 
 ## Natural Language Processing (NLP) for polymer data
+
 Extracting polymer information with natural language processing is considerably more challenging for polymers than
 small molecules because there is no uniform nomenclature (typically generic terminology used), 
 figures of polymer structure are extremely high variability, and ultimately a combination of figures, raw data, generic 
-terminology are all needs to be combined to define a polymer structure. Moreover, data collection methods are highly 
-variable and only provided relative structure inform which requires expert knowledge to put into context. Thus, 
-hindering the generation of databases from prior literature, and questioning their reliability. 
+terminology and expert knowledge are all needs to define a polymer structure and to put into context.  Thus, 
+hindering the generation of reliable databases from prior literature. Nevertheless, the CRIPT
+initiative seeks to create the tools to address this challenge. 
+
+![NLP](../img/NLP.png)
 
 
 ## Current Polymer Databases
-Currently, for most available datasets, polymer entries are identified through names of the polymers.
-Name-based identification, however, often leads to ambiguity in molecular structure specification
-because polymer chemistry poorly adheres to IUPAC polymer nomenclature, making automatic translation between 
-polymer names and structure difficult.
+
+Currently, for most available datasets, polymer entries are identified through names of the polymers and lack complete
+characterization data. This leads to ambiguity and incompleteness in molecular structure specification.
 
 * Bicerano, J., Prediction of Polymer Properties, 3rd Edition. CRC Press: 2002, DOI: [10.1201/9780203910115](https://doi.org/10.1201/9780203910115).
 * Brandrup, J.; Immergut, E. H.; Grulke, E. A.; Abe, A.; Bloch, D. R., [Polymer Handbook](https://www.wiley.com/en-us/Polymer+Handbook%2C+2+Volumes+Set%2C+4th+Edition-p-9780471479369). Wiley New York: 1999.
@@ -50,6 +61,18 @@ polymer names and structure difficult.
 
 ## Other Material Data Models
 
-[PolyDAT](https://pubs.acs.org/doi/10.1021/acs.jcim.1c00028)
+The CRIPT data structure was not the first design to address the complexities of polymer material data storage. 
+PolyDAT and GEMD were both previously develop and were a large inspiration to the CRIPT data structure.  
 
-[GEMD](https://citrineinformatics.github.io/gemd-docs/)
+**PolyDAT** [J. Chem. Inf. Model. 2021, doi: 10.1021/acs.jcim.1c00028](https://pubs.acs.org/doi/10.1021/acs.jcim.1c00028)
+
+PolyDAT is a schema developed by a team led by [Brad Olsen](https://olsenlab.mit.edu/) at MIT and focuses on specifying the 
+molecular structures of polymers and associate chemical characterization. The schema was designed around a single
+document based schema that is well suited for publication supporting information. 
+
+**GEMD** [https://citrineinformatics.github.io/gemd-docs/](https://citrineinformatics.github.io/gemd-docs/)
+
+GEMD is a schema developed by [Citrine Informatics](https://citrine.io/) to model materials and associated data. 
+GEMD stands for Graphical Expression of Materials Data. The schema was designed around a data objects
+making well suited for large database projects. 
+

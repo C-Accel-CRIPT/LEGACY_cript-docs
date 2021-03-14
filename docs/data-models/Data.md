@@ -5,38 +5,30 @@ molecular weight distribution, or stress-strain curve.
 
 **Features:**
 
-* process and data nodes point to data nodes - optional (only one process nodes are allowed per chain, only one data 
-  node allowed)
-* data nodes points to material or data nodes (multiple material or data nodes are allowed, but not both material and
-  data at the same time)
+* data nodes points only to raw data files
 * required information
     * name
-    * source
-    * expt, mat (will be populated as it's linked to other nodes)
-* optional information
     * type
-    * history
+    * source
+* optional information
     * file
     * file type
+    * sample preparation  
     * instrument details
     * calibration
-    * column headers
-    * row headers
     * data
+    * history
+    * note 
 * auto generate/update:
     * _id
-    * type
+    * class
     * ver_sch
     * ver_con (& all child) <-- update with version control node
     * date (& all child)
-    * users (& all child) <-- update with user node
-    * expt (& all child)  <-- update with expt node
-    * mat (& all child) <-- update with material nodes
-
+  
 
 **App features to support this node:**
 
-* a page to fill out: experiment(materials, process, data) data
 * a page to plot, analyze data (csv or `data`)
 * allow additional optional information in attribute section given that it begins with +
 * units are not stored and all official values are converted to database standard prior to storage
@@ -47,7 +39,7 @@ molecular weight distribution, or stress-strain curve.
 ```json
 {
   "_id": objectId(),
-  "type": "data",
+  "class": "data",
   "ver_sch": string,
   "ver_con": {
     "_id": objectId(),
@@ -57,18 +49,10 @@ molecular weight distribution, or stress-strain curve.
     {"created": datetime},
     {"last_mod": datetime}
   ],
-  "notes": string,
   "name": string,
+  "type": string,
   "source": string,
-  "expt": [
-    {"_id": objectId(), "name": string, "date":  datetime}
-  ],
-  "mat": [
-    {"_id": objectId(), "name": string, "prop": string, "value": double}
-  ],
-  "attr": {
-    "see attributes": "for details"
-  }
+  "optional attributes"
 }
 ```
 
@@ -76,34 +60,21 @@ molecular weight distribution, or stress-strain curve.
 
 ## Description
 
-Key             |Data Type     |Required  |Description
--------------   |---------     |------    |----
-`_id`          |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
-`type`          |<span style="color:rgb(0, 72, 189)">  string  </span> |<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`ver_sch`       |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`       |              |          |<span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`   |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`   |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`          |              |          |<span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`  |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod` |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
-`notes`         |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span> |<span style="color:rgb(0, 72, 189)">  free-form space to store any text  </span>
-`users`               |     |      |<span style="color:rgb(12, 145, 3)">  user permissions </span>
-`users/_id`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
-`users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
-`users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append]  </span>
-`name`                | string         | required  | user name for data
+Key                   |Data Type     |Required  |Description
+-------------         |---------     |------    |----
+`_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
+`class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
+`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
+`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`name`                | string        | required  | name of data
+`type`                | string        | required  | type of data, [see options below](../Data/#type)
 `source`              | string         | required  | source of data [expt, proc, comp] experiment, processed data, computed data
-`expt`                |                |           | [experiment nodes](../data-models/Experiments.md)
-`expt\_id`            | objectId()     | auto      | id of experiments
-`expt\name`           | string         | auto      | name of experiments
-`expt\date`           | datetime       | auto      | date of experiments
-`mat`                 |                |           | [material nodes](../Materials_P/#properties)
-`mat\_id`             | objectId()     | auto      | id of material
-`mat\name`            | string         | auto      | name of material
-`mat\prop`            | string         | auto      | material property
-`mat\value`           | double         | auto      | value of material property
-`attr`                | list           | auto      | see attributes section
+
 
 
 ### Attributes
@@ -116,19 +87,32 @@ total data points = row * col
 
 Key                   | Data Type       | Description
 -------------         | ---------       | ----------
-`type`                | string          | official type of measurement (see below [type](../Data/#type))
+`file`                | list[dict]      | link to raw file
+`file/_id`            | objectId()      | id for file
+`file/type`           | string          | file type (ex. csv, txt, xlsm)
+`file/dis`            | string          | description
+`web_link`            | string          | raw data may be store on another website and can be linked here
+`s_prep`              | string          | description of sample preparation
+`equip`               | list[dict]      | equipment or instrument details/configuration
+`equip/_id`           | objectId()      | id for file
+`equip/type`          | string          | file type (ex. csv, txt, xlsm)
+`equip/dis`           | string          | description
+`cal`                 | list[dict]      | calibration details
+`cal/_id`             | objectId()      | id for file
+`cal/type`            | string          | file type (ex. csv, txt, xlsm)
+`cal/dis`             | string          | description
+`data`                | dict            | data information
+`data/col_head`       | list            | labels for columns (order should match data)
+`data/row_head`       | list            | labels for rows (order should match data)
+`data/col_unit`       | list            | units for columns (order should match data)
+`data/row_unit`       | list            | units for rows (order should match data)
 `histroy`             | dict            | data history (feature under construction)
-`file`                | objectId()      | link to raw file
-`file_type`           | string          | file type (ex. csv, txt, xlsm)
-`equip`               | string          | equipment or instrument details/configuration
-`cal`                 | string          | calibration details
-`col_head`            | list            | labels for columns (order should match data)
-`row_head`            | list            | labels for rows (order should match data)
-`x_data`              | list            | raw data
-`y_data`              | list            | raw data
+`note`                | string          | free-form space to store any text
 
 
-### type
+### Type
+
+#### 1D data
 
 `type`         | x-axis            | x-axis unit   | y-axis           | y-axis unit | Description
 ------         |-------            | ---------     | -------          |---------    | --------
@@ -154,13 +138,22 @@ waxs           | q                 | angstrom**-1  | intensity        |         
 saxs           | q                 | angstrom**-1  | intensity        |             | small angle light scattering
 g_prime        | frequency         | rad/s         | stress           | Pa          | storage modulus
 g_doub_prime   | frequency         | rad/s         | stress           | Pa          | loss modulus
-**2d data**    |
+
+#### 2D data
+
+`type`         | x-axis            | x-axis unit   | y-axis           | y-axis unit | Description
+------         |-------            | ---------     | -------          |---------    | --------
 nmr_cosy       | chemical shift    | ppm           | chemical shift   | ppm         | correlation spectroscopy NMR (H - H)
 nmr_hsqc       | chemical shift    | ppm           | chemical shift   | ppm         | heteronuclear single-quantum correlation spectroscopy NMR (H - C)
 nmr_hmbc       | chemical shift    | ppm           | chemical shift   | ppm         | heteronuclear multiple-bond correlation spectroscopy NMR (H - C)
 nmr_dosy       | chemical shift    | ppm           | diffusion coeff. | m**2/s      | Diffusion NMR 
 waxs_i         | distance          | nm**-1        | distance         | nm**-1      | wide angle light scattering image
 saxs_i         | distance          | nm**-1        | distance         | nm**-1      | small angle light scattering image
+
+#### n-D data
+
+`type`         | x-axis            | x-axis unit   | y-axis           | y-axis unit | Description
+------         |-------            | ---------     | -------          |---------    | --------
 
 
 ## Data history
@@ -205,6 +198,3 @@ saxs_i         | distance          | nm**-1        | distance         | nm**-1  
 }
 ```
 
-### Visualization
-
-![Data_network](../img/network_data.svg)

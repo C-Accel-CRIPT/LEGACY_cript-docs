@@ -9,3 +9,4 @@ For more information about the project, please visit [cript.mit.edu](http://crip
 
 The documentation hub for CRIPT can be viewed at
 [C-Accel-CRIPT.github.io/cript-docs](https://c-accel-cript.github.io/cript-docs).
+

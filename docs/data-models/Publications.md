@@ -8,9 +8,9 @@ the stage of the publication.
 
 * publication can reference users, groups, experiments
 * required information
-    * experiments (CRIPT node)
+    * title
 * optional information
-    * notes
+    * collections (CRIPT nodes)
     * title
     * authors
     * journal
@@ -24,19 +24,14 @@ the stage of the publication.
     * arxiv_id
     * PMID
     * website
-    * user (CRIPT node)
-    * group (CRIPT node)
-
+    * notes
 * auto generate/update:
     * _id
-    * type
+    * class
     * ver_sch
     * ver_con (& all child) <-- update with version control node
     * date (& all child)
-    * users (& all child) <-- update with user node
-    * expt (& all child) <-- update with expt node
-    * users (& all child) <-- update with user node
-    * group (& all child) <-- update with group node
+
 
 **App features to support this node:**
 
@@ -45,21 +40,12 @@ the stage of the publication.
 * a similar look up tool for users, and groups
 * allow additional optional information in attribute section given that it begins with +
 
-#### Version label
-
-`ver_con/num`    |version stage
--------------    |---------
-v0.#.#           | general use or pre-publication
-v1.#.#           | staged for publication (submitted for review)
-v2.#.#           | publication (and revisions)
-v3.#.#           | post-publication (external data analysis)
-
 ## JSON Schema
 
 ```json
 {
   "_id": objectId(),
-  "type": "pub",
+  "class": "pub",
   "ver_sch": string,
   "ver_con": {
     "_id": objectId(),
@@ -69,16 +55,8 @@ v3.#.#           | post-publication (external data analysis)
     {"created": datetime},
     {"last_mod": datetime}
   ],
-  "notes": string,
-  "users": [
-    {"_id": objectId(), "name": string, "perm": string}
-  ],
-  "expt": [
-    {"_id": objectId(), "name": string, "product": string}
-  ],
-  "attr": {
-    "see attributes": "for details"
-  }
+  "title": string,
+  "optional attributes"
 }
 ```
 
@@ -88,38 +66,33 @@ v3.#.#           | post-publication (external data analysis)
 
 Key                   |Data Type     |Required  |Description
 -------------         |---------     |------    |----
-`_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
-`type`                |<span style="color:rgb(0, 72, 189)">  string  </span> |<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`             |              |          |<span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`                |              |          |<span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
-`notes`               |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span> |<span style="color:rgb(0, 72, 189)">  free-form space to store any text  </span>
-`users`               |              |      |<span style="color:rgb(12, 145, 3)">  user permissions  </span>
-`users/_id`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
-`users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
-`users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append]  </span>
-`expt`               |             |           | [experiment nodes](../data-models/Experiments.md)
-`expt/_id`           | objectId()  | auto      | id for experiment
-`expt/name`          | string      | auto      | name for experiment
-`expt/prod`          | string      | auto      | main product of experiment
-`attr`                | list        | auto      |see attributes section
+`_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
+`class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
+`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
+`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`title`               | string         | required  | publication title
+
 
 ### Attributes
 
 Attributes are optional properties that can be associated with this node. The following list is the officially supported
 keys. Users may define their own keys by placing a '+' in front of their custom key.
 
-Key                   |Data Type      |Description
--------------         |---------      |----
-`title`               | string         | publication title
+Key                   | Data Type      | Description
+-------------         |---------       |----
+`coll`                |                | [collection nodes](../data-models/Collections.md)
+`coll\_id`            | objectId()     | id of collection
+`coll\name`           | string         | name of collection
+`coll\date`           | datetime       | date collection created
 `authors`             | list[string]   | authors
-`author`               |                | [user details of authors if on platform](../data-models/Users.md)
-`author\_id`           | objectId()     | author id
-`author\name`          | string         | author name
+`author`              | list[dict]     | authors details 
+`author\orcid`        | objectId()     | author [ORCID number](https://orcid.org/)
+`author\name`         | string         | author name
 `journal`             | string         | journal
 `publisher`           | string         | publisher
 `year`                | int            | publishing year
@@ -131,9 +104,7 @@ Key                   |Data Type      |Description
 `arxiv_id`            | string         | [arXiv identifier](https://arxiv.org/)
 `PMID`                | string         | [PubMed ID](https://pubmed.ncbi.nlm.nih.gov/)
 `web`                 | string         | publication website
-`group`               |                | [groups that the user belongs to](../data-models/Groups.md)
-`group\_id`           | objectId()     | id of group
-`group\name`          | string         | name of group
+`note`                | string         | free-form space to store any text
 
 ---
 
@@ -182,8 +153,4 @@ Key                   |Data Type      |Description
   }
 }
 ```
-
-### Visualization
-
-![Publication_network](../img/network_publications.svg)
 

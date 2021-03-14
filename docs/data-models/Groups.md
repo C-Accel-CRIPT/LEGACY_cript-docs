@@ -8,30 +8,28 @@ They can be big organizations or small groups of only two users.
 **Features:**
 
 * groups within groups are allowed
-* groups can reference users, groups, publications
+* groups can reference groups, collections, publications
 * required information  
     * name
-    * collection list (CRIPT node)
 * optional information
-    * notes
+    * collection list (CRIPT node)
     * child group (CRIPT node)
+    * Publication (CRIPT node)
     * website
     * email
+    * notes
 * auto generate/update:
     * _id
-    * type
+    * class
     * ver_sch
     * ver_con (& all child) <-- update with version control node
     * date (& all child)
-    * users_num <-- auto calculate
 
   
-
 **App features to support this node:**
 
 * a page to fill out: name, website, email, etc.
-* a tool to look up users, or enter _id
-* a similar look up tool for groups, and publications
+* a tool to look up tool for groups, and publications
 * allow additional optional information in attribute section given that it begins with +
 
 ## JSON Schema
@@ -39,7 +37,7 @@ They can be big organizations or small groups of only two users.
 ```json
 {
   "_id": objectId(),
-  "type": "group",
+  "class": "group",
   "ver_sch": string,
   "ver_con": {
     "_id": objectId(),
@@ -50,11 +48,10 @@ They can be big organizations or small groups of only two users.
     {"last_mod": datetime}
   ],
   "name": string,
-  "users_num": double,
-  "users_list": [
+  "coll": [
     {"_id": objectId(), "name": string}
   ],
-  "optional Attributes"
+  "optional attributes"
 }
 ```
 
@@ -64,29 +61,17 @@ They can be big organizations or small groups of only two users.
 
 Key             |Data Type     |Required  |Description
 -------------   |---------     |------    |----
-`_id`          |<span style="color:rgb(0, 72, 189)"> objectId() </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  unique database id  </span>
-`type`          |<span style="color:rgb(0, 72, 189)">  string  </span> |<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`ver_sch`       |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`       |              |          |<span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`   |<span style="color:rgb(0, 72, 189)">  objectId()  </span>|<span style="color:rgb(0, 72, 189)">  auto  </span>|<span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`   |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`          |              |          |<span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`  |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod` |<span style="color:rgb(0, 72, 189)">  datetime  </span>|<span style="color:rgb(0, 72, 189)">auto  </span>|<span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
-`notes`         |<span style="color:rgb(0, 72, 189)">  string  </span>|<span style="color:rgb(0, 72, 189)">auto  </span> |<span style="color:rgb(0, 72, 189)">  free-form space to store any text  </span>
-`users`         |     |      |<span style="color:rgb(12, 145, 3)">  user permissions   </span>
-`users/_id`           |<span style="color:rgb(12, 145, 3)">  objectId()   </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user id  </span>
-`users/name`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  user name  </span>
-`users/perm`          |<span style="color:rgb(12, 145, 3)">  string  </span>|<span style="color:rgb(12, 145, 3)">  auto   </span>|<span style="color:rgb(12, 145, 3)">  permission level; [r: read, w: write, a: append] </span>
-`name`                 | string        | required      | name of group
-`owner`                | string        |               | type of node ; Ex: "group"
-`owner/_id`            | objectId()    | auto          | type of node ; Ex: "group"
-`owner/name`           | string        | required      | type of node ; Ex: "group"
-`users_num`            |               |               | [number of users in the group](../data-models/Users.md)
-`users_list`           | string        | auto          | list of users in the group
-`users_list/_id`       | objectId()    | auto          | id of user
-`users_list/name`      | string        | auto          | name of user
-`attr`                 | dict          |               | see attributes section
+`_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
+`class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
+`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
+`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`name`                | string          | required      | name of group
+
 
 ### Attributes
 
@@ -95,22 +80,19 @@ keys. Users may define their own keys by placing a '+' in front of their custom 
 
 Key                   | Data Type       | Description
 -------------         |---------        |----
-`par_group`           |                 | [parent group](../data-models/Groups.md)
-`par_group\_id`       | objectId()      | id of parent group
-`par_group\name`      | string          | name of parent group
-`chi_group`           |                 | [child group](../data-models/Groups.md)
-`chi_group\_id`       | objectId()      | id of child group
-`chi_group\name`      | string          | name of child group
-`pub`                 |                 | [publication node](../data-models/Publications.md) that this experiment was a part of
-`pub\_id`             | objectId()      | id for publication
-`pub\title`           | string          | publication title
-`coll`                |                 | [collection nodes](../data-models/Collections.md)
+`coll`                | list[dict]      | [collection nodes](../data-models/Collections.md)
 `coll\_id`            | objectId()      | id of collection
 `coll\name`           | string          | name of collection
-`coll\date`           | datetime        | date of collection
-`coll\date\num_expt`  | double          | number of experiments in collection
+`coll\date`           | datetime        | date collection created
+`chi_group`           | list[dict]      | [child group](../data-models/Groups.md)
+`chi_group\_id`       | objectId()      | id of child group
+`chi_group\name`      | string          | name of child group
+`pub`                 | list[dict]      | [publication node](../data-models/Publications.md) that this experiment was a part of
+`pub\_id`             | objectId()      | id for publication
+`pub\title`           | string          | publication title
 `web`                 | string          | website of group
 `email`               | string          | group email address
+`notes`               | string          | free-form space to store any text
 
 ---
 
@@ -155,7 +137,3 @@ Key                   | Data Type       | Description
   }
 }
 ```
-
-### Visualization
-
-![Group_network](../img/network_group.svg)
