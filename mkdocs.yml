@@ -21,7 +21,7 @@ nav:
           README.md
     - Data Schema:
         - data-models/README.md
-        - Challanges of Polymers: data-models/Polymers.md
+        - Challenges of Polymer Data: data-models/Polymers.md
         - How does it work: data-models/Data_Entry.md
         - Groups: data-models/Groups.md
         - Users: data-models/Users.md

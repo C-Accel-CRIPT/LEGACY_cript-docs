@@ -39,15 +39,13 @@ The 'user' node contains data related to the user. Anyone who interacts with the
 {
   "_id": objectId(),
   "class": "user",
-  "ver_sch": string,
-  "ver_con": {
+  "version_schema": string,
+  "version_control": {
     "_id": objectId(),
     "num": string
   },
-  "date": [
-    {"created": datetime},
-    {"last_mod": datetime}
-  ],
+  "date_created": datetime,
+  "date_last_mod": datetime,
   "name": string,
   "email": string,
   "optional attributes"
@@ -62,13 +60,12 @@ Key             |Data Type     |Required  |Description
 -------------   |---------     |------    |----
 `_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
 `class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
-`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`version_schema`      |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `name`                | string        | required      | name of user
 `email`               | string        | required      | user email address
 
@@ -83,17 +80,17 @@ Key                   | Data Type      | Description
 `group`               | list[dict]     | [groups that the user belongs to](../data-models/Groups.md)
 `group\_id`           | objectId()     | id of group
 `group\name`          | string         | name of group
-`pub`                 | list[dict]     | [publications the user authored](../data-models/Publications.md)
-`pub\_id`             | objectId()     | id of publication
-`pub\title`           | string         | title of publication
-`expt`                | list[dict]     | [experiment nodes](../data-models/Experiments.md)
-`expt\_id`            | objectId()     | id of experiment
-`expt\name`           | string         | name of experiment
-`expt\date`           | datetime       | date of experiment
-`coll`                | list[dict]     | [collection nodes](../data-models/Collections.md)
-`coll\_id`            | objectId()     | id of collection
-`coll\name`           | string         | name of collection
-`coll\date`           | datetime       | date of collection
+`publication`         | list[dict]     | [publications the user authored](../data-models/Publications.md)
+`publication\_id`     | objectId()     | id of publication
+`publication\title`   | string         | title of publication
+`experiment`          | list[dict]     | [experiment nodes](../data-models/Experiments.md)
+`experiment\_id`      | objectId()     | id of experiment
+`experiment\name`     | string         | name of experiment
+`experiment\date`     | datetime       | date of experiment
+`collection`          | list[dict]     | [collection nodes](../data-models/Collections.md)
+`collection\_id`      | objectId()     | id of collection
+`collection\name`     | string         | name of collection
+`collection\date`     | datetime       | date of collection
 `phone`               | string         | phone number (###-###-####)
 `web`                 | string         | website
 `twitter`             | string         | twitter handle

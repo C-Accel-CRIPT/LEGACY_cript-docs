@@ -10,7 +10,7 @@ The 'collection' node also for the grouping of experiments.
     * name
 * optional information
     * experiments (CRIPT node)
-    * collection (CRIPT node)
+    * child collection (CRIPT node)
     * notes
 * auto generate/update:
     * _id
@@ -34,15 +34,13 @@ The 'collection' node also for the grouping of experiments.
 {
   "_id": objectId(),
   "class": "coll",
-  "ver_sch": string,
-  "ver_con": {
+  "version_schema": string,
+  "version_control": {
     "_id": objectId(),
     "num": string
   },
-  "date": [
-    {"created": datetime},
-    {"last_mod": datetime}
-  ],
+  "date_created": datetime,
+  "date_last_mod": datetime,
   "name": string,
   "optional attributes"
 }
@@ -56,13 +54,12 @@ Key                   |Data Type     |Required  |Description
 -------------         |---------     |------    |----
 `_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
 `class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
-`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`version_schema`      |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `name`                |string       | required  | name of collection
 
 ### Attributes
@@ -70,18 +67,18 @@ Key                   |Data Type     |Required  |Description
 Attributes are optional properties that can be associated with this node. The following list is the officially supported
 keys. Users may define their own keys by placing a '+' in front of their custom key.
 
-Key                   | Data Type     | Description
--------------         |---------      | ----
-`num_expt`            | int           | number of experiments in collection
-`expt`                | list[dict]    | [experiment nodes](../data-models/Experiments.md)
-`expt/_id`            | objectId()    | id for experiment
-`expt/name`           | string        | name for experiment
-`expt/prod`           | string        | main product of experiment
-`coll`                | list[dict]    | [collection nodes](../data-models/Collections.md)
-`coll\_id`            | objectId()    | id of collection
-`coll\name`           | string        | name of collection
-`coll\date`           | datetime      | date collection created
-`note`                | string        | free-form space to store any text
+Key                     | Data Type      | Description
+-------------           |---------       | ----
+`number_experiments`    | int            | number of experiments in collection
+`experiment`            | list[dict]     | [experiment nodes](../data-models/Experiments.md)
+`experiment\_id`        | objectId()     | id of experiment
+`experiment\name`       | string         | name of experiment
+`experiment\date`       | datetime       | date of experiment
+`child_collection`      | list[dict]     | [collection nodes](../data-models/Collections.md)
+`child_collection\_id`  | objectId()     | id of collection
+`child_collection\name` | string         | name of collection
+`child_collection\date` | datetime       | date collection created
+`note`                  | string         | free-form space to store any text
 
 
 ---

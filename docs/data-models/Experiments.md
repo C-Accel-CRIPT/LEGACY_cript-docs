@@ -32,15 +32,13 @@ set of processes. For non-linear processes (like running multiple reactions for 
 {
   "_id": objectId(),
   "class": "expt",
-  "ver_sch": string,
-  "ver_con": {
+  "version_schema": string,
+  "version_control": {
     "_id": objectId(),
     "num": string
   },
-  "date": [
-    {"created": datetime},
-    {"last_mod": datetime}
-  ],
+  "date_created": datetime,
+  "date_last_mod": datetime,
   "name": string,
   "nodes": {
     "materials": [
@@ -68,13 +66,12 @@ Key             |Data Type     |Required  |Description
 -------------   |---------     |------    |----
 `_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
 `class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
-`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`version_schema`      |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `name`                    | string        | required  | name of experiment
 `nodes`                   | dict          |           | list of nodes that constitute an experiment
 `nodes/materials`         | list[dict]    |           | [material nodes](../data-models/Materials_P.md)
@@ -101,9 +98,9 @@ keys. Users may define their own keys by placing a '+' in front of their custom 
 
 Key                | Data Type      | Description
 -------------      |---------       |----
-`ref`              | list[dict]     | reference for this experiment
-`ref\doi`          | string         | [DOI: digital object identifier](https://www.doi.org/)
-`ref\title`        | string         | reference title
+`reference`        | list[dict]     | reference for this experiment
+`reference\doi`    | string         | [DOI: digital object identifier](https://www.doi.org/)
+`reference\title`  | string         | reference title
 `note`             | string         | free-form space to store any text
 
 

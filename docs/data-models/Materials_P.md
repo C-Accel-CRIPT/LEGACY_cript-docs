@@ -36,17 +36,14 @@ mixtures containing polymers.
 {
   "_id": objectId(),
   "class": "material_p",
-  "ver_sch": string,
-  "ver_con": {
+  "version_schema": string,
+  "version_control": {
     "_id": objectId(),
     "num": string
   },
-  "date": [
-    {"created": datetime},
-    {"last_mod": datetime}
-  ],
-  "name": string,
-  "iden": {"see identifiers": "for details"},
+  "date_created": datetime,
+  "date_last_mod": datetime,
+  "identifiers": {"see identifiers": "for details"},
   "optional attributes"
 }
 ```
@@ -58,16 +55,15 @@ mixtures containing polymers.
 Key                   |Data Type     |Required  |Description
 -------------         |---------     |------    |----
 `_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
-`class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
-`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
-`name`                    | string        | required  | name of chemical
-`iden`                    | list[dict]    | required  | [see identifiers section](../Materials_P/#identifiers)
+`class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node; "material_p"  </span>
+`version_schema`      |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`name`                | string        | required  | name of chemical
+`identifiers`         | list[dict]    | required  | [see identifiers section](../Materials_P/#identifiers)
 
 ### Attributes
 
@@ -84,10 +80,10 @@ Key                | Data Type    | Units    | Description
 `data/_id`         | objectId()   |          | id of data
 `data/name`        | string       |          | name of data
 `data/type`        | string       |          | type of data
-`prop`             | list[dict]   |          | [see properties section](../Materials_P/#properties)
+`properties`       | list[dict]   |          | [see properties section](../Materials_P/#properties)
 `keywords`         | list[string] |          | [see keywords section below](../Materials_P/#keywords)
 `source`           | string       |          | source of material
-`lot_num`          | string       |          | lot number
+`lot_number`       | string       |          | lot number
 `store`            | dict         |          | storage conditions
 `store\temp`       | double       | degC     | storage temperature
 `store\time_num`   | double       | min      | storage time
@@ -98,9 +94,7 @@ Key                | Data Type    | Units    | Description
 ### Identifiers
 
 Identifiers are chemical descriptors or unique ids which speaks to the chemical structure. Providing as many identifiers
-as possible great facilitate the findability of the associated data. Additionally, if sufficiently many identifiers are
-provided, the polymer ensemble can be constructed from these values. Mixtures are supported in this section by appending
-to list of identifiers.
+as possible great facilitate the findability of the associated data. 
 
 ```json
 [
@@ -113,6 +107,7 @@ to list of identifiers.
 
 Key                  | Data Type      | Required    | Description
 -------------        |---------       | ---------   |----
+`mat_id`             | objectId()     | required    | id that is used to link to properties
 `names`              | list[string]   | required    | Any name for the material
 `cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
 `bigsmiles`          | string         | optional    | [bigSMILES Line Notation](https://olsenlabmit.github.io/BigSMILES/docs/line_notation.html#the-bigsmiles-line-notation)
@@ -126,6 +121,7 @@ Properties consist of the following structure:
 
 ```json
 {
+  "mat_id": objectID,
   "key": string, 
   "method": string, 
   "value": double, 
@@ -135,7 +131,8 @@ Properties consist of the following structure:
   "note": "string"
 }
 ```
-
+`mat_id` is the id that corresponds to the id in the identifier. This identifier is useful when a mixture is charaterizaed, and a property only corresponds to one component.
+If the `mat_id` is not present then the property corresponds to the mixture.
 The range bound is limited to the largest number that can be stored in 64 bits (1.79e+308).
 Units are not stored for officially supported data as all official values are converted to database standard prior to storage
 
@@ -154,7 +151,6 @@ Key              | Method                                      |Range           
 `mw_kurtosis`    | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]      | g/mol      | Kurtosis of molecular weight distribution or the fourth moment of the molecular weight distribution
 `tac_Pm`         | ['nmr']                                     | [0, 1]              |            | probability of finding meso diads (Pm)
 `comp_frac`      | []                                          | [0, 1]              |            | composition: mole fraction of component ??????
-
 `branch`
 
 #### Physical

@@ -1,12 +1,11 @@
 # Publications
 
-The 'publication' node contains data related to a publication. Publication nodes can be generated at any time in the
-research process, and experiments can be associated with the publication. The version number can be used to determine
-the stage of the publication.
+The 'publication' node contains data related to a publication. Publications point to a collection of experiments
+that no longer have write or append options. 
 
 **Features:**
 
-* publication can reference users, groups, experiments
+* publication can reference collections
 * required information
     * title
 * optional information
@@ -36,8 +35,7 @@ the stage of the publication.
 **App features to support this node:**
 
 * a page to fill out publication details
-* a tool to look up experiments, or enter _id
-* a similar look up tool for users, and groups
+* a tool to look up collections, or enter _id
 * allow additional optional information in attribute section given that it begins with +
 
 ## JSON Schema
@@ -45,16 +43,14 @@ the stage of the publication.
 ```json
 {
   "_id": objectId(),
-  "class": "pub",
-  "ver_sch": string,
-  "ver_con": {
+  "class": "publication",
+  "version_schema": string,
+  "version_control": {
     "_id": objectId(),
     "num": string
   },
-  "date": [
-    {"created": datetime},
-    {"last_mod": datetime}
-  ],
+  "date_created": datetime,
+  "date_last_mod": datetime,
   "title": string,
   "optional attributes"
 }
@@ -113,7 +109,7 @@ Key                   | Data Type      | Description
 ```json
 {
   "_id": "507f191e810c19729de861ec",
-  "type": "pub",
+  "class": "pub",
   "ver_sch": "v0.1",
   "ver_con": {
     "_id": "507f191e810c19729de861cb",

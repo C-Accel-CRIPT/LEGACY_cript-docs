@@ -40,15 +40,13 @@ molecular weight distribution, or stress-strain curve.
 {
   "_id": objectId(),
   "class": "data",
-  "ver_sch": string,
-  "ver_con": {
+  "version_schema": string,
+  "version_control": {
     "_id": objectId(),
     "num": string
   },
-  "date": [
-    {"created": datetime},
-    {"last_mod": datetime}
-  ],
+  "date_created": datetime,
+  "date_last_mod": datetime,
   "name": string,
   "type": string,
   "source": string,
@@ -64,13 +62,12 @@ Key                   |Data Type     |Required  |Description
 -------------         |---------     |------    |----
 `_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
 `class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
-`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`version_schema`      |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `name`                | string        | required  | name of data
 `type`                | string        | required  | type of data, [see options below](../Data/#type)
 `source`              | string         | required  | source of data [expt, proc, comp] experiment, processed data, computed data
@@ -85,29 +82,29 @@ keys. Users may define their own keys by placing a '+' in front of their custom 
 Data can either be linked through `file` or placed directly in the document with `data`. `data` is restricted to #### total data points.
 total data points = row * col
 
-Key                   | Data Type       | Description
--------------         | ---------       | ----------
-`file`                | list[dict]      | link to raw file
-`file/_id`            | objectId()      | id for file
-`file/type`           | string          | file type (ex. csv, txt, xlsm)
-`file/dis`            | string          | description
-`web_link`            | string          | raw data may be store on another website and can be linked here
-`s_prep`              | string          | description of sample preparation
-`equip`               | list[dict]      | equipment or instrument details/configuration
-`equip/_id`           | objectId()      | id for file
-`equip/type`          | string          | file type (ex. csv, txt, xlsm)
-`equip/dis`           | string          | description
-`cal`                 | list[dict]      | calibration details
-`cal/_id`             | objectId()      | id for file
-`cal/type`            | string          | file type (ex. csv, txt, xlsm)
-`cal/dis`             | string          | description
-`data`                | dict            | data information
-`data/col_head`       | list            | labels for columns (order should match data)
-`data/row_head`       | list            | labels for rows (order should match data)
-`data/col_unit`       | list            | units for columns (order should match data)
-`data/row_unit`       | list            | units for rows (order should match data)
-`histroy`             | dict            | data history (feature under construction)
-`note`                | string          | free-form space to store any text
+Key                     | Data Type       | Description
+-------------           | ---------       | ----------
+`file`                  | list[dict]      | link to raw file
+`file/_id`              | objectId()      | id for file
+`file/type`             | string          | file type (ex. csv, txt, xlsm)
+`file/dis`              | string          | description
+`web_link`              | string          | raw data may be store on another website and can be linked here
+`sample_preparation`    | string          | description of sample preparation
+`equipment`             | list[dict]      | equipment or instrument details/configuration
+`equipment/_id`         | objectId()      | id for file
+`equipment/type`        | string          | file type (ex. csv, txt, xlsm)
+`equipment/description` | string          | description
+`calibration`           | list[dict]      | calibration details
+`calibration/_id`       | objectId()      | id for file
+`calibration/type`      | string          | file type (ex. csv, txt, xlsm)
+`calibration/dis`       | string          | description
+`data`                  | dict            | data information
+`data/col_head`         | list            | labels for columns (order should match data)
+`data/row_head`         | list            | labels for rows (order should match data)
+`data/col_unit`         | list            | units for columns (order should match data)
+`data/row_unit`         | list            | units for rows (order should match data)
+`histroy`               | dict            | data history (feature under construction)
+`note`                  | string          | free-form space to store any text
 
 
 ### Type

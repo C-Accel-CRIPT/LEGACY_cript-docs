@@ -38,17 +38,15 @@ portion of a material node.
 {
   "_id": objectId(),
   "class": "process",
-  "ver_sch": string,
-  "ver_con": {
+  "version_schema": string,
+  "version_control": {
     "_id": objectId(),
     "num": string
   },
-  "date": [
-    {"created": datetime},
-    {"last_mod": datetime}
-  ],
+  "date_created": datetime,
+  "date_last_mod": datetime,
   "name": string,
-  "ingr": ["see ingredients for details"],
+  "ingredients": ["see ingredients for details"],
   "procedure": string,
   "product": [{"_id": objectId(), "name": string}],
   "optional attributes"
@@ -64,15 +62,14 @@ Key                   |Data Type     |Required  |Description
 -------------         |---------     |------    |----
 `_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
 `class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
-`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`version_schema`      |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `name`                    | string        | required  | name of process
-`ingr`                    | list[dict]    | required  | [see identifiers section](../Process/#ingredients)
+`ingredients`             | list[dict]    | required  | [see ingredients section](../Process/#ingredients)
 `procedure`               | string        | required  | written procedure for the process
 `product`                 | list[dict]    | required  | the product of the process node; [material node](../data-models/Materials_P.md)
 `product/_id`             | objectId()    | auto      | id of product 
@@ -90,8 +87,8 @@ Key                | Data Type    | Description
 `data/_id`         | objectId()   | id of data
 `data/name`        | string       | name of data
 `data/type`        | string       | type of data
-`cond`             | list[dict]   | [see condition section](../Process/#conditions)
-`prop`             | list[dict]   | [see condition section](../Process/#properties)
+`conditions`       | list[dict]   | [see conditions section](../Process/#conditions)
+`properties`       | list[dict]   | [see properties section](../Process/#properties)
 `keywords`         | list[string] | [see keywords section below](../Process/#keywords)
 `history`          | dict         | [processing history](../Process/#process history)
 `note`             | string       | free-form space to store any text
@@ -106,7 +103,7 @@ quantity is required. List of supported quantities (quant), units and valid rang
 {
   "_id": objectId(),
   "name": string,
-  "quant": [
+  "quantities": [
     {"key": string, "value": double, "uncer": double}
   ]
 }
@@ -115,13 +112,13 @@ quantity is required. List of supported quantities (quant), units and valid rang
 Key                | Units      | Range          | Description
 -------------      |----------- | ----           |-----------
 `mass`             | g          | [0, 1.79e+308] | mass
-`vol`              | ml         | [0, 1.79e+308] | volume
-`pres`             | kPa        | [0, 1.79e+308] | partial pressure
+`volume`           | ml         | [0, 1.79e+308] | volume
+`pressure`         | kPa        | [0, 1.79e+308] | partial pressure
 `mole`             | mmol       | [0, 1.79e+308] | mole
-`equiv`            |            | [0, 1.79e+308] | equivalence
-`mass_frac`        |            | [0-1]          | mass fraction
-`mole_frac`        |            | [0-1]          | mole fraction
-`vol_frac`         |            | [0-1]          | volume fraction
+`equivalence`      |            | [0, 1.79e+308] | equivalence
+`mass_fraction`    |            | [0, 1]         | mass fraction; = mass of ingredient / (mass of all ingredients)
+`mole_fraction`    |            | [0, 1]         | mole fraction; = mole of ingredient / (moles of all ingredients)
+`vol_fraction`     |            | [0, 1]         | volume fraction; = volume of ingredient / (volume of all ingredients)
 
 ### Conditions
 
@@ -144,8 +141,8 @@ defined attributes which begin with a `+`.
 `key`                 | Units     | Description
 -------------         | ----      | ----
 `time`                | min       | time
-`temp`                | degC      | temperature
-`pres`                | kPa       | pressure (absolute)
+`temperature`         | degC      | temperature
+`pressure`            | kPa       | pressure (absolute)
 
 
 ### Properties

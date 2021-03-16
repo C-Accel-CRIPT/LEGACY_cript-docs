@@ -80,6 +80,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\docs\data-models\Publications.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\docs\data-models\README.md">
           <value>
             <Attribute>
@@ -91,6 +98,13 @@
           <value>
             <Attribute>
               <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\mkdocs.yml">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
             </Attribute>
           </value>
         </entry>

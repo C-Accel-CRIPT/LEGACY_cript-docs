@@ -36,17 +36,15 @@ and inorganics.
 {
   "_id": objectId(),
   "class": "material_o",
-  "ver_sch": string,
-  "ver_con": {
+  "version_schema": string,
+  "version_control": {
     "_id": objectId(),
     "num": string
   },
-  "date": [
-    {"created": datetime},
-    {"last_mod": datetime}
-  ],
+  "date_created": datetime,
+  "date_last_mod": datetime,
   "name": string,
-  "iden": {"see identifiers": "for details"},
+  "identifiers": {"see identifiers": "for details"},
   "optional attributes"
 }
 ```
@@ -58,16 +56,15 @@ and inorganics.
 Key                   |Data Type     |Required  |Description
 -------------         |---------     |------    |----
 `_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
-`class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node  </span>
-`ver_sch`             |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`ver_con`             |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
-`ver_con/_id`         |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`ver_con/num`         |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date`                |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  datetime object  </span>
-`date/created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`type/last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
-`name`                    | string        | required  | name of chemical
-`iden`                    | list[dict]    | required  | [see identifiers section](../Materials_O/#identifiers)
+`class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node; "material_p"  </span>
+`version_schema`      |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
+`version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
+`version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
+`version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
+`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`name`                | string        | required  | name of chemical
+`identifiers`         | list[dict]    | required  | [see identifiers section](../Materials_O/#identifiers)
 
 ### Attributes
 
@@ -83,10 +80,10 @@ Key                | Data Type    | Units    | Description
 `data/_id`         | objectId()   |          | id of data
 `data/name`        | string       |          | name of data
 `data/type`        | string       |          | type of data
-`prop`             | list[dict]   |          | [see properties section](../Materials_O/#properties)
+`properties`       | list[dict]   |          | [see properties section](../Materials_O/#properties)
 `keywords`         | list[string] |          | [see keywords section below](../Materials_O/#keywords)
 `source`           | string       |          | source of material
-`lot_num`          | string       |          | lot number
+`lot_number`       | string       |          | lot number
 `store`            | dict         |          | storage conditions
 `store\temp`       | double       | degC     | storage temperature
 `store\time_num`   | double       | min      | storage time 
@@ -114,6 +111,7 @@ Mixtures are supported in this section by appending to list of identifiers.
 #### Primary Identifiers
 Key                  | Data Type      | Required    | Description
 -------------        |---------       | ---------   |----
+`mat_id`             | objectId()     | required    | id that is used to link to properties
 `names`              | list[string]   | required    | Any name for the material
 `cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
 `smiles`             | string         | optional    | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
@@ -127,6 +125,7 @@ Properties consist of the following structure:
 
 ```json
 {
+  "mat_id": objectID,
   "key": string, 
   "method": string, 
   "value": double, 
@@ -145,7 +144,7 @@ Key              | Method    |Range                |Units      |Description
 ----------       |---------              |------               |--------   |---------
 `ref_index`      | []                    | [0, 1.79e+308]      | None      | a dimensionless number that describes how fast light travels through the material.
 `density`        | []                    | [0, 1.79e+308]      | None      | the amount of substance that fit within a unit of volume.
-`mw`             | ['nmr', 'ms']      | [0, 1.79e+308]      | g/mol     | molecular weight 
+`mw`             | ['nmr', 'ms']         | [0, 1.79e+308]      | g/mol     | molecular weight 
 `conc`           | []                    | [0, 1.79e+308]      | M         | concentration
 `bp`             | []                    | [-273.15, 1.79E308] | degC      | boiling temperature
 `mp`             | []                    | [-273.15, 1.79E308] | degC      | melting temperature
