@@ -97,17 +97,35 @@ Key                | Data Type    | Description
 ### Ingredients
 
 Ingredients are originally defined as a [material node](../data-models/Materials_P.md) and linked here. A minimum of 1
-quantity is required. List of supported quantities (quant), units and valid ranges. Units are not stored as all values are converted to database standard prior to storage.
+quantity is required, and `type` is optional. List of supported quantities (quant), units and valid ranges. 
+Units are not stored as all values are converted to database standard prior to storage.
 
 ```json
 {
   "_id": objectId(),
   "name": string,
+  "type": string,
   "quantities": [
     {"key": string, "value": double, "uncer": double}
   ]
 }
 ```
+
+
+type         | Description
+-----        | ----
+monomer      | the major chemical to be incorporated into a repeating unit of a polymer
+polymer      | a substance that consists of a large number of similar units bonded together
+initiator    | a substance which starts the growth of a polymer
+catalyst     | a substance that increases the rate of a chemical reaction
+solvent      | an inert liquid that facilitates a reaction  
+cta          | chain transfer agent, a substance added to the reaction resulting in the exchange of the propagating site 
+quench       | a substance which terminates the chemical reaction
+reagent      | a substance that reacts in a chemical reaction
+other        | catch-all category 
+
+
+
 
 Key                | Units      | Range          | Description
 -------------      |----------- | ----           |-----------
@@ -143,7 +161,8 @@ defined attributes which begin with a `+`.
 `time`                | min       | time
 `temperature`         | degC      | temperature
 `pressure`            | kPa       | pressure (absolute)
-
+`inert`               |           | bool [1 - inert, 0 - Not inert]; reaction occurred under an inert atmosphere (N2, Ar)
+ 
 
 ### Properties
 

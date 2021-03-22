@@ -140,17 +140,19 @@ The range bound is limited to the largest number that can be stored in 64 bits (
 Units are not stored for officially supported data as all official values are converted to database standard prior to storage
 
 
-Key              | Method    |Range                |Units      |Description
-----------       |---------              |------               |--------   |---------
-`ref_index`      | []                    | [0, 1.79e+308]      | None      | a dimensionless number that describes how fast light travels through the material.
-`density`        | []                    | [0, 1.79e+308]      | None      | the amount of substance that fit within a unit of volume.
-`mw`             | ['nmr', 'ms']         | [0, 1.79e+308]      | g/mol     | molecular weight 
-`conc`           | []                    | [0, 1.79e+308]      | M         | concentration
-`bp`             | []                    | [-273.15, 1.79E308] | degC      | boiling temperature
-`mp`             | []                    | [-273.15, 1.79E308] | degC      | melting temperature
-`vis`            | ['viscometer']        | [0, 1.79e+308]      | dl/g      | viscosity
-
-
+Key              | Method                |Range                    |Units      |Description
+----------       |---------              |------                   |--------   |---------
+`ref_index`      | []                    | [0, 1.79e+308]          | None      | a dimensionless number that describes how fast light travels through the material.
+`density`        | []                    | [0, 1.79e+308]          | None      | the amount of substance that fit within a unit of volume.
+`mw`             | ['nmr', 'ms']         | [0, 1.79e+308]          | g/mol     | molecular weight 
+`conc`           | []                    | [0, 1.79e+308]          | M         | concentration
+`bp`             | []                    | [-273.15, 1.79E308]     | degC      | boiling temperature
+`mp`             | []                    | [-273.15, 1.79E308]     | degC      | melting temperature
+`vis`            | ['viscometer']        | [0, 1.79e+308]          | dl/g      | viscosity
+`ph`             | []                    | [-1.79E308, 1.79E308]   | None      | potential of hydrogen
+`pka`            | []                    | [-1.79E308, 1.79E308]   | None      | negative base^-10^ logarithm of the acid dissociation constant
+`pkb`            | []                    | [-1.79E308, 1.79E308]   | None      | negative base^-10^ logarithm of the base dissociation constant
+ 
 #### Attribute for Properties
 
 Key              | Data Type     |Description
@@ -169,10 +171,13 @@ Key              | Data Type     |Description
 
 Keywords are an optional field that allow users to classify the experiment. Selecting multiple keywords is allowed.
 
-* monomer
-* initiator
-* catalyst
-* solvent
+* monomer      || the major chemical to be incorporated into a repeating unit of a polymer
+* polymer      || a substance that consists of a large number of similar units bonded together
+* initiator    || a substance which starts the growth of a polymer
+* catalyst     || a substance that increases the rate of a chemical reaction
+* solvent      || an inert liquid that facilitates a reaction  
+* cta          || chain transfer agent, a substance added to the reaction resulting in the exchange of the propagating site 
+* quench       || a substance which terminates the chemical reaction
 ---
 * olefin
 * styrene  

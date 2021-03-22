@@ -11,7 +11,7 @@ The 'group' node contains data related to a group. Example of groups are MIT, Ci
     * name
 * optional information
     * collection  (CRIPT node)
-    * child group (CRIPT node)
+    * parent group (CRIPT node)
     * publication (CRIPT node)
     * website
     * email
@@ -76,9 +76,9 @@ Key                   | Data Type       | Description
 `collection\_id`      | objectId()      | id of collection
 `collection\name`     | string          | name of collection
 `collection\date`     | datetime        | date of collection
-`child_group`         | list[dict]      | [child group](../data-models/Groups.md)
-`child_group\_id`     | objectId()      | id of child group
-`child_group\name`    | string          | name of child group
+`parent_group`        | list[dict]      | [parent group](../data-models/Groups.md)
+`parent_group\_id`    | objectId()      | id of parent group
+`parent_group\name`   | string          | name of parent group
 `publication`         | list[dict]      | [publications the user authored](../data-models/Publications.md)
 `publication\_id`     | objectId()      | id of publication
 `publication\title`   | string          | title of publication

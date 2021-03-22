@@ -111,7 +111,7 @@ Key                  | Data Type      | Required    | Description
 `names`              | list[string]   | required    | Any name for the material
 `cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
 `bigsmiles`          | string         | optional    | [bigSMILES Line Notation](https://olsenlabmit.github.io/BigSMILES/docs/line_notation.html#the-bigsmiles-line-notation)
-`chem_repeat`        | string         | optional    | chemical formula of repeating unit, Ex. polystyrene: "C8H8"
+`chem_repeat`        | list[string]   | optional    | chemical formula of repeating unit, Ex. polystyrene: "C8H8"
 `smiles`             | string         | optional    | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
 `chem_form`          | string         | optional    | chemical formula, Ex. benzene: "C6H6"
 

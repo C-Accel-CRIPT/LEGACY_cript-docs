@@ -13,6 +13,7 @@ markdown_extensions:
     permalink: True
 - pymdownx.highlight
 - pymdownx.superfences
+- pymdownx.caret
 
 repo_url:
 
