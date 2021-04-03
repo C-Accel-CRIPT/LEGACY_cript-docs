@@ -24,6 +24,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\docs\convert_to_docx.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\docs\data-models\Collections.md">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\docs\data-models\Data.md">
           <value>
             <Attribute>

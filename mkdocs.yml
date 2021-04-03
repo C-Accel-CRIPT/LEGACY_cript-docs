@@ -14,6 +14,7 @@ markdown_extensions:
 - pymdownx.highlight
 - pymdownx.superfences
 - pymdownx.caret
+- pymdownx.tilde
 
 repo_url:
 

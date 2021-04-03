@@ -27,8 +27,8 @@ that no longer have write or append options.
 * auto generate/update:
     * _id
     * class
-    * ver_sch
-    * ver_con (& all child) <-- update with version control node
+    * version_schema
+    * version_control (& all child) <-- update with version control node
     * date (& all child)
 
 

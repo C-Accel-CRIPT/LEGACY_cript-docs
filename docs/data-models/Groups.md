@@ -5,7 +5,7 @@ The 'group' node contains data related to a group. Example of groups are MIT, Ci
 
 **Features:**
 
-* groups within groups are allowed
+* groups within groups are allowed (max depth 20)
 * groups can reference groups, collections, publications
 * required information  
     * name
@@ -19,8 +19,8 @@ The 'group' node contains data related to a group. Example of groups are MIT, Ci
 * auto generate/update:
     * _id
     * class
-    * ver_sch
-    * ver_con (& all child) <-- update with version control node
+    * version_schema
+    * version_control (& all child) <-- update with version control node
     * date (& all child)
 
   

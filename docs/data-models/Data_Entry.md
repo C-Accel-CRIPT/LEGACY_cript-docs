@@ -7,7 +7,7 @@ The data schema consists of 4 main nodes:
 * **Material:** contains identity and property data for a chemical
 * **Process:** contains ingredient list, quantities, and procedure information
 * **Sample:** contains procedure and property information
-* **Data:** contains data related to raw or processed data
+* **Data:** contains raw or processed data
 
 These 4 nodes contain all the relevant polymer information. The fifth node 'models' contains functions which 
 transform raw data to processed data or properties.  
@@ -25,11 +25,11 @@ will be a process node. In this case, it will be a polymerization node. The poly
 those initial material nodes as well as the quantities of each material used in the polymerization. The polymerization node
 will also contain details for the process in the form of a paragraph, or a list of process parameters. For the anionic polymerization,
 this can be details about the order of addition of the chemicals, reaction time, temperature, etc. In the case when data is
-taken about a process, a link to data node can be made. Something like polymerization kinetics where concentration or MW is monitored over time.
+taken about a process, a link to data node can be made. Something like polymerization kinetics where concentration or molecular weight is monitored over time.
 The third node to be defined is another material node, or product of the process. Polystyrene in this case. 
 The process node will link to this product material node. Any characterization data from aliquots can be added through a data node.
 The material node will link to the relevant data nodes. In our example, SEC raw data or NMR spectra can be found in the data nodes,
-while the calculated values like Mn, Mw, Mw/Mn, etc. would be found in the property section of the polystyrene node.
+while the calculated values like M~n~, M~w~, M~w~/M~n~, etc. would be found in the property section of the polystyrene node.
 
 The synthesis for the second block, polybutadiene, continues with the definition of the butadiene material node. 
 This can be followed by the definition of a second polymerization node which will point to the product of the whole process, 
@@ -53,8 +53,8 @@ organizational nodes:
 
 * **User:** contains information about an individual using the database
 * **Group:** contains information about group and ownership of collections and experiments lies with groups
-* **Publication:** contains a collections which embodies a literature publication
 * **Collection:** are groups of experiments or other collections
+* **Publication:** contains collections which embodies a literature publication
 * **Experiment:** are a set of Process, Material, Sample, Data nodes
 
 It also adds to locations to handle data and models:

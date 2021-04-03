@@ -22,8 +22,8 @@ molecular weight distribution, or stress-strain curve.
 * auto generate/update:
     * _id
     * class
-    * ver_sch
-    * ver_con (& all child) <-- update with version control node
+    * version_schema
+    * version_control (& all child) <-- update with version control node
     * date (& all child)
   
 
@@ -103,7 +103,7 @@ Key                     | Data Type       | Description
 `data/row_head`         | list            | labels for rows (order should match data)
 `data/col_unit`         | list            | units for columns (order should match data)
 `data/row_unit`         | list            | units for rows (order should match data)
-`histroy`               | dict            | data history (feature under construction)
+`history`               | dict            | data history (feature under construction)
 `note`                  | string          | free-form space to store any text
 
 

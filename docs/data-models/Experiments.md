@@ -16,8 +16,8 @@ set of processes. For non-linear processes (like running multiple reactions for 
 * auto generate/update:
     * _id
     * class
-    * ver_sch
-    * ver_con (& all child) <-- update with version control node
+    * version_schema
+    * version_control (& all child) <-- update with version control node
     * date (& all child)
   
 **App features to support this node:**

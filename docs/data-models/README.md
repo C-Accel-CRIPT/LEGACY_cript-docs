@@ -10,7 +10,7 @@ Having accessible well-structured data is the foundation of cheminformatics. The
 structures with the wide range of characterization techniques and properties poses significant challenges in the 
 formation of databases. This has led to several small, disparate data sets. The data structure presented here provides a
 universal system to capture all relevant polymer data in a manner optimized for large databases. It is designed to allow 
-anyone to contribute for the benefit of the polymer community; with to goal to ultimately accelerating the pace of material innovation.
+anyone to contribute for the benefit of the polymer community; with the goal to ultimately accelerating the pace of material innovation.
 
 **Value Proposition:**
 
@@ -80,7 +80,7 @@ a means to transform data.
 Data Model refers to a specific implementation of a data schema into a database. A data model includes additional 
 consideration with regard to app design, hardware use, and additional features. 
 
-CRIPT's data model is an explict embodiment of the data schema for a document based database, 
+CRIPT's data model is an explicit embodiment of the data schema for a document based database, 
 specifically [Mongodb](https://www.mongodb.com/). The current data model is structured as a directed acyclic graph (DAG).
 
 ![Data_Schema](../img/directed_data_model.svg)

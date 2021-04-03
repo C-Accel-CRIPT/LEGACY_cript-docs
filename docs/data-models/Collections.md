@@ -1,22 +1,24 @@
 # Collections
 
-The 'collection' node also for the grouping of experiments.
+The 'collection' node also for the grouping of experiments. Their purpose is to provide a hierarchical organization
+to non-linear, but related, processes (like running multiple reactions for optimizations, kinetics, etc.). For linear
+processes (like block copolymer synthesis) consider grouping it within a single experiment. 
 
 **Features:**
 
-* collections within collections are allowed
+* collections within collections are allowed (max depth 20)
 * collection can reference experiments, collections
 * required information
     * name
 * optional information
     * experiments (CRIPT node)
-    * child collection (CRIPT node)
+    * child collection (CRIPT node) 
     * notes
 * auto generate/update:
     * _id
     * class
-    * ver_sch
-    * ver_con (& all child) <-- update with version control node
+    * version_schema
+    * version_control (& all child) <-- update with version control node
     * date (& all child)
     * numb_expt 
 

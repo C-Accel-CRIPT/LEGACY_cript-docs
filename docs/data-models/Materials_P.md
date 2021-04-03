@@ -1,7 +1,8 @@
 # Materials - Polymer
 
 The 'material' node contains identity and property data for a chemical. This material node is specifically tailored for polymers or
-mixtures containing polymers.
+mixtures containing polymers. The major changes when compared to `Materials - Other` are in the Identifier, Properties, and Keywords sections. 
+The fundamental structure of the node is identical.
 
 **Features:**
 
@@ -21,8 +22,8 @@ mixtures containing polymers.
 * auto generate/update:
     * _id
     * class
-    * ver_sch
-    * ver_con (& all child) <-- update with version control node
+    * version_schema
+    * version_control (& all child) <-- update with version control node
     * **sample properties**
 
 **App features to support this node:**
@@ -114,6 +115,9 @@ Key                  | Data Type      | Required    | Description
 `chem_repeat`        | list[string]   | optional    | chemical formula of repeating unit, Ex. polystyrene: "C8H8"
 `smiles`             | string         | optional    | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
 `chem_form`          | string         | optional    | chemical formula, Ex. benzene: "C6H6"
+`pubChem_id`         | string         | optional    | [PubChem ID](https://pubchem.ncbi.nlm.nih.gov/)
+`inchi`              | string         | optional    | IUPAC International Chemical Identifier [InChI](https://iupac.org/who-we-are/divisions/division-details/inchi/)
+`inchi_key`          | string         | optional    | a hashed version of the full InChI 
 
 ### Properties
 
@@ -196,26 +200,51 @@ Key                | Description
 ----------         | ----
 `nmr`              | Nuclear Magnetic Resonance
 `sec`              | Size Exclusion Chromatography
+`gc`               | Gas Chromatography
+`chrom`            | General Chromatography
 `ms`               | General Mass Spectrometry
 `maldi`            | Matrix Assisted Laser Desorption Ionization
 `ultra_centr`      | Ultra Centrifugation
 `osmtic_pres`      | Osmotic Pressure
+`calorimetry`      | Calorimetry
+
+`viscometer`       | Viscometer
+`utm`              | Universal Testing Machine
+`dma`              | Dynamic Mechanical Analysis
+
+`dsc`              | Differential Scanning Calorimetry
+`tga`              | Thermogravimetric Analysis
+
+`raman`            | Raman spectroscopy
+`ir`               | Infrared spectroscopy
+`uv_vis`           | Ultraviolet–visible spectroscopy
+`x_ray`            | X_ray spectroscopy
+
+`saxs`             | Small-angle x-ray scattering
+`waxs`             | Wide-angle x-ray scattering
+`neutron`          | Neutron scattering
 `ls`               | Static Light Scattering
 `dls`              | Dynamic Light Scattering
-`viscometer`       | Viscometer
-`calorimetry`      | Calorimetry
-`utm`              | Universal Testing Machine
+
+`confocal`         | Confocal microscopy
+`afm`              | Atomic force microscopy
+`tem`              | Transmission electron microscopy
+`sem`              | Scanning electron microscopy
+
 `comp`             | Computation or Simulation
 
 ### Keywords
 
-Keywords are an optional field that allow users to classify the experiment. Selecting multiple keywords is allowed.
+Keywords are an optional field that allow users to classify the material. Selecting multiple keywords is allowed.
 
 * thermoset
-* thermoplastic
+* thermoplasti
+* semicrystalline
+* elstomer
 ---
-* polyester
 * polyolefin
+  polyvinyl
+* polyester
 * polyurethane
 * polyamide
 * polycarbonate
@@ -223,7 +252,9 @@ Keywords are an optional field that allow users to classify the experiment. Sele
 * polyacylate
 * conjugated_polymer
 ---  
+* homopolymer
 * copolymer
+* random  
 * block
 * alternating
 * gradient
@@ -242,6 +273,15 @@ Keywords are an optional field that allow users to classify the experiment. Sele
 * bottlebrush
 * hyperbranch
 * network
+---
+* polymer_blend
+* composite
+
+
+
+
+
+
 
 ---
 

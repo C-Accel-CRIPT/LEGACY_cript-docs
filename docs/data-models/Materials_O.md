@@ -1,7 +1,8 @@
 # Materials - other
 
 The 'material' node contains identity and property data for a chemical. This material node is specifically tailored for small molecules 
-and inorganics.
+and inorganics. The major changes when compared to `Materials - Polymers` are in the Identifier, Properties, and Keywords sections. 
+The fundamental structure of the node is identical.
 
 **Features:**
 
@@ -21,8 +22,8 @@ and inorganics.
 * auto generate/update:
     * _id
     * class
-    * ver_sch
-    * ver_con (& all child) <-- update with version control node
+    * version_schema
+    * version_control (& all child) <-- update with version control node
   
 **App features to support this node:**
 
@@ -113,11 +114,12 @@ Key                  | Data Type      | Required    | Description
 -------------        |---------       | ---------   |----
 `mat_id`             | objectId()     | required    | id that is used to link to properties
 `names`              | list[string]   | required    | Any name for the material
-`cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
-`smiles`             | string         | optional    | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
 `chem_form`          | string         | optional    | chemical formula, Ex. benzene: "C6H6"
-
-
+`smiles`             | string         | optional    | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
+`cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
+`pubChem_id`         | string         | optional    | [PubChem ID](https://pubchem.ncbi.nlm.nih.gov/)
+`inchi`              | string         | optional    | IUPAC International Chemical Identifier [InChI](https://iupac.org/who-we-are/divisions/division-details/inchi/)
+`inchi_key`          | string         | optional    | a hashed version of the full InChI 
 
 ### Properties
 
@@ -169,7 +171,7 @@ Key              | Data Type     |Description
 
 ### Keywords
 
-Keywords are an optional field that allow users to classify the experiment. Selecting multiple keywords is allowed.
+Keywords are an optional field that allow users to classify the material. Selecting multiple keywords is allowed.
 
 * monomer      || the major chemical to be incorporated into a repeating unit of a polymer
 * polymer      || a substance that consists of a large number of similar units bonded together
@@ -178,6 +180,7 @@ Keywords are an optional field that allow users to classify the experiment. Sele
 * solvent      || an inert liquid that facilitates a reaction  
 * cta          || chain transfer agent, a substance added to the reaction resulting in the exchange of the propagating site 
 * quench       || a substance which terminates the chemical reaction
+* reagent      || a substance which is chemical reacts during the course of the process
 ---
 * olefin
 * styrene  
@@ -211,6 +214,10 @@ Keywords are an optional field that allow users to classify the experiment. Sele
 * diacid chloride
 
 ---
+* filler
+* matrix
+
+
 
 ## Example
 

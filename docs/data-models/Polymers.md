@@ -6,17 +6,18 @@ This lack of a single identifier provides a significant challenge for large scal
 
 ![polymers](../img/polymers_data.svg)
 
-Polymers are a result of a system of stochastic reactions. This leads to distributions in chain length, composition, and topology
-making it impossible to completely represent a polymer in a single quantity. The combination of a structural description 
-(like a chemical drawing or bigSMILES), and distribution information would be required to completely define the identity of a polymer. 
-In practice, moments of distributions (average molecular weight) or ratio of composition are provided to approximately define a polymer
-as they are easier to work with and experiment obtain. Moreover, data collection methods are highly variable, typically provided relative 
-structure inform and/or use of theoretical models which requires expert knowledge to put into context. In some cases experimentally obtaining structural
+Polymers are a result of a system of stochastic reactions. This leads to distributions in chain length, composition, and 
+topology making it impossible to completely represent a polymer in a single quantity. The combination of a structural 
+description (like a chemical drawing or bigSMILES), and distribution information would be required to completely define 
+the identity of a polymer. In practice, moments of distributions (average molecular weight) or ratio of composition are 
+provided to approximately define a polymer as they are easier to work with and experimentally obtain. Moreover, 
+data collection methods are highly variable, and typically provide relative structure information and/or use of 
+theoretical models which requires expert knowledge to put into context. In some cases experimentally obtaining structural 
 information is impossible, and information from prior processing steps is needed. To complicate the matters further, 
 polymers can assemble into a wide range of structures through phenomena like phase segregation and crystallization. 
-The formation of these structures can be highly influenced by the processing conditioning under which the material was made.
-Ultimately, this makes polymer-informatics messy as data set that do not completely capture of all the relevant polymer
-data will be incapable of proving reliable data and hindering large data science efforts.
+The formation of these structures can be highly influenced by the processing conditioning under which the material was made. 
+Ultimately, this makes polymer-informatics messy as datasets that do not completely capture all the relevant polymer data 
+will be incapable of providing reliable data and hindering large data science efforts.
 
  
 
@@ -35,8 +36,8 @@ nucleic acid sequences for RNA, or amino acid sequences for proteins.
 
 ## Natural Language Processing (NLP) for polymer data
 
-Extracting polymer information with natural language processing is considerably more challenging for polymers than
-small molecules because there is no uniform nomenclature (typically generic terminology used), 
+Extracting polymer information with natural language processing is considerably is very challenging and this challenge 
+is even larger for polymers than small molecules because there is no uniform nomenclature (typically generic terminology used), 
 figures of polymer structure are extremely high variability, and ultimately a combination of figures, raw data, generic 
 terminology and expert knowledge are all needs to define a polymer structure and to put into context.  Thus, 
 hindering the generation of reliable databases from prior literature. Nevertheless, the CRIPT
@@ -57,12 +58,13 @@ characterization data. This leads to ambiguity and incompleteness in molecular s
 * Mark, J. E., Physical Properties of Polymers Handbook. Springer: 2007,  DOI: [10.1007/978-0-387-69002-5](https://doi.org/10.1007/978-0-387-69002-5).
 * CHEMnetBASE - Polymers: a Property Database. [http://poly.chemnetbase.com/faces/polymers/PolymerSearch.xhtml](http://poly.chemnetbase.com/faces/polymers/PolymerSearch.xhtml) 
 * NanoMine. [http://materialsmine.org/nm](http://materialsmine.org/nm)
-
+* Chemical Retrieval on the Web (CROW) [https://www.polymerdatabase.com/](https://www.polymerdatabase.com/)
+* Polymer Genome [https://www.polymergenome.org/](https://www.polymergenome.org/)
 
 ## Other Material Data Models
 
 The CRIPT data structure was not the first design to address the complexities of polymer material data storage. 
-PolyDAT and GEMD were both previously develop and were a large inspiration to the CRIPT data structure.  
+PolyDAT and GEMD were both previouslyed develop and were a large inspiration to the CRIPT data structure.  
 
 **PolyDAT** [J. Chem. Inf. Model. 2021, doi: 10.1021/acs.jcim.1c00028](https://pubs.acs.org/doi/10.1021/acs.jcim.1c00028)
 
@@ -73,6 +75,6 @@ document based schema that is well suited for publication supporting information
 **GEMD** [https://citrineinformatics.github.io/gemd-docs/](https://citrineinformatics.github.io/gemd-docs/)
 
 GEMD is a schema developed by [Citrine Informatics](https://citrine.io/) to model materials and associated data. 
-GEMD stands for Graphical Expression of Materials Data. The schema was designed around a data objects
-making well suited for large database projects. 
+GEMD stands for Graphical Expression of Materials Data. The schema was designed around data objects
+making it well suited for large database projects. 
 

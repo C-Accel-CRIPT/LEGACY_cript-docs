@@ -22,8 +22,8 @@ portion of a material node.
 * auto generate/update:
     * _id
     * class
-    * ver_sch
-    * ver_con (& all child) <-- update with version control node
+    * version_schema
+    * version_control (& all child) <-- update with version control node
     * date (& all child)
 
 
@@ -191,23 +191,30 @@ Key              | Method              | Range         | Units     | Description
 Keywords are an optional field that allow users to classify the experiment. Selecting multiple keywords is allowed.
 
 * synthesis
+* kinetics
 * chain_growth
+* step_growth
+* post-polymerization modification
 * living_poly
 * controlled_poly
+  
 * radical_poly
 * rop
 * romp
 * atrp
 * nmp
 * raft
-* step_growth
 * condensation
+
 ---
+
 * reactive_processing  
 * extrusion
 * blow_molding
-
-* kinetics
+* self_assembly
+* curing
+* forming
+* coating
 
 ### Process history
 
