@@ -142,7 +142,8 @@ Key                | Units      | Range          | Description
 
 Conditions are any process variable that the user would like to explicitly expose. Conditions such as temperature,
 pressure, or reaction times are examples. The conditions are stored in a dictionary. Units are only used for user
-defined attributes which begin with a `+`.
+defined attributes which begin with a `+`. For complex data sets or time series, users are encouraged to put that information
+into a data node.
 
 ```json
 {

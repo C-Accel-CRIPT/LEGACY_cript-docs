@@ -238,18 +238,20 @@ Key                | Description
 Keywords are an optional field that allow users to classify the material. Selecting multiple keywords is allowed.
 
 * thermoset
-* thermoplasti
+* thermoplastic
 * semicrystalline
-* elstomer
+* elastomer
+* amorphous
 ---
 * polyolefin
-  polyvinyl
+* polyvinyl
+* polyacylate
 * polyester
 * polyurethane
 * polyamide
 * polycarbonate
+* polyether  
 * silicone
-* polyacylate
 * conjugated_polymer
 ---  
 * homopolymer

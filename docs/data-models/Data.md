@@ -82,29 +82,27 @@ keys. Users may define their own keys by placing a '+' in front of their custom 
 Data can either be linked through `file` or placed directly in the document with `data`. `data` is restricted to #### total data points.
 total data points = row * col
 
-Key                     | Data Type       | Description
--------------           | ---------       | ----------
-`file`                  | list[dict]      | link to raw file
-`file/_id`              | objectId()      | id for file
-`file/type`             | string          | file type (ex. csv, txt, xlsm)
-`file/dis`              | string          | description
-`web_link`              | string          | raw data may be store on another website and can be linked here
-`sample_preparation`    | string          | description of sample preparation
-`equipment`             | list[dict]      | equipment or instrument details/configuration
-`equipment/_id`         | objectId()      | id for file
-`equipment/type`        | string          | file type (ex. csv, txt, xlsm)
-`equipment/description` | string          | description
-`calibration`           | list[dict]      | calibration details
-`calibration/_id`       | objectId()      | id for file
-`calibration/type`      | string          | file type (ex. csv, txt, xlsm)
-`calibration/dis`       | string          | description
-`data`                  | dict            | data information
-`data/col_head`         | list            | labels for columns (order should match data)
-`data/row_head`         | list            | labels for rows (order should match data)
-`data/col_unit`         | list            | units for columns (order should match data)
-`data/row_unit`         | list            | units for rows (order should match data)
-`history`               | dict            | data history (feature under construction)
-`note`                  | string          | free-form space to store any text
+Key                     | Data Type          | Description
+-------------           | ---------          | ----------
+`file`                  | list[dict]         | link to raw file
+`file/_id`              | objectId()         | id for file
+`file/type`             | string             | file type (ex. csv, txt, xlsm)
+`file/dis`              | string             | description
+`web_link`              | string             | raw data may be store on another website and can be linked here
+`sample_preparation`    | string             | description of sample preparation
+`equipment`             | list[dict]         | equipment or instrument details/configuration
+`equipment/_id`         | objectId()         | id for file
+`equipment/type`        | string             | file type (ex. csv, txt, xlsm)
+`equipment/description` | string             | description
+`calibration`           | list[dict]         | calibration details
+`calibration/_id`       | objectId()         | id for file
+`calibration/type`      | string             | file type (ex. csv, txt, xlsm)
+`calibration/dis`       | string             | description
+`data`                  | dict               | data information
+`data/label`            | list[list[string]] | labels for data first list is for each dimension of data [row, column, 3rd dimension, ...], the second list is for the labels in that dimension (order should match data)
+`data/unit`             | list[list[string]] | units for data first list is for each dimension of data [row, column, 3rd dimension, ...], the second list is for the labels in that dimension (order should match data)
+`history`               | dict               | data history (feature under construction)
+`note`                  | string             | free-form space to store any text
 
 
 ### Type
