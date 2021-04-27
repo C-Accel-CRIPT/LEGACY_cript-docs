@@ -163,7 +163,9 @@ into a data node.
 `temperature`         | degC      | temperature
 `pressure`            | kPa       | pressure (absolute)
 `inert`               |           | bool [1 - inert, 0 - Not inert]; reaction occurred under an inert atmosphere (N2, Ar)
- 
+`light_power`         | watt      |
+`light_wavelength`    | nm        |
+`stirring`            | rpm       | revolutions per minute for stirrer
 
 ### Properties
 
@@ -186,36 +188,51 @@ Key              | Method              | Range         | Units     | Description
 `conv_mon`       | ['nmr', 'sec']      | [0, 1.2]      | None      | how much monomer that has reacted
 `conv_init`      | ['nmr', 'sec']      | [0, 1.2]      | None      | how much initiator that has reacted
 `init_eff`       | ['nmr', 'sec']      | [0, 1.2]      | None      | The proportion of initiators that result in an active propagating species
+`selectivity`
+
 
 #### Keywords 
 
 Keywords are an optional field that allow users to classify the experiment. Selecting multiple keywords is allowed.
 
-* synthesis
-* kinetics
-* chain_growth
-* step_growth
-* post-polymerization modification
-* living_poly
-* controlled_poly
-  
-* radical_poly
-* rop
-* romp
-* atrp
-* nmp
-* raft
-* condensation
-
----
-
-* reactive_processing  
-* extrusion
-* blow_molding
-* self_assembly
-* curing
-* forming
-* coating
+Keyword                         | Description  
+----                            | ----
+** chemical transformations **  |
+polymerization                  | a chemical reaction that convert monomer(s) to a polymer
+kinetics                        | an experiment were multiple data points are take over a span of time
+chain_growth                    | [chain growth polymerization](https://en.wikipedia.org/wiki/Chain-growth_polymerization)
+step_growth                     | [step-growth polymerization](https://en.wikipedia.org/wiki/Step-growth_polymerization)
+post_poly_mod                   | a chemical reaction preformed on a polymer to modify the chemical functionality
+living_poly                     | [living polymerization](https://en.wikipedia.org/wiki/Living_polymerization)
+controlled_poly                 | a polymerization that produce narrowly dispersed polymers (Ð<1.2)
+immortal_poly                   | a polymerization where chain transfer reaction and termination is reversible 
+||
+radical_poly                    | [Free radical polymerization](https://en.wikipedia.org/wiki/Radical_polymerization)
+rop                             | [ring-opening polymerization](https://en.wikipedia.org/wiki/Ring-opening_polymerization) (excluding ROMP)
+romp                            | [ring-opening metathesis polymerization](https://en.wikipedia.org/wiki/Ring-opening_metathesis_polymerisation)
+atrp                            | [atom transfer radical polymerization](https://en.wikipedia.org/wiki/Atom_transfer_radical_polymerization)
+nmp                             | [nitroxide-mediated radical polymerization](https://en.wikipedia.org/wiki/Nitroxide-mediated_radical_polymerization)
+raft                            | [reversible addition−fragmentation chain-transfer polymerization](https://en.wikipedia.org/wiki/Reversible_addition%E2%88%92fragmentation_chain-transfer_polymerization)
+anionic                         | [anionic addition polymerization](https://en.wikipedia.org/wiki/Anionic_addition_polymerization)
+cationic                        | [cationic polymerization](https://en.wikipedia.org/wiki/Cationic_polymerization)
+insertion                       | [coordination insertion polymerization](https://en.wikipedia.org/wiki/Coordination_polymerization)
+lewis-pairs                     | a polymerization that employs a Lewis acid and a Lewis base to activate/initiate the polymerization
+group-transfer                  | a polymerization that proceeds through the repetitive Michael addition
+||
+bulk                            | [bulk polymerization](Bulk polymerization)
+emulsion                        | [emulsion polymerization](https://en.wikipedia.org/wiki/Emulsion_polymerization)
+suspension                      | [suspension polymerization](https://en.wikipedia.org/wiki/Suspension_polymerization)
+solution                        | [solution polymerization](https://en.wikipedia.org/wiki/Solution_polymerization)
+interfacial                     | [interfacial polymerization](https://en.wikipedia.org/wiki/Interfacial_polymerization)
+** physical transformations **  |
+reactive_processing             |
+extrusion                       |
+blow_molding                    |
+self_assembly                   |
+curing                          |
+forming                         |
+coating                         |
+annealing                       |
 
 ### Process history
 

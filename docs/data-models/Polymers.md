@@ -36,7 +36,10 @@ nucleic acid sequences for RNA, or amino acid sequences for proteins.
 
 ## Natural Language Processing (NLP) for polymer data
 
-Extracting polymer information with natural language processing is considerably is very challenging and this challenge 
+With almost a 100 years of exploration into polymers, the scientific community has amassed vast amounts of data; 
+however this data is mostly locked up in journal articles and scientific reports which are not accessible for big data applications. 
+To get access to this data, CRIPT is in the midst of developing a new AI text-based extraction tools. 
+Extracting polymer information with natural language processing (NLP) is very challenging and this challenge 
 is even larger for polymers than small molecules because there is no uniform nomenclature (typically generic terminology used), 
 figures of polymer structure are extremely high variability, and ultimately a combination of figures, raw data, generic 
 terminology and expert knowledge are all needs to define a polymer structure and to put into context.  Thus, 
@@ -54,7 +57,7 @@ characterization data. This leads to ambiguity and incompleteness in molecular s
 * Bicerano, J., Prediction of Polymer Properties, 3rd Edition. CRC Press: 2002, DOI: [10.1201/9780203910115](https://doi.org/10.1201/9780203910115).
 * Brandrup, J.; Immergut, E. H.; Grulke, E. A.; Abe, A.; Bloch, D. R., [Polymer Handbook](https://www.wiley.com/en-us/Polymer+Handbook%2C+2+Volumes+Set%2C+4th+Edition-p-9780471479369). Wiley New York: 1999.
 * Polymer Property Predictor and Database. [http://pppdb.uchicago.edu/](http://pppdb.uchicago.edu/) 
-* Otsuka, S.; Kuwajima, I.; Hosoya, J.; Xu, Y.; Yamazaki, M. PoLyInfo: Polymer Database for Polymeric Materials Design. 2011, IEEE, 22– 29, DOI: [10.1109/EIDWT.2011.13](10.1109/EIDWT.2011.13).
+* Otsuka, S.; Kuwajima, I.; Hosoya, J.; Xu, Y.; Yamazaki, M. [PoLyInfo](https://polymer.nims.go.jp/en/): Polymer Database for Polymeric Materials Design. 2011, IEEE, 22– 29, DOI: 10.1109/EIDWT.2011.13.
 * Mark, J. E., Physical Properties of Polymers Handbook. Springer: 2007,  DOI: [10.1007/978-0-387-69002-5](https://doi.org/10.1007/978-0-387-69002-5).
 * CHEMnetBASE - Polymers: a Property Database. [http://poly.chemnetbase.com/faces/polymers/PolymerSearch.xhtml](http://poly.chemnetbase.com/faces/polymers/PolymerSearch.xhtml) 
 * NanoMine. [http://materialsmine.org/nm](http://materialsmine.org/nm)

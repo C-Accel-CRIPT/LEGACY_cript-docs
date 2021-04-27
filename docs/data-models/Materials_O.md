@@ -1,221 +1,132 @@
 # Materials - other
 
 The 'material' node contains identity and property data for a chemical. This material node is specifically tailored for small molecules 
-and inorganics. The major changes when compared to `Materials - Polymers` are in the Identifier, Properties, and Keywords sections. 
-The fundamental structure of the node is identical.
+and inorganics. The node is fundamental identical to ['Materials - Polymers'](../Materials_P) except for the keys in the Identifiers, Properties, and Keywords sections. 
+
 
 **Features:**
 
-* material node points to data, and sample nodes 
-* required information  
-    * name
-    * identity
-* optional information
-    * data (CRIPT nodes)
-    * sample (CRIPT nodes)
-    * property
-    * keywords
-    * source
-    * lot_num
-    * storage conditions
-    * notes
-* auto generate/update:
-    * _id
-    * class
-    * version_schema
-    * version_control (& all child) <-- update with version control node
-  
-**App features to support this node:**
-
-* allow additional optional information in `iden`, `prop` section given that it begins with +
-* units are not stored for officially supported data as all official values are converted to database standard prior to storage
+Same as [material node for polymer](../Materials_P)
 
 
 ## JSON Schema
 
-```json
-{
-  "_id": objectId(),
-  "class": "material_o",
-  "version_schema": string,
-  "version_control": {
-    "_id": objectId(),
-    "num": string
-  },
-  "date_created": datetime,
-  "date_last_mod": datetime,
-  "name": string,
-  "identifiers": {"see identifiers": "for details"},
-  "optional attributes"
-}
-```
+Same as [material node for polymer](../Materials_P/#json-schema)
 
----
 
 ## Description
 
-Key                   |Data Type     |Required  |Description
--------------         |---------     |------    |----
-`_id`                 |<span style="color:rgb(0, 72, 189)"> objectId() </span>   | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  unique database id  </span>
-`class`               |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  class of node; "material_p"  </span>
-`version_schema`      |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  schema version; Ex: "v0.1"  </span>
-`version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
-`version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
-`version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
-`name`                | string        | required  | name of chemical
-`identifiers`         | list[dict]    | required  | [see identifiers section](../Materials_O/#identifiers)
+Same as [material node for polymer](../Materials_P/#description); except for identifiers.
+
 
 ### Attributes
 
-Attributes are optional properties that can be associated with this node. The following list is the officially supported
-keys. Users may define their own keys by placing a '+' in front of their custom key.
+Same as [material node for polymer](../Materials_P/#attributes); except for properties and keywords.
 
-Key                | Data Type    | Units    | Description
--------------      |---------     |------    | ----
-`sample`           | list[dict]   |          | [sample node](../data-models/Sample.md)
-`sample/_id`       | objectId()   |          | id of data
-`sample/name`      | string       |          | name of data
-`data`             | list[dict]   |          | [data node](../data-models/Data.md)
-`data/_id`         | objectId()   |          | id of data
-`data/name`        | string       |          | name of data
-`data/type`        | string       |          | type of data
-`properties`       | list[dict]   |          | [see properties section](../Materials_O/#properties)
-`keywords`         | list[string] |          | [see keywords section below](../Materials_O/#keywords)
-`source`           | string       |          | source of material
-`lot_number`       | string       |          | lot number
-`store`            | dict         |          | storage conditions
-`store\temp`       | double       | degC     | storage temperature
-`store\time_num`   | double       | min      | storage time 
-`store\notes`      | string       |          | notes related to storage  
-`note`             | string       |          | free-form space to store any text
+[see 'other material' properties section](../Materials_O/#properties)
 
+[see 'other material' keywords section](../Materials_O/#keywords)
 
 
 ### Identifiers
 
-Identifiers are chemical descriptors or unique ids which speaks to the chemical structure. Providing as many 
-identifiers as possible great facilitate the findability of the associated data. Additionally, if sufficiently many 
-identifiers are provided, the polymer ensemble can be constructed from these values.
-Mixtures are supported in this section by appending to list of identifiers.
+A similar structure to [material node for polymer](../Materials_P/#identifiers); except for keys.
 
-```json
-[
-  {
-    'Key': value,
-    'Key': value
-  }
-]
-```
 
-#### Primary Identifiers
 Key                  | Data Type      | Required    | Description
 -------------        |---------       | ---------   |----
-`mat_id`             | objectId()     | required    | id that is used to link to properties
-`names`              | list[string]   | required    | Any name for the material
+`mat_id`             | objectId()     | required    | id that is used to link to properties (auto-generated)
+`pref_name`          | string         | required    | Preferred name 
+`names`              | list[string]   | optional    | Additional names, abbreviations, short hands for the material
 `chem_form`          | string         | optional    | chemical formula, Ex. benzene: "C6H6"
 `smiles`             | string         | optional    | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
-`cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
+`cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-chemicals)
 `pubChem_id`         | string         | optional    | [PubChem ID](https://pubchem.ncbi.nlm.nih.gov/)
 `inchi`              | string         | optional    | IUPAC International Chemical Identifier [InChI](https://iupac.org/who-we-are/divisions/division-details/inchi/)
 `inchi_key`          | string         | optional    | a hashed version of the full InChI 
 
 ### Properties
 
-Properties consist of the following structure:
-
-```json
-{
-  "mat_id": objectID,
-  "key": string, 
-  "method": string, 
-  "value": double, 
-  "uncer": double, 
-  "unit": string,
-  "data": {"_id": ObjectID, "name": string, "type": string}, 
-  "note": "string"
-}
-```
-
-The range bound is limited to the largest number that can be stored in 64 bits (1.79e+308).
-Units are not stored for officially supported data as all official values are converted to database standard prior to storage
+A similar structure to [material node for polymer](../Materials_P/#properties); except for keys.
 
 
-Key              | Method                |Range                    |Units      |Description
-----------       |---------              |------                   |--------   |---------
-`ref_index`      | []                    | [0, 1.79e+308]          | None      | a dimensionless number that describes how fast light travels through the material.
-`density`        | []                    | [0, 1.79e+308]          | None      | the amount of substance that fit within a unit of volume.
-`mw`             | ['nmr', 'ms']         | [0, 1.79e+308]          | g/mol     | molecular weight 
-`conc`           | []                    | [0, 1.79e+308]          | M         | concentration
-`bp`             | []                    | [-273.15, 1.79E308]     | degC      | boiling temperature
-`mp`             | []                    | [-273.15, 1.79E308]     | degC      | melting temperature
-`vis`            | ['viscometer']        | [0, 1.79e+308]          | dl/g      | viscosity
-`ph`             | []                    | [-1.79E308, 1.79E308]   | None      | potential of hydrogen
-`pka`            | []                    | [-1.79E308, 1.79E308]   | None      | negative base^-10^ logarithm of the acid dissociation constant
-`pkb`            | []                    | [-1.79E308, 1.79E308]   | None      | negative base^-10^ logarithm of the base dissociation constant
- 
-#### Attribute for Properties
+Key              | Method                | Range                   | Units    | Conditions                | Description
+----------       |---------              |------                   |--------  |                           |---------
+`phase`          | []                    | [solid, liquid, gas]    | None     |                           | state of matter
+`color`          | []                    | string                  | None     |                           | the visual appearance of the chemical 
+`odor`           | []                    | string                  | None     |                           | a description of the smell of the chemical
+`ref_index`      | []                    | [0, 1.79e+308]          | None     | temperature               | a dimensionless number that describes how fast light travels through the material.
+`density`        | []                    | [0, 1.79e+308]          | None     | temperature and pressure  | the amount of chemical that fit within a unit of volume.
+`mw`             | ['nmr', 'ms']         | [0, 1.79e+308]          | g/mol    |                           | molecular weight 
+`conc`           | []                    | [0, 1.79e+308]          | M        |                           | concentration
+`bp`             | []                    | [-273.15, 1.79E308]     | degC     | pressure                  | boiling temperature
+`mp`             | []                    | [-273.15, 1.79E308]     | degC     |                           | melting temperature
+`flash`          | []                    | [-273.15, 1.79E308]     | degC     |                           | flash point, the temperature at a which a chemical gives off sufficient vapor to ignite
+`ignite`         | []                    | [-273.15, 1.79E308]     | degC     |                           | autoignition temperature
+`decomp`         | []                    | [-273.15, 1.79E308]     | degC     |                           | decomposition temperature
+`vis`            | ['viscometer']        | [0, 1.79e+308]          | dl/g     | temperature               | viscosity
+`ph`             | []                    | [-1.79E308, 1.79E308]   | None     |                           | potential of hydrogen
+`pka`            | []                    | [-1.79E308, 1.79E308]   | None     |                           | negative base^-10^ logarithm of the acid dissociation constant
+`pkb`            | []                    | [-1.79E308, 1.79E308]   | None     |                           | negative base^-10^ logarithm of the base dissociation constant
+`solubility`     | []                    | [0, 1.79E308]           | mg/mL    | temperature and solvent (use id_)  | the ability to dissolve
+`heat_vap`       | []                    | [0, 1.79E308]           | kj/mol   | temperature               | heat of vaporization
+`surface_ten`    | []                    | [0, 1.79E308]           | N/m      | temperature               | surface tension
 
-Key              | Data Type     |Description
-----------       |---------      |----
-`ref`            |               | [publication node](../data-models/Publications.md) that was a reference for this experiment
-`ref\_id`        | objectId()    | id for reference
-`ref\title`      | string        | reference title
-`ref\notes`      | string        | for non-publication reference enter the information here      
-`data`           |               | [data](../data-models/Data.md)
-`data\_id`       | objectId()    | id for data node
-`data\key`       | string        | key for data
-`names`          | list[string]  | additional names for property
-`unit`           | string        | unit are only applicable to user defined values
+
 
 ### Keywords
 
 Keywords are an optional field that allow users to classify the material. Selecting multiple keywords is allowed.
 
-* monomer      || the major chemical to be incorporated into a repeating unit of a polymer
-* polymer      || a substance that consists of a large number of similar units bonded together
-* initiator    || a substance which starts the growth of a polymer
-* catalyst     || a substance that increases the rate of a chemical reaction
-* solvent      || an inert liquid that facilitates a reaction  
-* cta          || chain transfer agent, a substance added to the reaction resulting in the exchange of the propagating site 
-* quench       || a substance which terminates the chemical reaction
-* reagent      || a substance which is chemical reacts during the course of the process
----
-* olefin
-* styrene  
-* diene
-* cyclic_olefin
- ---
-* vinyl
-* vinyl_ether
-* vinyl_ester
-* acrylate
-* methylacrylate
-  ---
-* lactone
-* cyclic_ether
-* cyclic_carbonate
-* cyclic_anhydride
-* oxazoline
- --- 
-* lactam
-* cyclic_amine
-* cyclic_sulfur_compound
-* phosphoesters
-* phosphonate
-* phostone  
-* siloxane
-* carbosiloxane
----
-* diol
-* dicarboxylic acid
-* diamines
-* diacid chloride
-
----
-* filler
-* matrix
+Keyword         | Description  
+----            | ----
+** reaction role **|
+monomer         | the major chemical to be incorporated into a repeating unit of a polymer
+polymer         | a chemical that consists of a large number of similar units bonded together
+initiator       | a chemical which starts the growth of a polymer
+catalyst        | a chemical that increases the rate of a chemical reaction
+solvent         | an inert liquid that facilitates a reaction  
+cta             | chain transfer agent, a chemical added to the reaction resulting in the exchange of the propagating site 
+quench          | a chemical which terminates the chemical reaction
+reagent         | a chemical which is chemical reacts during the course of the process
+workup          | a chemical used in the purification or isolation of a polymer
+** monomer types: ** |
+olefin          | a chemical with one double bond and is locally surrounded by only C and H
+diene           | a chemical with two or more double bonds
+styrene         | a chemical with C=C-(c1ccccc1) structure
+cyclic_olefin   | a chemical where at least one double bond is found in a ring (excluding aromatic rings)
+acetylene       | a chemical with one or more triple bounds (C≡C)   
+||
+vinyl           | a chemical with C=C-R structure and the local surrounding contains elements other than C and H
+vinyl_ether     | a chemical with C=C-O-R structure
+vinyl_ester     | a chemical with C=C-O-(C=O)-R structure
+acrylate        | a chemical with C=C-C(=O)O-R structure 
+methylacrylate  | a chemical with C=C(C)-C(=O)O-R structure 
+||
+lactone         | (cyclic ester) a chemical with R-C(=O)O-R within a ring 
+cyclic_ether    | a chemical with R-O-R within a ring 
+cyclic_carbonate| a chemical with R-O-C(=O)O-R within a ring
+cyclic_anhydride| a chemical with R-C(=O)-O-C(=O)-R with a ring (includes N-carboxy anhydrides)
+oxazoline       | a chemical with a R-N=C(R)-O-R within a five membered ring 
+||
+lactam          | (cyclic amide) a chemical with R-C(=O)N(R)-R within a ring 
+cyclic_amine    | a chemical with R-N(R)-R within a ring
+cyclic_sulfur   | a chemical with R-S-R or R-S(=O)-R within a ring
+thiophene       | a chemical with C=C1=CC=CS1 5 member ring
+phosphoesters   | a chemical with R-O-P(=O)(OR)-O-R within a ring
+phosphonate     | a chemical with R-O-P(=O)(C(R)(R)R)-O-R within a ring
+phostone        | a chemical with R-P(=O)(R)-O-R within a ring
+phosphazenes    | a chemical with R-P(R)(R)=N-R within a ring
+siloxane        | a chemical with R-O-Si(R)(R)-O-R within a ring
+carbosiloxane   | a chemical with R-Si(R)(R)-R within a ring
+||
+diol              | a chemical with two or more -OH groups
+dicarboxylic_acid | a chemical with two or more -C(=O)OH groups
+diamines          | a chemical with two or more -NH2 groups
+diacid chloride   | a chemical with two or more -COCl groups
+** other ** |
+filler    | a substance that is added to resins
+matrix    | a substance for binding and holding reinforcements together 
 
 
 

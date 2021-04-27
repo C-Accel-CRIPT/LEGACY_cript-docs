@@ -10,7 +10,7 @@ Having accessible well-structured data is the foundation of cheminformatics. The
 structures with the wide range of characterization techniques and properties poses significant challenges in the 
 formation of databases. This has led to several small, disparate data sets. The data structure presented here provides a
 universal system to capture all relevant polymer data in a manner optimized for large databases. It is designed to allow 
-anyone to contribute for the benefit of the polymer community; with the goal to ultimately accelerating the pace of material innovation.
+anyone to contribute for the benefit of the polymer community; with the goal of accelerating the pace of material innovation.
 
 **Value Proposition:**
 

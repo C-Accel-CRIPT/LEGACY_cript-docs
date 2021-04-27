@@ -24,7 +24,7 @@ nav:
     - Data Schema:
         - data-models/README.md
         - Challenges of Polymer Data: data-models/Polymers.md
-        - How does it work: data-models/Data_Entry.md
+        - Data Model Explained: data-models/Data_Entry.md
         - Groups: data-models/Groups.md
         - Users: data-models/Users.md
         - Publications: data-models/Publications.md
@@ -33,10 +33,13 @@ nav:
         - Materials - polymers: data-models/Materials_P.md
         - Materials - other: data-models/Materials_O.md
         - Process: data-models/Process.md
+        - Simulation: data-models/Simulation.md
         - Sample: data-models/Sample.md
         - Data: data-models/Data.md
         - Models: data-models/Modules.md
         - Version Control: data-models/Version_Control.md
+        - Example: data-models/Example.md
+        - FAQ: data-models/FAQ.md
     - Software Tools:
         - software-tools/README.md
     - Web Application:

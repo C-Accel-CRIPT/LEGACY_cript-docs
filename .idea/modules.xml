@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../CRIPT/.idea/CRIPT.iml" filepath="$PROJECT_DIR$/../CRIPT/.idea/CRIPT.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cript-docs.iml" filepath="$PROJECT_DIR$/.idea/cript-docs.iml" />
     </modules>
   </component>
