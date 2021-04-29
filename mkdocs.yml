@@ -25,8 +25,8 @@ nav:
         - data-models/README.md
         - Challenges of Polymer Data: data-models/Polymers.md
         - Data Model Explained: data-models/Data_Entry.md
-        - Groups: data-models/Groups.md
         - Users: data-models/Users.md
+        - Groups: data-models/Groups.md
         - Publications: data-models/Publications.md
         - Collections: data-models/Collections.md
         - Experiments: data-models/Experiments.md
@@ -36,7 +36,7 @@ nav:
         - Simulation: data-models/Simulation.md
         - Sample: data-models/Sample.md
         - Data: data-models/Data.md
-        - Models: data-models/Modules.md
+        - Model Lake: data-models/Model_lake.md
         - Version Control: data-models/Version_Control.md
         - Example: data-models/Example.md
         - FAQ: data-models/FAQ.md

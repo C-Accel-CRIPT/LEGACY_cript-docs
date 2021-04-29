@@ -14,13 +14,13 @@ processes (like block copolymer synthesis) consider grouping it within a single 
     * experiments (CRIPT node)
     * child collection (CRIPT node) 
     * notes
-* auto generate/update:
+* auto-generate/update:
     * _id
     * class
     * version_schema
     * version_control (& all child) <-- update with version control node
     * date (& all child)
-    * numb_expt 
+    * number_experiments 
 
 
 **App features to support this node:**
@@ -44,6 +44,7 @@ processes (like block copolymer synthesis) consider grouping it within a single 
   "date_created": datetime,
   "date_last_mod": datetime,
   "name": string,
+  "number_experiments": interager,
   "optional attributes"
 }
 ```
@@ -60,67 +61,34 @@ Key                   |Data Type     |Required  |Description
 `version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
 `version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
 `version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
-`name`                |string       | required  | name of collection
+`last_modified`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`created`             |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
+`name`                |string       | required         | name of collection
+`number_experiments`  | int         | auto-generated   | number of experiments in collection
 
 ### Attributes
 
 Attributes are optional properties that can be associated with this node. The following list is the officially supported
 keys. Users may define their own keys by placing a '+' in front of their custom key.
 
-Key                     | Data Type      | Description
--------------           |---------       | ----
-`number_experiments`    | int            | number of experiments in collection
-`experiment`            | list[dict]     | [experiment nodes](../data-models/Experiments.md)
-`experiment\_id`        | objectId()     | id of experiment
-`experiment\name`       | string         | name of experiment
-`experiment\date`       | datetime       | date of experiment
-`child_collection`      | list[dict]     | [collection nodes](../data-models/Collections.md)
-`child_collection\_id`  | objectId()     | id of collection
-`child_collection\name` | string         | name of collection
-`child_collection\date` | datetime       | date collection created
-`note`                  | string         | free-form space to store any text
+Key                         | Data Type      | Description
+-------------               |---------       | ---- 
+`experiment`                | list[dict]     | [experiment nodes](../data-models/Experiments.md)
+`experiment\_id`            | objectId()     | id of experiment
+`experiment\name`           | string         | name of experiment
+`experiment\created`        | datetime       | date the experiment was created
+`child_collection`          | list[dict]     | [collection nodes](../data-models/Collections.md)
+`child_collection\_id`      | objectId()     | id of collection
+`child_collection\name`     | string         | name of collection
+`child_collection\created`  | datetime       | date collection created
+`note`                      | string         | free-form space to store any text
 
 
 ---
 
 ## Example
 
-```json
-{
-  "_id": "507f191e810c19729de861ec",
-  "type": "coll",
-  "ver_sch": "v0.1",
-  "ver_con": {
-    "_id": "507f191e810c19729de861cb",
-    "num": "v2.1"
-  },
-  "date": [
-    {"created": 1612881183},
-    {"last_mod": 1612881123}
-  ],
-  "notes": "",
-  "users": [
-    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
-  ],
-  "name": "ROMP Kinetics",
-  "num_expt": 3,
-  "expt": [
-    {"_id": "507f191e810c19729de860em", "name": "ROMP monomer order kinetic study", "date": 1612886423},
-    {"_id": "507f191e810c19729de860en", "name": "ROMP pyridine order kinetic study", "date": 1612886423},
-    {"_id": "507f191e810c19729de860ej", "name": "ROMP catalyst kinetic study", "date": 1612886423}
-  ],
-  "attr": {
-    "users": [
-      {"_id": "507f191e810c19729de860ec", "name": "Dylan W"}
-    ],
-    "group": [
-      {"_id": "507f191e810c19729de860em", "name": "UIUC"}
-    ]
-  }
-}
-```
+[Collection Example](../Example/#collection)
 
 
 

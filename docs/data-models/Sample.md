@@ -1,7 +1,7 @@
 # Sample
 
 The 'sample' node contains procedure and property information. A sample can be anything from that doesn't
-result in a change in the "identity".
+result in a change in the "identity" or properties.
 
 **Features:**
 

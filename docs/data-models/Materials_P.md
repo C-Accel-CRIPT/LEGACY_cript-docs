@@ -13,8 +13,7 @@ mixtures containing polymers.
     * data (CRIPT nodes)
     * sample (CRIPT nodes)
     * process (CRIPT node)
-    * child materials (CRIPT nodes)
-    * property
+    * property (and child properties)
     * keywords
     * source
     * lot_num
@@ -81,7 +80,6 @@ Key                | Data Type    | Units    | Description
 `process`          | dict         |          | The [process](../data-models/Process.md) that produced the material.
 `process/_id`      | objectId()   |          | id of process
 `process/name`     | string       |          | name of process
-`child_mat`        | dict         |          |        
 `properties`       | list[dict]   |          | [see properties section](../Materials_P/#properties)
 `keywords`         | list[string] |          | [see keywords section below](../Materials_P/#keywords)
 `source`           | string       |          | source of material
@@ -131,20 +129,22 @@ Properties consist of the following structure:
 ```json
 {
   "mat_id": integer,
+  "component": string,
   "key": string, 
   "method": string, 
   "value": double, 
   "uncer": double, 
   "unit": string,
   "data": {"_id": ObjectID, "name": string, "type": string},
-  "conditions": [{"key": string, "value": double/string, "unit": string, "uncer": double, "_id": ObjectID}],
+  "conditions": [{"key": string, "value": double, "unit": string, "uncer": double, "_id": ObjectID}],
   "note": "string"
 }
 ```
 
  Key        | Description
 ----        | ----
-`mat_id`    | Corresponds to the mat_id in the identifiers section. This identifier is useful when a mixture is characterized, and a property only corresponds to one component. If the `mat_id` is not present then the property corresponds to the mixture.
+`mat_id`    | Corresponds to the mat_id in the identifiers section and the corresponding material _id if the property if from a child (Format, materialized tree: _id(child-newest);...;_id(child-oldest);mat_id) . This identifier is useful when a mixture is characterized, and a property only corresponds to one chemical in the mixture. If the `mat_id` is "0" then the property corresponds to the mixture.
+`component` | If the property speaks to a specific sub-structure. It can be specified here using [BigSMILES](https://olsenlabmit.github.io/BigSMILES/docs/line_notation.html#the-bigsmiles-line-notation).
 `key`       | The property key. See tables below.
 `method`    | Method used to obtain property. See table below.
 `value`     | Value of property.
@@ -204,7 +204,7 @@ Key                  | Method                 |Range                    |Units  
 `mh_parameter_k`     | ['sec', 'viscometer']  | [0, 1.79e+308]          | ml/g                |                   | Mark Houwink Parameters provide a relation between intrinsic viscosity and molecular weight
 `mh_parameter_a`     | ['sec', 'viscometer']  | [0, 1.79e+308]          | None                |                   | Mark Houwink Parameters provide a relation between intrinsic viscosity and molecular weight
 `diff_coef`          | []                     | [0, 1.79e+308]          | cm^2/s              |                   | Proportionality constant between the molar flux due to molecular diffusion and the gradient of concentration.
-`relax_time_seg`     | []                     | [0, 1.79e+308]          | s                   |                   | Time it takes a polymer segement to relax
+`relax_time_seg`     | []                     | [0, 1.79e+308]          | s                   |                   | Time it takes a polymer segment to relax
 `relax_time_long`    | []                     | [0, 1.79e+308]          | s                   |                   | Time longest time scale it takes to relax an applied stress
 `iso_comp`           | []                     | [-1.79e+308, 1.79e+308] | m^2/N               |                   | A change in volume in response to a change in pressure
 `char_ratio`         | []                     | [0, 1.79e+308]          | None                |                   | A measure of chain flexibility.
@@ -220,13 +220,14 @@ Key                  | Method                 |Range                    |Units  
 
 #### Conditions
 
-Key                   | Units     | Description
--------------         | ----      | ----
-`time`                | min       | time
-`temperature`         | degC      | temperature
-`pressure`            | kPa       | pressure (absolute)
-`solvent`             | none      | solvent
-`standard`            | none      | measurement standard (ASTM, ISO)
+Key                   | Units     | Location   | Description
+-------------         | ----      | ----       | ----
+`time`                | min       | value      | time
+`temperature`         | degC      | value      | temperature
+`pressure`            | kPa       | value      | pressure (absolute)
+`solvent`             | none      | _id        | solvent; material node
+`standard`            | none      | _id        | measurement standard (ASTM, ISO)
+
 
 #### Methods
 
@@ -263,10 +264,10 @@ Key                | Description
 `sem`              | Scanning electron microscopy
 `comp`             | Computation or Simulation
 
+
 ### Keywords
 
 Keywords are an optional field that allow users to classify the material. Selecting multiple keywords is allowed.
-
 
 Keyword             | Description  
 ----                | ----

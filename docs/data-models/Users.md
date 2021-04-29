@@ -11,8 +11,6 @@ The 'user' node contains data related to the user. Anyone who interacts with the
 * optional information
     * group (CRIPT node)
     * publications (CRIPT node)
-    * collections (CRIPT node)
-    * experiments (CRIPT node)
     * phone
     * website
     * twitter handle
@@ -44,8 +42,8 @@ The 'user' node contains data related to the user. Anyone who interacts with the
     "_id": objectId(),
     "num": string
   },
-  "date_created": datetime,
-  "date_last_mod": datetime,
+  "last_modified": datetime,
+  "created": datetime,
   "name": string,
   "email": string,
   "optional attributes"
@@ -64,8 +62,8 @@ Key             |Data Type     |Required  |Description
 `version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
 `version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
 `version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`last_modified`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`created`             |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
 `name`                | string        | required      | name of user
 `email`               | string        | required      | user email address
 
@@ -77,20 +75,15 @@ keys. Users may define their own keys by placing a '+' in front of their custom 
 
 Key                   | Data Type      | Description
 -------------         |---------       |----
-`group`               | list[dict]     | [groups that the user belongs to](../data-models/Groups.md)
-`group\_id`           | objectId()     | id of group
-`group\name`          | string         | name of group
+`owns_groups`         | list[dict]     | [groups that the user owns](../data-models/Groups.md)
+`owns_groups\_id`     | objectId()     | id of group
+`owns_groups\name`    | string         | name of group
+`in_groups`           | list[dict]     | [groups that the user belongs to](../data-models/Groups.md)
+`in_groups\_id`       | objectId()     | id of group
+`in_groups\name`      | string         | name of group
 `publication`         | list[dict]     | [publications the user authored](../data-models/Publications.md)
 `publication\_id`     | objectId()     | id of publication
 `publication\title`   | string         | title of publication
-`experiment`          | list[dict]     | [experiment nodes](../data-models/Experiments.md)
-`experiment\_id`      | objectId()     | id of experiment
-`experiment\name`     | string         | name of experiment
-`experiment\date`     | datetime       | date of experiment
-`collection`          | list[dict]     | [collection nodes](../data-models/Collections.md)
-`collection\_id`      | objectId()     | id of collection
-`collection\name`     | string         | name of collection
-`collection\date`     | datetime       | date of collection
 `phone`               | string         | phone number (###-###-####)
 `web`                 | string         | website
 `twitter`             | string         | twitter handle
@@ -103,52 +96,5 @@ Key                   | Data Type      | Description
 
 ## Example
 
-```json
-{
-  "_id": "507f191e810c19729de860ec",
-  "type": "user",
-  "ver_sch": "v0.1",
-  "ver_con": {
-    "_id": "507f191e810c19729de860cb",
-    "num": "v0.1"
-  },
-  "date": [
-    {"created": 1612889183},
-    {"last_mod": 1612889123}
-  ],
-  "notes": "",
-  "users": [
-    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
-  ],
-  "name": "Dylan W",
-  "email": "dylan@cript.edu",
-  "attr": {
-    "phone": "123-456-7890",
-    "orcid": "0000-0000-0000-0001",
-    "organization": "MIT",
-    "position": "Research Assistant",
-    "group": [
-      {"_id": "507f191e810c19729de860em", "name": "MIT"},
-      {"_id": "507f191e810c19729de860en", "name": "CRIPT"}
-    ],
-    "pub": [
-      {"_id": "507f191e810c19729de860eq", "name": "Recent trends in catalytic polymerizations"},
-      {
-        "_id": "507f191e810c19729de860er",
-        "name": "Kinetic study of living ring-opening metathesis polymerization with third-generation Grubbs catalysts"
-      }
-    ],
-    "expt": [
-      {"_id": "507f191e810c19729de860em", "name": "Anionic polymerization", "date": 1612886423},
-      {"_id": "507f191e810c19729de860en", "name": "ATRP of styrene with CuCl", "date": 1612886423},
-      {"_id": "507f191e810c19729de860ej", "name": "ROMP catalyst kinetics low conc", "date": 1612886423},
-      {"_id": "507f191e810c19729de860er", "name": "ROMP catalyst kinetics high conc", "date": 1612886426},
-      {"_id": "507f191e810c19729de860er", "name": "ROMP monomer kinetics", "date": 1612886426}
-    ]
-  },
-  "coll": [
-    {"_id": "507f191e810c19729de860em", "name": "ROMP kinetic study", "date": 1612886423, "num_expt": 3}
-  ]
-}
-```
+[User Example](../Example/#user)
 

@@ -1,8 +1,7 @@
 # Process
 
 The 'process' node contains ingredient list, quantities, and procedure information. A process can be anything from a reaction,
-reaction + separation, reactive extrusion. Typically, a process results in a change in the "identity"
-portion of a material node.
+reaction + separation, reactive extrusion. Typically, a process results in a change in the [identity](../Materials_P/#identifiers) or [property](../Materials_P/#properties).
 
 **Features:**
 
@@ -11,7 +10,6 @@ portion of a material node.
     * name
     * ingredient (material CRIPT node) 
     * procedure
-    * product
 * optional information
     * data (CRIPT node)
     * conditions
@@ -48,13 +46,13 @@ portion of a material node.
   "name": string,
   "ingredients": ["see ingredients for details"],
   "procedure": string,
-  "product": [{"_id": objectId(), "name": string}],
   "optional attributes"
 }
 ```
 
-
 ---
+
+
 
 ## Description
 
@@ -71,9 +69,6 @@ Key                   |Data Type     |Required  |Description
 `name`                    | string        | required  | name of process
 `ingredients`             | list[dict]    | required  | [see ingredients section](../Process/#ingredients)
 `procedure`               | string        | required  | written procedure for the process
-`product`                 | list[dict]    | required  | the product of the process node; [material node](../data-models/Materials_P.md)
-`product/_id`             | objectId()    | auto      | id of product 
-`product/name`            | string        | auto      | name of product 
 
 
 ### Attributes
@@ -111,21 +106,19 @@ Units are not stored as all values are converted to database standard prior to s
 }
 ```
 
+type            | Description
+-----           | ----
+monomer         | the major chemical to be incorporated into a repeating unit of a polymer
+polymer         | a chemical that consists of a large number of similar units bonded together
+initiator       | a chemical which starts the growth of a polymer
+catalyst        | a chemical that increases the rate of a chemical reaction
+solvent         | an inert liquid that facilitates a reaction  
+cta             | chain transfer agent, a chemical added to the reaction resulting in the exchange of the propagating site 
+quench          | a chemical which terminates the chemical reaction
+reagent         | a chemical which is chemical reacts during the course of the process
+workup          | a chemical used in the purification or isolation of a polymer
 
-type         | Description
------        | ----
-monomer      | the major chemical to be incorporated into a repeating unit of a polymer
-polymer      | a substance that consists of a large number of similar units bonded together
-initiator    | a substance which starts the growth of a polymer
-catalyst     | a substance that increases the rate of a chemical reaction
-solvent      | an inert liquid that facilitates a reaction  
-cta          | chain transfer agent, a substance added to the reaction resulting in the exchange of the propagating site 
-quench       | a substance which terminates the chemical reaction
-reagent      | a substance that reacts in a chemical reaction
-other        | catch-all category 
-
-
-
+##### Quantities
 
 Key                | Units      | Range          | Description
 -------------      |----------- | ----           |-----------
@@ -137,6 +130,7 @@ Key                | Units      | Range          | Description
 `mass_fraction`    |            | [0, 1]         | mass fraction; = mass of ingredient / (mass of all ingredients)
 `mole_fraction`    |            | [0, 1]         | mole fraction; = mole of ingredient / (moles of all ingredients)
 `vol_fraction`     |            | [0, 1]         | volume fraction; = volume of ingredient / (volume of all ingredients)
+
 
 ### Conditions
 
@@ -157,15 +151,18 @@ into a data node.
 }
 ```
 
-`key`                 | Units     | Description
--------------         | ----      | ----
-`time`                | min       | time
-`temperature`         | degC      | temperature
-`pressure`            | kPa       | pressure (absolute)
-`inert`               |           | bool [1 - inert, 0 - Not inert]; reaction occurred under an inert atmosphere (N2, Ar)
-`light_power`         | watt      |
-`light_wavelength`    | nm        |
-`stirring`            | rpm       | revolutions per minute for stirrer
+`key`                 | Units         | Description
+-------------         | ----          | ----
+`time`                | min           | time
+`temperature`         | degC          | temperature
+`pressure`            | kPa           | pressure (absolute)
+`inert`               |               | bool [1 - inert, 0 - Not inert]; reaction occurred under an inert atmosphere (N2, Ar)
+`light_power`         | watt          | light power
+`light_power_area`    | mwatt*cm**-2  | irradiance 
+`light_wlength`       | nm            | wave length of light
+`stirring`            | rpm           | revolutions per minute for stirrer
+`potential`           | volt          | electrical potential
+
 
 ### Properties
 
@@ -183,13 +180,14 @@ Properties consist of the following structure:
 }
 ```
 
-Key              | Method              | Range         | Units     | Description
-----------       |---------            |------         |--------   |---------
-`conv_mon`       | ['nmr', 'sec']      | [0, 1.2]      | None      | how much monomer that has reacted
-`conv_init`      | ['nmr', 'sec']      | [0, 1.2]      | None      | how much initiator that has reacted
-`init_eff`       | ['nmr', 'sec']      | [0, 1.2]      | None      | The proportion of initiators that result in an active propagating species
-`selectivity`
-
+Key              | Method              | Range            | Units     | Description
+----------       |---------            |------            |--------   |---------
+`conv_mon`       | ['nmr', 'sec']      | [0, 1.2]         | None      | how much monomer that has reacted
+`conv_init`      | ['nmr', 'sec']      | [0, 1.2]         | None      | how much initiator that has reacted
+`init_eff`       | ['nmr', 'sec']      | [0, 1.2]         | None      | The proportion of initiators that result in an active propagating species
+`selectivity`    | []                  | [0,, 1.79e+308]  | None      |
+`yield`
+`rates`
 
 #### Keywords 
 
@@ -233,6 +231,7 @@ curing                          |
 forming                         |
 coating                         |
 annealing                       |
+sol_annealing                   |
 
 ### Process history
 
