@@ -57,8 +57,8 @@ Key                   |Data Type     |Required  |Description
 `version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
 `version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
 `version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`last_modified`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`created`             |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
 `name`                | string        | required  | name of chemical
 `identifiers`         | list[dict]    | required  | [see identifiers section](../Materials_P/#identifiers)
 
@@ -336,59 +336,5 @@ conjugated_poly      | a polymer with delocalized electrons in the p orbital alo
 
 ## Example
 
-```json
-{
-  "_id": "607f191e810c19729de860ea",
-  "type": "expt",
-  "ver_sch": "v0.1",
-  "ver_con": {
-    "_id": "607f191e810c19729de860eb",
-    "num": "v0.1"
-  },
-  "date": [
-    {"created": 1612889382},
-    {"last_mod": 1612889322}
-  ],
-  "notes": "",
-  "users": [
-    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
-  ],
-  "name": "poly(styrene)",
-  "expt": [
-    {"_id": "507f191e810c19729de860em", "name": "anionic polymerization of styrene"}
-  ],
-  "iden": {
-    "names": ["Poly(1-phenylethene)"],
-    "cas": "9003-53-6",
-    "bigsmiles": "{[$]CC(c1ccccc1)[$]}",
-    "chem_repeat": "C8H8"
-  },
-  "prop": [
-    {
-      "key": "conv_mon", "method": "NMR", "value": 0.98, "uncertainty": 0.03,
-      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "nmr_1h"}}
-    },
-    {
-      "key": "m_n", "method": "nmr", "value": 5300, "uncertainty": 300,
-      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "nmr_1h"}, "names": ["end group analysis"]}
-    },
-    {
-      "key": "m_n", "method": "sec", "value": 5130, "uncertainty": 200,
-      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "sec"}}
-    },
-    {
-      "key": "d", "method": "sec", "value": 1.03, "uncertainty": 0.02,
-      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "sec"}}
-    }
-  ],
-  "proc": [
-    {"_id": "507f191e810c19729de860em", "name": "anionic polymerization", "role": ["prod"]}
-  ],
-  "data": [
-    {"_id": "507f191e810c19729de860ef", "key": "nmr_1h"},
-    {"_id": "507f191e810c19729de860vm", "key": "sec"}
-  ],
-  "attr": {}
-}
-```
 
+[Example](../Example/#experiment-1-anionic-polymerization-of-styrene)

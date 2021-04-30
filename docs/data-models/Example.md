@@ -12,7 +12,7 @@ will hold the experiments.
 
 
 
-
+![User, Group, Collection Network](../img/V1_Example_User_Group_coll.svg)
 
 
 ### User
@@ -40,14 +40,13 @@ will hold the experiments.
     {"_id": "507f191e810c19729de860eq", "name": "Recent trends in catalytic polymerizations"},
     {"_id": "507f191e810c19729de860er", "name": "Kinetic study of living ring-opening metathesis polymerization with third-generation Grubbs catalysts"}
   ],
-  "collection": [
-    {"_id": "507f191e810c19729de860em", "name": "ROMP kinetic study", "date": "2021-04-20 18:02:08", "num_expt": 3}
-  ],
   "orcid": "0000-0000-0000-0001",
   "organization": "Mass. Institute of Technology",
   "position": "Research Assistant"
 }
 ```
+
+![User Network](../img/V1_Example_User.SVG)
 
 ### Group
 [Group node](../data-models/Group.md)
@@ -65,21 +64,21 @@ will hold the experiments.
   "created": "2021-04-20 18:06:04",
   "name": "CRIPT Team",
   "collection": [
-      {"_id": "507f191e810c19729de860em", "name": "CRIPT Demo", "created": "2021-04-20 18:06:04"},
-      {"_id": "507f191e810c19729de860em", "name": "Kinetic analysis of ROMP", "created": "2021-04-20 18:06:04"}
+      {"_id": "507f191e810c19729de860em", "name": "CRIPT Demo", "created": "2021-04-20 18:06:04"}
     ],
   "parent_group": [
-      {"_id": "507f191e810c19729de860em", "name": "MIT"},
+      {"_id": "507f191e810c19729de860em", "name": "Olsen Lab"},
       {"_id": "507f191e810c19729de860en", "name": "Citrine"}
     ],
   "publication": [
-      {"_id": "507f191e810c19729de860em", "title": "BigSMILES: A Structurally-Based Line Notation for Describing Macromolecules"},
-      {"_id": "507f191e810c19729de860ey", "title": "PolyDAT: A Generic Data Schema for Polymer Characterization"}
+      {"_id": "507f191e810c19729de860em", "title": "Synthesis of new polymer"}
     ],
   "website": "https://cript.mit.edu/",
   "email": "cript@mit.edu"
 }
 ```
+
+![User Network](../img/V1_Example_group.SVG)
 
 ### Collection
 
@@ -108,6 +107,7 @@ will hold the experiments.
 }
 ```
 
+![User Network](../img/V1_Example_Coll.SVG)
 
 ---
 
@@ -116,16 +116,6 @@ will hold the experiments.
 ## Experiments
 
 ### Experiment 1: Anionic polymerization of styrene
-
-### Experiment 2: Diblock bottlebrush synthesis and assembly
-
-### Experiment 3: Kinetic analysis of ROMP
-
-### Experiment 4: Simulation
-
-To show how the data schema can be implemented, we will go through the anionic synthesis of a polystyrene, polybutadiene
-block copolymer through sequential addition of monomers. We will describe the implementation from the perspective of the
-real world experiment timeline as that is likely to be the most intuitive workflow.
 
 The data schema begins with the definition of material nodes. These first material nodes are the ingredients for the
 process node. This will be secbuLi, styrene, and toluene in our example. These materials nodes will contain information
@@ -141,25 +131,225 @@ material node. Any characterization data from aliquots can be added through a da
 the relevant data nodes. In our example, SEC raw data or NMR spectra can be found in the data nodes, while the
 calculated values like M~n~, M~w~, M~w~/M~n~, etc. would be found in the property section of the polystyrene node.
 
-The synthesis for the second block, polybutadiene, continues with the definition of the butadiene material node. This
-can be followed by the definition of a second polymerization node which will point to the product of the whole process,
-polystyrene-polybutadiene block copolymer. Similar to the polystyrene characterization, the SEC and NMR data can be
-placed into data nodes. With this final target material made additional material studies, like tensile testing or oxygen
-barrier properties, may be done. In this case, there may be some material preparation steps such as hot pressing the
-sample into a dog bone. This can be placed into a sample node. This sample node contains the material preparation steps
-and any characterization data that occurred on the sample.
+#### Experiment node
 
-![Data_Model](../img/data_schema_example.svg)
+```json
+{
+  "_id": "507f191e810c19729de860ec",
+  "class": "expt",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "507f191e810c19729de860eb",
+    "num": "v0.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "Anionic polymerization of styrene",
+  "nodes": {
+    "materials": [
+      {"_id": "507f191e810c19729de860ec", "name": "SecBuLi"},
+      {"_id": "507f191e810c19729de860ed", "name": "toluene"},
+      {"_id": "507f191e810c19729de860ee", "name": "styrene"},
+      {"_id": "507f191e810c19729de860eg", "name": "THF"},
+      {"_id": "507f191e810c19729de860eh", "name": "butanol"},
+      {"_id": "507f191e810c19729de860ei", "name": "methanol"},
+      {"_id": "507f191e810c19729de860ef", "name": "polystyrene", "id_proc": "507f191e810c19729de860pe", "id_data":["507f191e810c19729de860md", "507f191e810c19729de860me"]}
+    ],
+    "process": [
+      {
+      "_id": "507f191e810c19729de860pe", 
+      "name": "anionic polymerization", 
+      "id_mat": [
+        "507f191e810c19729de860ec",
+        "507f191e810c19729de860ed",
+        "507f191e810c19729de860ee",
+        "507f191e810c19729de860eg",
+        "507f191e810c19729de860eh",
+        "507f191e810c19729de860ei"
+      ]
+    }
+    ],
+    "data": [
+      {"_id": "507f191e810c19729de860md", "name": "1H NMR"},
+      {"_id": "507f191e810c19729de860me", "name": "SEC"}
+    ]
+  },
+  "attr": {
+    "pub": [
+      {"_id": "507f191e810c19729de860em", "title": "Kinetic Study of Living Ring-Opening Metathesis Polymerization"}
+    ],
+    "ref": [
+      {"_id": "507f191e810c19729de860en", "title": "Kinetic Study of Anionic Living Polymerization"}
+    ]
+  }
+}
+```
 
-We can also visualize the exact same example in the context of a direct acyclic graph.
+#### Material node
 
-![Data_Model](../img/data_schema_example_2.svg)
-
-Example where they buy the polymer
-
+[Material node other](../data-models/Materials_O.md)
+[Material node polymers](../data-models/Materials_P.md)
 
 
+```json
+{
+  "_id": "607f191e810c19729de860ea",
+  "type": "expt",
+  "ver_sch": "v0.1",
+  "ver_con": {
+    "_id": "607f191e810c19729de860eb",
+    "num": "v0.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "notes": "",
+  "name": "styrene",
+  "expt": [{"_id": "507f191e810c19729de860em", "name": "anionic polymerization of styrene"}],
+  "proc": [{"_id": "507f191e810c19729de860em", "name": "anionic polymerization", "role": ["ingr"]}],
+  "data": [],
+  "iden": {
+    "names": ["styrene","vinylbenzene", "phenylethylene"],
+    "cas": "100-42-5",
+    "smiles": "C=Cc1ccccc1",
+    "chem_form": "C8H8"
+  },
+  "prop": [
+    {
+      "key": "mw", "value": 104.15, "attr": {"ref": {"notes": "sigma aldrich website"}}
+    },
+    {
+      "key": "density", "value": 0.906
+    },
+    {
+      "key": "bp", "value": 145, "attr": {"+vac": "1", "+vac_unit": "atm"}
+    }
+  ],
+  "attr": {
+    "store": {"temp_num": 0, "temp_unit": "degC"},
+    "source": "sigma"
+  }
+}
+```
+
+
+```json
+{
+  "_id": "607f191e810c19729de860ea",
+  "type": "expt",
+  "ver_sch": "v0.1",
+  "ver_con": {
+    "_id": "607f191e810c19729de860eb",
+    "num": "v0.1"
+  },
+  "date": [
+    {"created": 1612889382},
+    {"last_mod": 1612889322}
+  ],
+  "notes": "",
+  "users": [
+    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
+  ],
+  "name": "poly(styrene)",
+  "expt": [
+    {"_id": "507f191e810c19729de860em", "name": "anionic polymerization of styrene"}
+  ],
+  "iden": {
+    "names": ["Poly(1-phenylethene)"],
+    "cas": "9003-53-6",
+    "bigsmiles": "{[$]CC(c1ccccc1)[$]}",
+    "chem_repeat": "C8H8"
+  },
+  "prop": [
+    {
+      "key": "conv_mon", "method": "NMR", "value": 0.98, "uncertainty": 0.03,
+      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "nmr_1h"}}
+    },
+    {
+      "key": "m_n", "method": "nmr", "value": 5300, "uncertainty": 300,
+      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "nmr_1h"}, "names": ["end group analysis"]}
+    },
+    {
+      "key": "m_n", "method": "sec", "value": 5130, "uncertainty": 200,
+      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "sec"}}
+    },
+    {
+      "key": "d", "method": "sec", "value": 1.03, "uncertainty": 0.02,
+      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "sec"}}
+    }
+  ],
+  "proc": [
+    {"_id": "507f191e810c19729de860em", "name": "anionic polymerization", "role": ["prod"]}
+  ],
+  "data": [
+    {"_id": "507f191e810c19729de860ef", "key": "nmr_1h"},
+    {"_id": "507f191e810c19729de860vm", "key": "sec"}
+  ],
+  "attr": {}
+}
+```
+
+### Experiment 2: Diblock bottlebrush synthesis and assembly
+
+### Experiment 3: Kinetic analysis of ROMP
+
+
+
+{
+    "materials": [
+      {"_id": "507f191e810c19729de860ec", "name": "G3 Catalyst", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
+      {"_id": "507f191e810c19729de860ed", "name": "dichloromethane", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
+      {"_id": "507f191e810c19729de860ee", "name": "norbornene-imide", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
+      {"_id": "507f191e810c19729de860ef", "name": "ethyl vinyl ether", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
+      {"_id": "507f191e810c19729de860ds", "name": "poly(norborene-imide)", "_idproc": "507f191e810c19729de860pe", "role": "prod"}
+    ],
+    "process": [
+      {"_id": "507f191e810c19729de860pe", "name": "ROMP polymerization", "_idout": "507f191e810c19729de860ds"}
+    ],
+    "data": [
+      {"_id": "507f191e810c19729de860md", "name": "1H NMR", "_idprod": "507f191e810c19729de860ds", "_idprod": "507f191e810c19729de860ds"},
+      {"_id": "507f191e810c19729de860me", "name": "SEC", "_idprod": "507f191e810c19729de860ds", "_idprod": "507f191e810c19729de860ds"}
+    ]
+  },
+  "attr": {
+    "pub": [
+      {"_id": "507f191e810c19729de860em", "title": "Kinetic Study of Living Ring-Opening Metathesis Polymerization"}
+    ],
+    "ref": [
+      {"_id": "507f191e810c19729de860en", "title": "Kinetic Study of Anionic Living Polymerization"}
+    ]
+  }
+
+### Experiment 4: Simulation
 
 
 
 ## Publication
+
+[Publications node](../data-models/Publications.md)
+
+
+```json
+{
+  "_id": "507f191e810c19729de861ec",
+  "class": "publication",
+  "ver_sch": "v0.1",
+  "ver_con": {
+    "_id": "507f191e810c19729de861cb",
+    "num": "v2.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "title": "Engineering of Molecular Geometry in Bottlebrush Polymers",
+  "collection": {"_id": "507f191e810c19729de860em", "name": "Bottlebrush Synthesis", "created": "2021-04-20 18:06:04"},
+  "authors": ["Walsh, Dylan J.", "Dutta, Sarit", "Sing, Charles E.", "Guironnet, Damien"],
+  "journal": "Macromolecules",
+  "publisher": "American Chemical Society",
+  "year": "2019",
+  "vol": 52,
+  "issue": 13,
+  "page": "4847-4857",
+  "doi": "10.1021/acs.macromol.9b00845",
+  "issn": "0024-9297",
+  "web": "http://pubs.acs.org/doi/10.1021/acs.macromol.9b00845"
+}
+```

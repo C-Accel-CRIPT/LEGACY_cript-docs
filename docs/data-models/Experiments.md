@@ -37,12 +37,12 @@ set of processes. For non-linear processes (like running multiple reactions for 
     "_id": objectId(),
     "num": string
   },
-  "date_created": datetime,
-  "date_last_mod": datetime,
+  "created": datetime,
+  "last_modified": datetime,
   "name": string,
   "nodes": {
     "materials": [
-      {"_id": objectid(), "name": string, "role": string}
+      {"_id": objectid(), "name": string, "role": string, "_id_proc":  objectId()}
     ],
     "process": [
       {"_id": objectid(), "name": string}
@@ -70,17 +70,19 @@ Key             |Data Type     |Required  |Description
 `version_control`     |                                                          |                                                     | <span style="color:rgb(0, 72, 189)">  version control object  </span>
 `version_control/_id` |<span style="color:rgb(0, 72, 189)">  objectId()  </span> | <span style="color:rgb(0, 72, 189)">  auto  </span> | <span style="color:rgb(0, 72, 189)">  reference id to node history  </span>
 `version_control/num` |<span style="color:rgb(0, 72, 189)">  string  </span>     | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  type of node ; Ex: "group"  </span>
-`date_created`        |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
-`date_last_mod`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`last_modified`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
+`created`             |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
 `name`                    | string        | required  | name of experiment
 `nodes`                   | dict          |           | list of nodes that constitute an experiment
 `nodes/materials`         | list[dict]    |           | [material nodes](../data-models/Materials_P.md)
 `nodes/materials/_id`     | objectId()    | auto      | id of material
 `nodes/materials/name`    | string        | auto      | name of material
-`nodes/materials/role`    | string        | auto      | material role [ingr, prod]
+`nodes/materials/id_proc` | objectId()    | auto      | id of process that the material points to
+`nodes/materials/id_data` | objectId()    | auto      | id of data that the material points to
 `nodes/process`           | list[dict]    |           | [process nodes](../data-models/Process.md)
 `nodes/process/_id`       | objectId()    | auto      | id of process
 `nodes/process/name`      | string        | auto      | name of process
+`nodes/process/id_mat`   | objectId()    | auto      | id of ingerdients the process point to 
 `nodes/sample`            | list[dict]    |           | [sample nodes](../data-models/Sample.md)
 `nodes/sample/_id`        | objectId()    | auto      | id of sample
 `nodes/sample/name`       | string        | auto      | name of sample
@@ -108,54 +110,4 @@ Key                | Data Type      | Description
 
 ## Example
 
-```json
-{
-  "_id": "607f191e810c19729de860ea",
-  "type": "expt",
-  "ver_sch": "v0.1",
-  "ver_con": {
-    "_id": "607f191e810c19729de860eb",
-    "num": "v0.1"
-  },
-  "date": [
-    {"created": 1612889382},
-    {"last_mod": 1612889322}
-  ],
-  "notes": "CRIPT development team is funded by NSF Convergence Accelerator.",
-  "users": [
-    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
-  ],
-  "name": "ROMP kinetic study",
-  "nodes": {
-    "materials": [
-      {"_id": "507f191e810c19729de860ec", "name": "G3 Catalyst", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"_id": "507f191e810c19729de860ed", "name": "dichloromethane", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"_id": "507f191e810c19729de860ee", "name": "norbornene-imide", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"_id": "507f191e810c19729de860ef", "name": "ethyl vinyl ether", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"_id": "507f191e810c19729de860ds", "name": "poly(norborene-imide)", "_idproc": "507f191e810c19729de860pe", "role": "prod"}
-    ],
-    "process": [
-      {"_id": "507f191e810c19729de860pe", "name": "ROMP polymerization", "_idout": "507f191e810c19729de860ds"}
-    ],
-    "data": [
-      {"_id": "507f191e810c19729de860md", "name": "1H NMR", "_idprod": "507f191e810c19729de860ds", "_idprod": "507f191e810c19729de860ds"},
-      {"_id": "507f191e810c19729de860me", "name": "SEC", "_idprod": "507f191e810c19729de860ds", "_idprod": "507f191e810c19729de860ds"}
-    ]
-  },
-  "attr": {
-    "pub": [
-      {"_id": "507f191e810c19729de860em", "title": "Kinetic Study of Living Ring-Opening Metathesis Polymerization"}
-    ],
-    "ref": [
-      {"_id": "507f191e810c19729de860en", "title": "Kinetic Study of Anionic Living Polymerization"}
-    ]
-  }
-}
-```
-
-### Visualization
-
-
-The reaction network can be generated out of `node`.
-
-![Experiment_network](../img/network_experiment2.svg)
+[Example](../Example/#experiment-1-anionic-polymerization-of-styrene)

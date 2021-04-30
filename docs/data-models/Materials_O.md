@@ -122,47 +122,7 @@ matrix    | a substance for binding and holding reinforcements together
 
 ## Example
 
-```json
-{
-  "_id": "607f191e810c19729de860ea",
-  "type": "expt",
-  "ver_sch": "v0.1",
-  "ver_con": {
-    "_id": "607f191e810c19729de860eb",
-    "num": "v0.1"
-  },
-  "date": [
-    {"created": 1612889382},
-    {"last_mod": 1612889322}
-  ],
-  "notes": "",
-  "name": "styrene",
-  "expt": [{"_id": "507f191e810c19729de860em", "name": "anionic polymerization of styrene"}],
-  "proc": [{"_id": "507f191e810c19729de860em", "name": "anionic polymerization", "role": ["ingr"]}],
-  "data": [],
-  "iden": {
-    "names": ["styrene","vinylbenzene", "phenylethylene"],
-    "cas": "100-42-5",
-    "smiles": "C=Cc1ccccc1",
-    "chem_form": "C8H8"
-  },
-  "prop": [
-    {
-      "key": "mw", "value": 104.15, "attr": {"ref": {"notes": "sigma aldrich website"}}
-    },
-    {
-      "key": "density", "value": 0.906
-    },
-    {
-      "key": "bp", "value": 145, "attr": {"+vac": "1", "+vac_unit": "atm"}
-    }
-  ],
-  "attr": {
-    "store": {"temp_num": 0, "temp_unit": "degC"},
-    "source": "sigma"
-  }
-}
-```
+[Example](../Example/#experiment-1-anionic-polymerization-of-styrene)
 
 
 
