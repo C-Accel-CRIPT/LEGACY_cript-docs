@@ -97,7 +97,7 @@ Key                     | Data Type          | Description
 `calibration`           | list[dict]         | calibration details
 `calibration/_id`       | objectId()         | id for file
 `calibration/type`      | string             | file type (ex. csv, txt, xlsm)
-`calibration/dis`       | string             | description
+`calibration/description`| string             | description
 `data`                  | dict               | data information
 `data/label`            | list[list[string]] | labels for data first list is for each dimension of data [row, column, 3rd dimension, ...], the second list is for the labels in that dimension (order should match data)
 `data/unit`             | list[list[string]] | units for data first list is for each dimension of data [row, column, 3rd dimension, ...], the second list is for the labels in that dimension (order should match data)
@@ -151,6 +151,32 @@ saxs_i         | distance          | nm**-1        | distance         | nm**-1  
 ------         |-------            | ---------     | -------          |---------    | --------
 
 
+
+### Conditions
+
+```json
+"conditions": [
+  {
+    "key": string,
+    "value": double, 
+    "unit": string, 
+    "uncer": double, 
+    "_id": ObjectID, 
+    "name": string
+  }
+]
+```
+
+
+Key                   | Units     | Location   | Description
+-------------         | ----      | ----       | ----
+`time`                | min       | value      | time
+`temperature`         | degC      | value      | temperature
+`pressure`            | kPa       | value      | pressure (absolute)
+`solvent`             | none      | _id, name  | solvent; material node
+`standard`            | none      | _id, name  | measurement standard (ASTM, ISO)
+
+
 ## Data history
 **Under construction**
 
@@ -160,36 +186,5 @@ saxs_i         | distance          | nm**-1        | distance         | nm**-1  
 
 ## Example
 
-```json
-{
-  "_id": "507f191e810c19729de860ec",
-  "type": "data",
-  "ver_sch": "v0.1",
-  "ver_con": {
-    "_id": "507f191e810c19729de860cb",
-    "num": "v0.1"
-  },
-  "date": [
-    {"created": 1612889183},
-    {"last_mod": 1612889123}
-  ],
-  "notes": "",
-  "users": [
-    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
-  ],
-  "name": "sec",
-  "source": "expt",
-  "expt": [
-    {"_id": "507f191e810c19729de860em", "name": "Anionic polymerization", "date": 1612886423}
-  ],
-  "mat": [
-    {"_id": "507f191e810c19729de860ed", "name": "poly(styrene)", "prop": "m_n", "value": 5300},
-    {"_id": "507f191e810c19729de860ed", "name": "poly(styrene)", "prop": "d", "value": 1.03}
-  ],
-  "attr": {
-    "file": "507f191e810c19729de860ed",
-    "file_type": "csv"
-  }
-}
-```
+[Example](../Example/#experiment-1-anionic-polymerization-of-styrene)
 

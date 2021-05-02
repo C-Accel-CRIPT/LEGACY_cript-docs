@@ -37,6 +37,7 @@ nav:
         - Sample: data-models/Sample.md
         - Data: data-models/Data.md
         - Model Lake: data-models/Model_lake.md
+        - Data Lake: data-models/Data_Lake.md
         - Version Control: data-models/Version_Control.md
         - Example: data-models/Example.md
         - FAQ: data-models/FAQ.md

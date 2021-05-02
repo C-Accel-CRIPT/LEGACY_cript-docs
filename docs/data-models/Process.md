@@ -142,8 +142,7 @@ into a data node.
 ```json
 {
   "key": string, 
-  "method": string, 
-  "value": double, 
+  "value": [double], 
   "uncer": double, 
   "unit": string,
   "data": {"_id": ObjectID, "name": string, "type": string}, 
@@ -246,75 +245,7 @@ development.
 
 ## Example
 
-```json
-{
-  "_id": "507f191e810c19729de860ec",
-  "type": "process",
-  "ver_sch": "v0.1",
-  "ver_con": {
-    "_id": "507f191e810c19729de860cb",
-    "num": "v0.1"
-  },
-  "date": [
-    {"created": 1612889183},
-    {"last_mod": 1612889123}
-  ],
-  "notes": "",
-  "expt": {"_id": "507f191e810c19729de860em", "name": "anionic polymerization of styrene"},
-  "data": [{"_id": "507f191e810c19729de860em", "name": "NMR Kinetics"}],
-  "product": [{"_id": "507f191e810c19729de5d0em", "name": "polystyrene"}],
-  "name": "polymerization",
-  "ingr": [
-    { 
-      "_id": "507f191e810c19729de860em",
-      "name": "styrene",
-      "chem_form": "C8H8",
-      "quantities": [
-        {"type": "mass", "value": 20.3},
-        {"type": "vol", "value": 22.3},
-        {"type": "mole", "value": 195},
-        {"type": "equiv", "value": 50}
-      ]
-    },
-    {
-      "_id": "507f191e810c19729de560em",
-      "name": "sec-bu li",
-      "chem_form": "C4H9Li1",
-      "quantities": [
-        {"type": "vol", "value": 3},
-        {"type": "mole", "value": 3.9},
-        {"type": "equiv", "value": 1}
-      ]
-    },
-    {
-      "_id": "507f191e810c19729de560em",
-      "name": "toluene",
-      "chem_form": "C7H8",
-      "quantities": [
-        {"type": "mass", "value": 188},
-        {"type": "vol", "value": 216},
-        {"type": "mole", "value": 2039},
-        {"type": "equiv", "value": 522}
-      ]
-    },
-    {
-      "_id": "507f191e810c19729de560em",
-      "name": "methanol",
-      "chem_form": "C1H4O1",
-      "quantities": [
-        {"type": "mass", "value": 2.37},
-        {"type": "vol", "value": 3},
-        {"type": "mole", "value": 74},
-        {"type": "equiv", "value": 19}
-      ]
-    }
-  ],
-  "procedure": "In an argon filled glovebox, a round bottom flask was filled with 216 ml of dried toluene. The solution of secBuLi (3 ml, 3.9 mmol) was added next, followed by styrene (22.3 g, 176 mmol) to initiate the polymerization. The reaction mixture immediately turned orange. After 30 min, the reaction was quenched with the addition of 3 ml of methanol. The polymer was isolated by precipitation in methanol 3 times and dried under vacuum.",
-  "cond": {
-    "time": {"value": [60]},
-    "temp": {"value": [25]}
-  },
-  "attr": {}
-}
-```
+[Example](../Example/#experiment-1-anionic-polymerization-of-styrene)
+
+
 

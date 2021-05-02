@@ -1,6 +1,6 @@
 # Experiment
 
-The 'experiment' node contains complete set of references nodes for an experiment. An experiment can range from a 
+The 'experiment' node contains complete set of references to all the nodes of an experiment. An experiment can range from a 
 synthesis, to scattering experiment, or a simulation. A single experiment is meant to capture a single, or a linear 
 set of processes. For non-linear processes (like running multiple reactions for optimizations, kinetics, etc.) [collections](../data-models/Collections.md) are preferred. 
 
@@ -40,20 +40,18 @@ set of processes. For non-linear processes (like running multiple reactions for 
   "created": datetime,
   "last_modified": datetime,
   "name": string,
-  "nodes": {
-    "materials": [
-      {"_id": objectid(), "name": string, "role": string, "_id_proc":  objectId()}
-    ],
-    "process": [
-      {"_id": objectid(), "name": string}
-    ],
-    "sample": [
-      {"_id": objectid(), "name": string, "id_link": objectid()}
-    ],
-    "data": [
-      {"_id": objectid(), "name": string, "id_link": objectid()}
-    ]
-  },
+  "materials": [
+    {"_id": objectid(), "name": string, "role": string, "_id_proc":  objectId()}
+  ],
+  "process": [
+    {"_id": objectid(), "name": string}
+  ],
+  "sample": [
+    {"_id": objectid(), "name": string, "id_link": objectid()}
+  ],
+  "data": [
+    {"_id": objectid(), "name": string, "id_link": objectid()}
+  ],
   "optional attributes"
 }
 ```
@@ -73,24 +71,23 @@ Key             |Data Type     |Required  |Description
 `last_modified`       |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  last modified datetime  </span>
 `created`             |<span style="color:rgb(0, 72, 189)">  datetime  </span>   | <span style="color:rgb(0, 72, 189)">auto  </span>   | <span style="color:rgb(0, 72, 189)">  datetime created  </span>
 `name`                    | string        | required  | name of experiment
-`nodes`                   | dict          |           | list of nodes that constitute an experiment
-`nodes/materials`         | list[dict]    |           | [material nodes](../data-models/Materials_P.md)
-`nodes/materials/_id`     | objectId()    | auto      | id of material
-`nodes/materials/name`    | string        | auto      | name of material
-`nodes/materials/id_proc` | objectId()    | auto      | id of process that the material points to
-`nodes/materials/id_data` | objectId()    | auto      | id of data that the material points to
-`nodes/process`           | list[dict]    |           | [process nodes](../data-models/Process.md)
-`nodes/process/_id`       | objectId()    | auto      | id of process
-`nodes/process/name`      | string        | auto      | name of process
-`nodes/process/id_mat`   | objectId()    | auto      | id of ingerdients the process point to 
-`nodes/sample`            | list[dict]    |           | [sample nodes](../data-models/Sample.md)
-`nodes/sample/_id`        | objectId()    | auto      | id of sample
-`nodes/sample/name`       | string        | auto      | name of sample
-`nodes/sample/id_link`    | objectId()    | auto      | id of the material the sample points 
-`nodes/data`              | list[dict]    |           | [data nodes](../data-models/Data.md)
-`nodes/data/_id`          | objectId()    | auto      | id of data
-`nodes/data/name`         | string        | auto      | name of data
-`nodes/data/id_link`      | objectId()    | auto      | id of the node the data points
+`materials`               | list[dict]    |           | [material nodes](../data-models/Materials_P.md)
+`materials/_id`           | objectId()    | auto      | id of material
+`materials/name`          | string        | auto      | name of material
+`materials/id_proc`       | objectId()    | auto      | id of process that the material points to
+`materials/id_data`       | objectId()    | auto      | id of data that the material points to
+`process`                 | list[dict]    |           | [process nodes](../data-models/Process.md)
+`process/_id`             | objectId()    | auto      | id of process
+`process/name`            | string        | auto      | name of process
+`process/id_mat`          | objectId()    | auto      | id of ingerdients the process point to 
+`sample`                  | list[dict]    |           | [sample nodes](../data-models/Sample.md)
+`sample/_id`              | objectId()    | auto      | id of sample
+`sample/name`             | string        | auto      | name of sample
+`sample/id_link`          | objectId()    | auto      | id of the material the sample points 
+`data`                    | list[dict]    |           | [data nodes](../data-models/Data.md)
+`data/_id`                | objectId()    | auto      | id of data
+`data/name`               | string        | auto      | name of data
+`data/id_link`            | objectId()    | auto      | id of the node the data points
 
 
 ### Attributes
@@ -100,9 +97,7 @@ keys. Users may define their own keys by placing a '+' in front of their custom 
 
 Key                | Data Type      | Description
 -------------      |---------       |----
-`reference`        | list[dict]     | reference for this experiment
-`reference\doi`    | string         | [DOI: digital object identifier](https://www.doi.org/)
-`reference\title`  | string         | reference title
+`reference`        | string         | reference for this experiment [DOI: digital object identifier](https://www.doi.org/)
 `note`             | string         | free-form space to store any text
 
 

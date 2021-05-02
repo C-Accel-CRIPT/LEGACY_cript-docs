@@ -2,6 +2,9 @@
 To show how the data schema can be implemented, we will go through an example. We start by creating a user, group, and collection. 
 Then we will create several real-world experiments.
 
+
+![Example Network](../img/V1_Example_Full.svg)
+
 ## User, Group, Collection
 
 For a new user, the first step that needs to be done is to create a 'user'. Once the 'user' is created, then
@@ -115,23 +118,30 @@ will hold the experiments.
 
 ## Experiments
 
+When defining an experiment it is best to start with the ingredient material nodes, followed by process, data nodes. 
+After that the final product material node can be defined, followed by the experiment node. 
+
 ### Experiment 1: Anionic polymerization of styrene
 
-The data schema begins with the definition of material nodes. These first material nodes are the ingredients for the
-process node. This will be secbuLi, styrene, and toluene in our example. These materials nodes will contain information
-such as name, SMILES string, CAS number, and property information (molecular weight, boiling point, etc.) The second
-node to be defined will be a process node. In this case, it will be a polymerization node. The polymerization node will
-contain links to those initial material nodes as well as the quantities of each material used in the polymerization. The
-polymerization node will also contain details for the process in the form of a paragraph, or a list of process
-parameters. For the anionic polymerization, this can be details about the order of addition of the chemicals, reaction
-time, temperature, etc. In the case when data is taken about a process, a link to data node can be made. Something like
-polymerization kinetics where concentration or molecular weight is monitored over time. The third node to be defined is
-another material node, or product of the process. Polystyrene in this case. The process node will link to this product
-material node. Any characterization data from aliquots can be added through a data node. The material node will link to
-the relevant data nodes. In our example, SEC raw data or NMR spectra can be found in the data nodes, while the
-calculated values like M~n~, M~w~, M~w~/M~n~, etc. would be found in the property section of the polystyrene node.
+The following example is the anionic polymerization of styrene with secBuLi in a mixture of THF and Toluene. The reaction
+is then quenched with butanol and precipitated into methanol to obtain the final product, polystyrene. 
+
+Following the above suggestions, we can start by defining the ingredient material nodes. Both styrene and secbuli solution are 
+written out below. These materials nodes contain information with regard to identity (name, SMILES string, CAS number), and properties
+(molecular weight, boiling point, etc.). The second node to be defined will be a process node. The process node  
+contains links to the ingredient material nodes as well as the quantities of each material used in the polymerization. 
+The polymerization node also contains experimental procedure details and conditions under which the process was preformed 
+under (reaction time, temperature). Next the data nodes can be defined, in which both a ^1^H NMR and SEC analysis was preformed
+to get M~n~ and dispersity. Finally, we can define the product material node, polystyrene. Here we can include the same identity, 
+property data. All these nodes then are referenced in an experimental node. 
+
+
+![User Network](../img/V1_Example_Expt_1.svg)
+
 
 #### Experiment node
+
+[Experiment node](../data-models/Experiment.md)
 
 ```json
 {
@@ -153,7 +163,12 @@ calculated values like M~n~, M~w~, M~w~/M~n~, etc. would be found in the propert
       {"_id": "507f191e810c19729de860eg", "name": "THF"},
       {"_id": "507f191e810c19729de860eh", "name": "butanol"},
       {"_id": "507f191e810c19729de860ei", "name": "methanol"},
-      {"_id": "507f191e810c19729de860ef", "name": "polystyrene", "id_proc": "507f191e810c19729de860pe", "id_data":["507f191e810c19729de860md", "507f191e810c19729de860me"]}
+      {
+        "_id": "507f191e810c19729de860ef", 
+        "name": "polystyrene", 
+        "id_proc": "507f191e810c19729de860pe", 
+        "id_data":["507f191e810c19729de860md", "507f191e810c19729de860me"]
+      }
     ],
     "process": [
       {
@@ -174,125 +189,315 @@ calculated values like M~n~, M~w~, M~w~/M~n~, etc. would be found in the propert
       {"_id": "507f191e810c19729de860me", "name": "SEC"}
     ]
   },
-  "attr": {
-    "pub": [
-      {"_id": "507f191e810c19729de860em", "title": "Kinetic Study of Living Ring-Opening Metathesis Polymerization"}
-    ],
-    "ref": [
-      {"_id": "507f191e810c19729de860en", "title": "Kinetic Study of Anionic Living Polymerization"}
-    ]
-  }
+  "reference": "10.1139/v60-254"
 }
 ```
+
 
 #### Material node
 
 [Material node other](../data-models/Materials_O.md)
+
 [Material node polymers](../data-models/Materials_P.md)
+
+The following materials nodes:
+
+* styrene
+* secBuLi solution
+* polystyrene
 
 
 ```json
 {
-  "_id": "607f191e810c19729de860ea",
-  "type": "expt",
-  "ver_sch": "v0.1",
-  "ver_con": {
+  "_id": "507f191e810c19729de860ee",
+  "class": "material_p",
+  "version_schema": "v0.1",
+  "version_control": {
     "_id": "607f191e810c19729de860eb",
     "num": "v0.1"
   },
   "last_modified": "2021-04-20 18:27:50",
   "created": "2021-04-20 18:06:04",
-  "notes": "",
   "name": "styrene",
-  "expt": [{"_id": "507f191e810c19729de860em", "name": "anionic polymerization of styrene"}],
-  "proc": [{"_id": "507f191e810c19729de860em", "name": "anionic polymerization", "role": ["ingr"]}],
-  "data": [],
-  "iden": {
-    "names": ["styrene","vinylbenzene", "phenylethylene"],
-    "cas": "100-42-5",
-    "smiles": "C=Cc1ccccc1",
-    "chem_form": "C8H8"
-  },
-  "prop": [
+  "identifiers": [
     {
-      "key": "mw", "value": 104.15, "attr": {"ref": {"notes": "sigma aldrich website"}}
-    },
-    {
-      "key": "density", "value": 0.906
-    },
-    {
-      "key": "bp", "value": 145, "attr": {"+vac": "1", "+vac_unit": "atm"}
+      "mat_id": 1,
+      "pref_name": "styrene",
+      "names": ["styrene","vinylbenzene", "phenylethylene", "ethenylbenzene"],
+      "chem_form": "C8H8",
+      "smiles": "C=Cc1ccccc1",
+      "cas": "100-42-5",
+      "pubChem_cid": "7501 ",
+      "inchi_key": "PPBRXRYQALVLMV-UHFFFAOYSA-N"
     }
   ],
-  "attr": {
-    "store": {"temp_num": 0, "temp_unit": "degC"},
-    "source": "sigma"
-  }
+  "properties": [
+    {"mat_id": 0, "key": "phase", "value": "liquid"},
+    {"mat_id": 0, "key": "color", "value": "colorless"}, 
+    {"mat_id": 0, "key": "mw", "method": "prescribed", "value": 104.15},
+    {
+      "mat_id": 0, 
+      "key": "density", 
+      "value": 0.906, 
+      "conditions": [{"key": "temperature", "value": 25}]
+    },
+    {
+      "mat_id": 0,
+      "key": "bp", 
+      "value": 145, 
+      "conditions": [{"key": "pressure", "value": 101}]
+    },
+    {
+      "mat_id": 0,
+      "key": "mp", 
+      "value": -30, 
+      "conditions": [{"key": "pressure", "value": 101}]
+    },
+    {
+      "mat_id": 0,
+      "key": "solubility", 
+      "value": 0.3, 
+      "conditions": [
+        {"key": "solvent", "_id": "607f191e810c19729de860ea", "name":  "water"},
+        {"key": "temperature", "value": 20}
+      ]
+    },
+    {
+      "mat_id": 0,
+      "key": "vapor_pres", 
+      "value": 0.666, 
+      "conditions": [{"key": "temperature", "value": 20}]
+    }
+  ],
+  "keywords": ["styrene"],
+  "source": "Sigma-Aldrich",
+  "storage": {"temp": -20, "atm": "argon" }
 }
 ```
-
 
 ```json
 {
-  "_id": "607f191e810c19729de860ea",
-  "type": "expt",
-  "ver_sch": "v0.1",
-  "ver_con": {
-    "_id": "607f191e810c19729de860eb",
+  "_id": "507f191e810c19729de860ec",
+  "class": "material_p",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "607f191e810c19729de860ew",
     "num": "v0.1"
   },
-  "date": [
-    {"created": 1612889382},
-    {"last_mod": 1612889322}
-  ],
-  "notes": "",
-  "users": [
-    {"_id": "507f191e810c19729de860ec", "name": "Dylan W", "perm": "w"}
-  ],
-  "name": "poly(styrene)",
-  "expt": [
-    {"_id": "507f191e810c19729de860em", "name": "anionic polymerization of styrene"}
-  ],
-  "iden": {
-    "names": ["Poly(1-phenylethene)"],
-    "cas": "9003-53-6",
-    "bigsmiles": "{[$]CC(c1ccccc1)[$]}",
-    "chem_repeat": "C8H8"
-  },
-  "prop": [
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "SecBuLi solution",
+  "identifiers": [
     {
-      "key": "conv_mon", "method": "NMR", "value": 0.98, "uncertainty": 0.03,
-      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "nmr_1h"}}
+      "mat_id": 1,
+      "pref_name": "sec-butyllithium",
+      "names": ["sec-butyllithium", "lithium-2-butanide", "SecBuLi", "sBuLi"],
+      "chem_form": "C4H9Li1",
+      "smiles": "[Li]C(C)CC",
+      "cas": "598-30-1",
+      "pubChem_cid": "102446 "
     },
     {
-      "key": "m_n", "method": "nmr", "value": 5300, "uncertainty": 300,
-      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "nmr_1h"}, "names": ["end group analysis"]}
-    },
-    {
-      "key": "m_n", "method": "sec", "value": 5130, "uncertainty": 200,
-      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "sec"}}
-    },
-    {
-      "key": "d", "method": "sec", "value": 1.03, "uncertainty": 0.02,
-      "attr": {"data": {"_id": "507f191e810c19729de860em", "key": "sec"}}
+      "mat_id": 2,
+      "pref_name": "cyclohexane",
+      "_id": "607f191e810c19729de860es"
     }
   ],
-  "proc": [
-    {"_id": "507f191e810c19729de860em", "name": "anionic polymerization", "role": ["prod"]}
+  "properties": [
+    {"mat_id": 0, "key": "phase", "value": "liquid"},
+    {"mat_id": 0, "key": "color", "value": "white"},
+    {"mat_id": 1, "key": "mw", "method": "prescribed", "value": 64.06},
+    {
+      "mat_id": 0,
+      "key": "density",
+      "value": 0.769,
+      "conditions": [{"key": "temperature", "value": 25}]
+    },
+    {"mat_id": 1, "key": "conc", "value": 1.4}
   ],
-  "data": [
-    {"_id": "507f191e810c19729de860ef", "key": "nmr_1h"},
-    {"_id": "507f191e810c19729de860vm", "key": "sec"}
-  ],
-  "attr": {}
+  "source": "Sigma-Aldrich",
+  "storage": {"temp": 2, "atm": "argon"}
 }
 ```
 
+```json
+{
+  "_id": "507f191e810c19729de860ef",
+  "class": "material_p",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "607f191e810c19729de860et",
+    "num": "v0.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "polystyrene",
+  "identifiers": [
+    {
+      "mat_id": 1,
+      "pref_name": "poly(styrene)",
+      "names": ["poly(styrene)","poly(vinylbenzene)"],
+      "chem_repeat": "C8H8",
+      "smiles": "{[$]CC(c1ccccc1)[$]}",
+      "cas": "100-42-5"
+    }
+  ],
+  "process": {"_id": "507f191e810c19729de860pe", "name": "anionic polymerization"},
+   "properties": [
+     {
+       "mat_id": 0,
+       "key": "m_n",
+       "method": "nmr",
+       "value": 4800,
+       "uncer": 400,
+       "data_id": "507f191e810c19729de860em"
+     },
+     {
+       "mat_id": 0,
+       "key": "m_n",
+       "method": "sec",
+       "value": 5200,
+       "uncer": 100,
+       "data_id": "507f191e810c19729de860er"
+     },
+     {
+       "mat_id": 0,
+       "key": "d",
+       "method": "sec",
+       "value": 1.03,
+       "uncer": 0.01,
+       "data_id": "507f191e810c19729de860er"
+     }
+   ]
+}
+```
+
+
+#### Process node
+
+[Process node](../data-models/Process.md)
+
+```json
+{
+  "_id": "507f191e810c19729de860pe",
+  "class": "process",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "607f191e810c19729de860et",
+    "num": "v0.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "anionic polymerization",
+  "ingredients": [
+    { 
+      "_id": "507f191e810c19729de860ec",
+      "name": "SecBuLi",
+      "type": "initiator",
+      "quantities": [
+        {"key": "volume", "value": 0.017},
+        {"key": "mole", "value": 0.022},
+        {"key": "equivalence", "value": 1}
+      ]
+    },
+    { 
+      "_id": "507f191e810c19729de860ed",
+      "name": "toluene",
+      "type": "solvent",
+      "quantities": [
+        {"key": "mass", "value": 8.7},
+        {"key": "volume", "value": 10},
+        {"key": "mole", "value": 94.4},
+        {"key": "equivalence", "value": 4234}
+      ]
+    },
+    { 
+      "_id": "507f191e810c19729de860em",
+      "name": "styrene",
+      "type": "monomer",
+      "quantities": [
+        {"key": "mass", "value": 0.455},
+        {"key": "volume", "value": 0.5},
+        {"key": "mole", "value": 4.27},
+        {"key": "equivalence", "value": 191.5}
+      ]
+    },
+    { 
+      "_id": "507f191e810c19729de860eg",
+      "name": "THF",
+      "type": "solvent",
+      "quantities": [
+        {"key": "mass", "value": 3.28},
+        {"key": "volume", "value": 3.7},
+        {"key": "mole", "value": 45.5},
+        {"key": "equivalence", "value": 2042}
+      ]
+    },
+        { 
+      "_id": "507f191e810c19729de860eh",
+      "name": "butanol",
+      "type": "quench"
+    },
+    { 
+      "_id": "507f191e810c19729de860em",
+      "name": "methanol",
+      "type": "workup"
+    }
+  ],
+  "procedure": "In an argon filled glovebox, a round bottom flask was filled with 216 ml of dried toluene. The solution of secBuLi (3 ml, 3.9 mmol) was added next, followed by styrene (22.3 g, 176 mmol) to initiate the polymerization. The reaction mixture immediately turned orange. After 30 min, the reaction was quenched with the addition of 3 ml of methanol. The polymer was isolated by precipitation in methanol 3 times and dried under vacuum.",
+  "conditions": [
+    {"key": "time", "value": [60]},
+    {"key": "temp", "value": [25]}
+  ],
+  "keywords": ["polymerization", "living_poly", "anionic", "solution"]
+}
+```
+
+
+
+#### Data node
+
+[Data node](../data-models/Data.md)
+
+```json
+{
+  "_id": "507f191e810c19729de860md",
+  "class": "data",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "607f191e810c19729de860et",
+    "num": "v0.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "1H NMR",
+  "type": "nmr_h1",
+  "source": "expt",
+  "file": {"_id": "507f191e810c19729de860ed","type": "csv"},
+  "sample_preparation": "Dissolved 10 mg of polymer into 0.6 ml of CDCl3.",
+  "conditions": [
+    {"key": "solvent", "_id": "507f191e810c19729de860md", "name": "CDCl3"}
+  ],
+  "equipment": {"description": "Nuclear Magnetic Resonance (NMR) spectra were recorded on a Bruker AVANCE III 500 MHz."},
+  "calibration": {"description": "Spectra referenced to the residual solvent signal: CDCl3 (1H 7.26 ppm)"}
+}
+```
+
+
+
+
+---
+
 ### Experiment 2: Diblock bottlebrush synthesis and assembly
+
+![Diblock bottlebrush synthesis and assembly Network](../img/V1_Example_BB.svg)
+
+
+---
 
 ### Experiment 3: Kinetic analysis of ROMP
 
-
+![Kinetic analysis of ROMP Network](../img/V1_Example_ROMP.svg)
 
 {
     "materials": [
@@ -319,9 +524,15 @@ calculated values like M~n~, M~w~, M~w~/M~n~, etc. would be found in the propert
     ]
   }
 
+---
+
 ### Experiment 4: Simulation
 
 
+
+---
+
+---
 
 ## Publication
 

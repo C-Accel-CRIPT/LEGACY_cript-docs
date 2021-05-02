@@ -35,13 +35,13 @@ A similar structure to [material node for polymer](../Materials_P/#identifiers);
 
 Key                  | Data Type      | Required    | Description
 -------------        |---------       | ---------   |----
-`mat_id`             | objectId()     | required    | id that is used to link to properties (auto-generated)
+`mat_id`             | integer        | required    | id that is used to link to properties (auto-generated)
 `pref_name`          | string         | required    | Preferred name 
 `names`              | list[string]   | optional    | Additional names, abbreviations, short hands for the material
 `chem_form`          | string         | optional    | chemical formula, Ex. benzene: "C6H6"
 `smiles`             | string         | optional    | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
 `cas`                | string         | optional    | [CAS number](https://www.cas.org/support/documentation/chemical-chemicals)
-`pubChem_id`         | string         | optional    | [PubChem ID](https://pubchem.ncbi.nlm.nih.gov/)
+`pubChem_cid`        | string         | optional    | [PubChem CID](https://pubchem.ncbi.nlm.nih.gov/)
 `inchi`              | string         | optional    | IUPAC International Chemical Identifier [InChI](https://iupac.org/who-we-are/divisions/division-details/inchi/)
 `inchi_key`          | string         | optional    | a hashed version of the full InChI 
 
@@ -52,10 +52,12 @@ A similar structure to [material node for polymer](../Materials_P/#properties); 
 
 Key              | Method                | Range                   | Units    | Conditions                | Description
 ----------       |---------              |------                   |--------  |                           |---------
+`conc`           | []                    | [0, 1.79e+308]          | M        |                           | concentration
+`weight_p`       | []                    | [0, 1]                  | None     |                           | weight percent
 `phase`          | []                    | [solid, liquid, gas]    | None     |                           | state of matter
 `color`          | []                    | string                  | None     |                           | the visual appearance of the chemical 
 `odor`           | []                    | string                  | None     |                           | a description of the smell of the chemical
-`ref_index`      | []                    | [0, 1.79e+308]          | None     | temperature               | a dimensionless number that describes how fast light travels through the material.
+`ref_index`      | []                    | [0, 1.79e+308]          | None     | temperature               | refractive index; a dimensionless number that describes how fast light travels through the material.
 `density`        | []                    | [0, 1.79e+308]          | None     | temperature and pressure  | the amount of chemical that fit within a unit of volume.
 `mw`             | ['nmr', 'ms']         | [0, 1.79e+308]          | g/mol    |                           | molecular weight 
 `conc`           | []                    | [0, 1.79e+308]          | M        |                           | concentration
@@ -68,11 +70,12 @@ Key              | Method                | Range                   | Units    | 
 `ph`             | []                    | [-1.79E308, 1.79E308]   | None     |                           | potential of hydrogen
 `pka`            | []                    | [-1.79E308, 1.79E308]   | None     |                           | negative base^-10^ logarithm of the acid dissociation constant
 `pkb`            | []                    | [-1.79E308, 1.79E308]   | None     |                           | negative base^-10^ logarithm of the base dissociation constant
-`solubility`     | []                    | [0, 1.79E308]           | mg/mL    | temperature and solvent (use id_)  | the ability to dissolve
+`solubility`     | []                    | [0, 1.79E308]           | mg/mL    | temperature and solvent   | the ability to dissolve
+`vapor_pres`     | []                    | [0, 1.70E308]           | kPa      | temperature               | vapor pressure
 `heat_vap`       | []                    | [0, 1.79E308]           | kj/mol   | temperature               | heat of vaporization
 `surface_ten`    | []                    | [0, 1.79E308]           | N/m      | temperature               | surface tension
-
-
+`mag_susc`       | []                    | [-1.79E308, 1.79E308]   | ml/mol   |                           | magnetic susceptibility
+`dipole`         | []                    | [0, 1.79E308]           | debye    |                           | dipole moment
 
 ### Keywords
 

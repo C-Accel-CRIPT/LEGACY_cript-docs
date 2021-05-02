@@ -37,8 +37,8 @@ mixtures containing polymers.
     "_id": objectId(),
     "num": string
   },
-  "date_created": datetime,
-  "date_last_mod": datetime,
+  "last_modified": datetime,
+  "created": datetime,
   "name": string,
   "identifiers": {"see identifiers": "for details"},
   "optional attributes"
@@ -84,10 +84,12 @@ Key                | Data Type    | Units    | Description
 `keywords`         | list[string] |          | [see keywords section below](../Materials_P/#keywords)
 `source`           | string       |          | source of material
 `lot_number`       | string       |          | lot number
-`store`            | dict         |          | storage conditions
-`store\temp`       | double       | degC     | storage temperature
-`store\time_num`   | double       | min      | storage time
-`store\note`       | string       |          | notes related to storage
+`storage`          | dict         |          | storage conditions
+`storage\temp`     | double       | degC     | storage temperature
+`storage\time_num` | double       | days     | storage time
+`storage\atm`      | string       |          | storage atmosphere
+`storage\note`     | string       |          | notes related to storage
+`hazard`           | list[string] |          | hazards
 `note`             | string       |          | free-form space to store any text
 
 
@@ -109,14 +111,15 @@ Mixtures are supported by appending to list of identifiers.
 Key                  | Data Type      | Required          | Description
 -------------        |---------       | ---------         |----
 `mat_id`             | integer        | auto-generated    | id that is used to link to properties 
-`pref_name`          | string         | required          | preferred name 
+`pref_name`          | string         | required          | preferred name
+`_id`                | objectID       | optional          | ID for material that already exists
 `names`              | list[string]   | optional          | additional names, abbreviations, short hands for the material
 `cas`                | string         | optional          | [CAS number](https://www.cas.org/support/documentation/chemical-substances)
 `bigsmiles`          | string         | optional          | [bigSMILES Line Notation](https://olsenlabmit.github.io/BigSMILES/docs/line_notation.html#the-bigsmiles-line-notation)
 `chem_repeat`        | list[string]   | optional          | chemical formula of repeating unit, Ex. polystyrene: "C8H8"
 `smiles`             | string         | optional          | [simplified molecular-input line-entry system](https://en.wikipedia.org/wiki/Simplified_molecular-input_line-entry_system)
 `chem_form`          | string         | optional          | chemical formula, Ex. benzene: "C6H6"
-`pubChem_id`         | string         | optional          | [PubChem ID](https://pubchem.ncbi.nlm.nih.gov/)
+`pubChem_cid`        | string         | optional          | [PubChem CID](https://pubchem.ncbi.nlm.nih.gov/)
 `inchi`              | string         | optional          | IUPAC International Chemical Identifier [InChI](https://iupac.org/who-we-are/divisions/division-details/inchi/)
 `inchi_key`          | string         | optional          | a hashed version of the full InChI 
 
@@ -135,8 +138,8 @@ Properties consist of the following structure:
   "value": double, 
   "uncer": double, 
   "unit": string,
-  "data": {"_id": ObjectID, "name": string, "type": string},
-  "conditions": [{"key": string, "value": double, "unit": string, "uncer": double, "_id": ObjectID}],
+  "data_id": ObjectID,
+  "conditions": [{"key": string, "value": double, "unit": string, "uncer": double, "_id": ObjectID, "name": string}],
   "note": "string"
 }
 ```
@@ -159,63 +162,68 @@ The range bound is limited to the largest number that can be stored in 64 bits (
 
 #### Chemical
 
-Key              | Method                                      |Range                |Units     | Conditions  | Description
-----------       |---------                                    |------               |--------  |---------    |---------
-`m_n`            | ['nmr', 'sec', 'maldi', 'osmtic_pres']      | [0, 1.79e+308]      | g/mol    |             | Average molecular weight on the bases of moles or first moment of the molecular weight distribution.
-`m_w`            | ['nmr', 'sec', 'maldi', 'ls']               | [0, 1.79e+308]      | g/mol    |             | Average molecular weight on the bases of weight.
-`d`              | ['sec', 'maldi']                            | [1, 1.79e+308]      |          |             | Ratio of weight averaged molecular weight over number average molecular weight.
-`m_z`            | ['nmr', 'sec', 'maldi', 'ultra_centr']      | [0, 1.79e+308]      | g/mol    |             |
-`m_v`            | ['viscometer']                              | [0, 1.79e+308]      | g/mol    |             | Average molecular weight determined from viscosity
-`m_p`            | ['sec', 'maldi']                            | [0, 1.79e+308]      | g/mol    |             | Peak average molecular weight
-`mw_std_dev`     | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]      | g/mol    |             | Standard deviation of molecular weight distribution or square root of the second moment ofthe molecular weight distribution
-`mw_var`         | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]      | g/mol    |             | Variance of molecular weight distribution or the second moment of the molecular weight distribution
-`mw_skew`        | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]      | g/mol    |             | Skewness of molecular weight distribution or the third moment of the molecular weight distribution
-`mw_kurtosis`    | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]      | g/mol    |             | Kurtosis of molecular weight distribution or the fourth moment of the molecular weight distribution
-`tac_Pm`         | ['nmr']                                     | [0, 1]              |          |             | probability of finding meso diads (Pm)
-`comp_frac`      | []                                          | [0, 1]              |          |             | composition: mole fraction of component ??????
-`branch`         | []                                          |                     |          |             | 
-`tran/cis`       | []                                          |                     |          |             | 
+Key                  | Method                                      |Range                    |Units                | Conditions                | Description
+----------           |---------                                    |------                   |--------             |---------                  |---------
+`conc`               | []                                          | [0, 1.79e+308]          | M                   |                           | concentration
+`weight_p`           | []                                          | [0, 1]                  | None                |                           | weight percent
+`m_n`                | ['nmr', 'sec', 'maldi', 'osmtic_pres']      | [0, 1.79e+308]          | g/mol               |                           | Average molecular weight on the bases of moles or first moment of the molecular weight distribution.
+`m_w`                | ['nmr', 'sec', 'maldi', 'ls']               | [0, 1.79e+308]          | g/mol               |                           | Average molecular weight on the bases of weight.
+`d`                  | ['sec', 'maldi']                            | [1, 1.79e+308]          |                     |                           | Ratio of weight averaged molecular weight over number average molecular weight.
+`m_z`                | ['nmr', 'sec', 'maldi', 'ultra_centr']      | [0, 1.79e+308]          | g/mol               |                           |
+`m_v`                | ['viscometer']                              | [0, 1.79e+308]          | g/mol               |                           | Average molecular weight determined from viscosity
+`m_p`                | ['sec', 'maldi']                            | [0, 1.79e+308]          | g/mol               |                           | Peak average molecular weight
+`mw_std_dev`         | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]          | g/mol               |                           | Standard deviation of molecular weight distribution or square root of the second moment ofthe molecular weight distribution
+`mw_var`             | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]          | g/mol               |                           | Variance of molecular weight distribution or the second moment of the molecular weight distribution
+`mw_skew`            | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]          | g/mol               |                           | Skewness of molecular weight distribution or the third moment of the molecular weight distribution
+`mw_kurtosis`        | ['nmr', 'sec', 'maldi']                     | [0, 1.79e+308]          | g/mol               |                           | Kurtosis of molecular weight distribution or the fourth moment of the molecular weight distribution
+`tac_Pm`             | ['nmr']                                     | [0, 1]                  |                     |                           | probability of finding meso diads (Pm)
+`comp_frac`          | []                                          | [0, 1]                  |                     |                           | composition: mole fraction of component ??????
+`branch`             | []                                          |                         |                     |                           | 
+`tran/cis`           | []                                          |                         |                     |                           | 
 
 #### Physical
 
-Key                  | Method                 |Range                    |Units                | Conditions        | Description
-----------           |---------               |------                   |--------             |---                |---------
-`solubility`         | []                     | [0, 1.79E308]           | mg/mL               | temperature and solvent (use id_)  | the ability to dissolve
-`heat_vap`           | []                     | [0, 1.79E308]           | kj/mol              | temperature       | heat of vaporization
-`surface_ten`        | []                     | [0, 1.79E308]           | N/m                 | temperature       | surface tension
-`ref_index`          | []                     | [0, 1.79e+308]          | None                |                   | A dimensionless number that describes how fast light travels through the material.
-`density`            | []                     | [0, 1.79e+308]          | None                |                   | The amount of substance that fit within a unit of volume.
-`t_m`                | ['dsc']                | [-273.15, 1.79e+308]    | degC                |                   | The transition temperature where crystal structures are destroyed.
-`t_g`                | ['dsc']                | [-273.15, 1.79e+308]    | degC                |                   | The transition temperature where a substances turns into a glass; vitrification.
-`crys_frac`          | ['dsc']                | [0, 1.2]                | None                |                   | Percent Crystallinity By Weight
-`enth_crys`          | ['dsc']                | [-1.79e+308, 1.79e+308] | J/mol               |                   | Enthalpy of Crystallization, molar basis
-`entr_crys`          | ['dsc']                | [-1.79e+308, 1.79e+308] | J/mol/K             |                   | Entropy of Crystallization, molar basis
-`therm_cond`         | []                     | [0, 1.79e+308]          | W/m/k               |                   | Measure of a materials ability to conduct heat
-`therm_expand_v`     | []                     | [-1.79e+308, 1.79e+308] | 1/K                 |                   | A change in volume in response to a change in temperature (not including phase transitions)
-`therm_expand_l`     | []                     | [-1.79e+308, 1.79e+308] | 1/K                 |                   | A change in dimension in response to a change in temperature (not including phase transitions)
-`c_p`                | ['calorimetry', 'dsc'] | [-1.79e+308, 1.79e+308] | J/mol/K             |                   | The amount of heat needed to be supplied to a given mole (based on repeat unit) to produce a change in temperature at constant pressure
-`c_v`                | []                     | [-1.79e+308, 1.79e+308] | J/mol/K             |                   | The amount of heat needed to be supplied to a given mole (based on repeat unit) to produce a change in temperature at constant volume
-`therm_diff`         | []                     | [-1.79e+308, 1.79e+308] | m^2/s               |                   | A measures the rate of transfer of heat of a material from the hot end to the cold end.
-`tensile_mod`        | ['utm']                | [0, 1.79e+308]          | GPa                 |                   |
-`tensile_str`        | ['utm']                | [0, 1.79e+308]          | MPa                 |                   | The maximum stress that a material can withstand while being stressed.
-`yield_str`          | ['utm']                | [0, 1.79e+308]          | MPa                 |                   | Point on a stress-strain curve that indicates the limit of elastic behavior.
-`frac_strain`        | ['utm']                | [1, 1.79e+308]          | None                |                   | The maximum strain that a material can withstand while being stressed.
-`intr_vis`           | ['viscometer']         | [0, 1.79e+308]          | dl/g                |                   | A measure of a solute contribution to the viscosity of a solution
-`mh_parameter_k`     | ['sec', 'viscometer']  | [0, 1.79e+308]          | ml/g                |                   | Mark Houwink Parameters provide a relation between intrinsic viscosity and molecular weight
-`mh_parameter_a`     | ['sec', 'viscometer']  | [0, 1.79e+308]          | None                |                   | Mark Houwink Parameters provide a relation between intrinsic viscosity and molecular weight
-`diff_coef`          | []                     | [0, 1.79e+308]          | cm^2/s              |                   | Proportionality constant between the molar flux due to molecular diffusion and the gradient of concentration.
-`relax_time_seg`     | []                     | [0, 1.79e+308]          | s                   |                   | Time it takes a polymer segment to relax
-`relax_time_long`    | []                     | [0, 1.79e+308]          | s                   |                   | Time longest time scale it takes to relax an applied stress
-`iso_comp`           | []                     | [-1.79e+308, 1.79e+308] | m^2/N               |                   | A change in volume in response to a change in pressure
-`char_ratio`         | []                     | [0, 1.79e+308]          | None                |                   | A measure of chain flexibility.
-`khun_len`           | []                     | [0, 1.79e+308]          | angstrom            |                   | A measure of chain flexibility.
-`stat_seg_len`       | []                     | [0, 1.79e+308]          | angstrom            |                   | A measure of chain flexibility.
-`persis_len`         | []                     | [0, 1.79e+308]          | angstrom            |                   | A measure of the bending stiffness of a polymer.
-`r_g`                | ['ls']                 | [0, 1.79e+308]          | nm                  |                   | The root-mean-square mass weighted average distance of monomers from the center of mass.
-`r_h`                | ['dls']                | [0, 1.79e+308]          | nm                  |                   | The radius of an equivalent hard-sphere diffusing at the same rate as the molecule under observation
-`virial_coef`        | []                     | [0, 1.79e+308]          | cm^3 * mole/gram^2  |                   |
-`inter_Parm`         | []                     | [0, 1.79e+308]          | cm^3 * mole/gram^2  |                   | A measure of the interaction between molecules and the medium in which it is dissolved in.
-`melt_flow`          | []                     | [0, 1.79e+308]          | g                   |                   | the mass of polymer flowing through a capillary of a specific diameter and length by a pressure of a specified time
+Key                  | Method                 |Range                    |Units                | Conditions                | Description
+----------           |---------               |------                   |--------             |---                        |---------
+`phase`              | []                     | [solid, liquid, gas]    | None                |                           | state of matter
+`color`              | []                     | string                  | None                |                           | the visual appearance of the chemical 
+`odor`               | []                     | string                  | None                |                           | a description of the smell of the chemical
+`solubility`         | []                     | [0, 1.79E308]           | mg/mL               | temperature and solvent   | the ability to dissolve
+`heat_vap`           | []                     | [0, 1.79E308]           | kj/mol              | temperature               | heat of vaporization
+`surface_ten`        | []                     | [0, 1.79E308]           | N/m                 | temperature               | surface tension
+`ref_index`          | []                     | [0, 1.79e+308]          | None                |                           | A dimensionless number that describes how fast light travels through the material.
+`density`            | []                     | [0, 1.79e+308]          | None                |                           | The amount of substance that fit within a unit of volume.
+`t_m`                | ['dsc']                | [-273.15, 1.79e+308]    | degC                |                           | The transition temperature where crystal structures are destroyed.
+`t_g`                | ['dsc']                | [-273.15, 1.79e+308]    | degC                |                           | The transition temperature where a substances turns into a glass; vitrification.
+`crys_frac`          | ['dsc']                | [0, 1.2]                | None                |                           | Percent Crystallinity By Weight
+`enth_crys`          | ['dsc']                | [-1.79e+308, 1.79e+308] | J/mol               |                           | Enthalpy of Crystallization, molar basis
+`entr_crys`          | ['dsc']                | [-1.79e+308, 1.79e+308] | J/mol/K             |                           | Entropy of Crystallization, molar basis
+`therm_cond`         | []                     | [0, 1.79e+308]          | W/m/k               |                           | Measure of a materials ability to conduct heat
+`therm_expand_v`     | []                     | [-1.79e+308, 1.79e+308] | 1/K                 |                           | A change in volume in response to a change in temperature (not including phase transitions)
+`therm_expand_l`     | []                     | [-1.79e+308, 1.79e+308] | 1/K                 |                           | A change in dimension in response to a change in temperature (not including phase transitions)
+`c_p`                | ['calorimetry', 'dsc'] | [-1.79e+308, 1.79e+308] | J/mol/K             |                           | The amount of heat needed to be supplied to a given mole (based on repeat unit) to produce a change in temperature at constant pressure
+`c_v`                | []                     | [-1.79e+308, 1.79e+308] | J/mol/K             |                           | The amount of heat needed to be supplied to a given mole (based on repeat unit) to produce a change in temperature at constant volume
+`therm_diff`         | []                     | [-1.79e+308, 1.79e+308] | m^2/s               |                           | A measures the rate of transfer of heat of a material from the hot end to the cold end.
+`tensile_mod`        | ['utm']                | [0, 1.79e+308]          | GPa                 |                           |
+`tensile_str`        | ['utm']                | [0, 1.79e+308]          | MPa                 |                           | The maximum stress that a material can withstand while being stressed.
+`yield_str`          | ['utm']                | [0, 1.79e+308]          | MPa                 |                           | Point on a stress-strain curve that indicates the limit of elastic behavior.
+`frac_strain`        | ['utm']                | [1, 1.79e+308]          | None                |                           | The maximum strain that a material can withstand while being stressed.
+`intr_vis`           | ['viscometer']         | [0, 1.79e+308]          | dl/g                |                           | A measure of a solute contribution to the viscosity of a solution
+`mh_parameter_k`     | ['sec', 'viscometer']  | [0, 1.79e+308]          | ml/g                |                           | Mark Houwink Parameters provide a relation between intrinsic viscosity and molecular weight
+`mh_parameter_a`     | ['sec', 'viscometer']  | [0, 1.79e+308]          | None                |                           | Mark Houwink Parameters provide a relation between intrinsic viscosity and molecular weight
+`diff_coef`          | []                     | [0, 1.79e+308]          | cm^2/s              |                           | Proportionality constant between the molar flux due to molecular diffusion and the gradient of concentration.
+`relax_time_seg`     | []                     | [0, 1.79e+308]          | s                   |                           | Time it takes a polymer segment to relax
+`relax_time_long`    | []                     | [0, 1.79e+308]          | s                   |                           | Time longest time scale it takes to relax an applied stress
+`iso_comp`           | []                     | [-1.79e+308, 1.79e+308] | m^2/N               |                           | A change in volume in response to a change in pressure
+`char_ratio`         | []                     | [0, 1.79e+308]          | None                |                           | A measure of chain flexibility.
+`khun_len`           | []                     | [0, 1.79e+308]          | angstrom            |                           | A measure of chain flexibility.
+`stat_seg_len`       | []                     | [0, 1.79e+308]          | angstrom            |                           | A measure of chain flexibility.
+`persis_len`         | []                     | [0, 1.79e+308]          | angstrom            |                           | A measure of the bending stiffness of a polymer.
+`r_g`                | ['ls']                 | [0, 1.79e+308]          | nm                  |                           | The root-mean-square mass weighted average distance of monomers from the center of mass.
+`r_h`                | ['dls']                | [0, 1.79e+308]          | nm                  |                           | The radius of an equivalent hard-sphere diffusing at the same rate as the molecule under observation
+`virial_coef`        | []                     | [0, 1.79e+308]          | cm^3 * mole/gram^2  |                           |
+`inter_Parm`         | []                     | [0, 1.79e+308]          | cm^3 * mole/gram^2  |                           | A measure of the interaction between molecules and the medium in which it is dissolved in.
+`melt_flow`          | []                     | [0, 1.79e+308]          | g                   |                           | the mass of polymer flowing through a capillary of a specific diameter and length by a pressure of a specified time
 
 
 #### Conditions
@@ -225,14 +233,16 @@ Key                   | Units     | Location   | Description
 `time`                | min       | value      | time
 `temperature`         | degC      | value      | temperature
 `pressure`            | kPa       | value      | pressure (absolute)
-`solvent`             | none      | _id        | solvent; material node
-`standard`            | none      | _id        | measurement standard (ASTM, ISO)
+`solvent`             | none      | _id, name  | solvent; material node
+`standard`            | none      | _id, name  | measurement standard (ASTM, ISO)
 
 
 #### Methods
 
 Key                | Description
 ----------         | ----
+`prescribed`       | A value that can be defined, (Ex. calculating MW from molecular formula)
+`comp`             | Computation or Simulation
 `nmr`              | Nuclear Magnetic Resonance
 `sec`              | Size Exclusion Chromatography / Gel permeation chromatography (GPC)  
 `gc`               | Gas Chromatography
@@ -262,7 +272,7 @@ Key                | Description
 `afm`              | Atomic force microscopy
 `tem`              | Transmission electron microscopy
 `sem`              | Scanning electron microscopy
-`comp`             | Computation or Simulation
+
 
 
 ### Keywords
