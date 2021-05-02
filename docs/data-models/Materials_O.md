@@ -50,32 +50,33 @@ Key                  | Data Type      | Required    | Description
 A similar structure to [material node for polymer](../Materials_P/#properties); except for keys.
 
 
-Key              | Method                | Range                   | Units    | Conditions                | Description
-----------       |---------              |------                   |--------  |                           |---------
-`conc`           | []                    | [0, 1.79e+308]          | M        |                           | concentration
-`weight_p`       | []                    | [0, 1]                  | None     |                           | weight percent
-`phase`          | []                    | [solid, liquid, gas]    | None     |                           | state of matter
-`color`          | []                    | string                  | None     |                           | the visual appearance of the chemical 
-`odor`           | []                    | string                  | None     |                           | a description of the smell of the chemical
-`ref_index`      | []                    | [0, 1.79e+308]          | None     | temperature               | refractive index; a dimensionless number that describes how fast light travels through the material.
-`density`        | []                    | [0, 1.79e+308]          | None     | temperature and pressure  | the amount of chemical that fit within a unit of volume.
-`mw`             | ['nmr', 'ms']         | [0, 1.79e+308]          | g/mol    |                           | molecular weight 
-`conc`           | []                    | [0, 1.79e+308]          | M        |                           | concentration
-`bp`             | []                    | [-273.15, 1.79E308]     | degC     | pressure                  | boiling temperature
-`mp`             | []                    | [-273.15, 1.79E308]     | degC     |                           | melting temperature
-`flash`          | []                    | [-273.15, 1.79E308]     | degC     |                           | flash point, the temperature at a which a chemical gives off sufficient vapor to ignite
-`ignite`         | []                    | [-273.15, 1.79E308]     | degC     |                           | autoignition temperature
-`decomp`         | []                    | [-273.15, 1.79E308]     | degC     |                           | decomposition temperature
-`vis`            | ['viscometer']        | [0, 1.79e+308]          | dl/g     | temperature               | viscosity
-`ph`             | []                    | [-1.79E308, 1.79E308]   | None     |                           | potential of hydrogen
-`pka`            | []                    | [-1.79E308, 1.79E308]   | None     |                           | negative base^-10^ logarithm of the acid dissociation constant
-`pkb`            | []                    | [-1.79E308, 1.79E308]   | None     |                           | negative base^-10^ logarithm of the base dissociation constant
-`solubility`     | []                    | [0, 1.79E308]           | mg/mL    | temperature and solvent   | the ability to dissolve
-`vapor_pres`     | []                    | [0, 1.70E308]           | kPa      | temperature               | vapor pressure
-`heat_vap`       | []                    | [0, 1.79E308]           | kj/mol   | temperature               | heat of vaporization
-`surface_ten`    | []                    | [0, 1.79E308]           | N/m      | temperature               | surface tension
-`mag_susc`       | []                    | [-1.79E308, 1.79E308]   | ml/mol   |                           | magnetic susceptibility
-`dipole`         | []                    | [0, 1.79E308]           | debye    |                           | dipole moment
+Key                  | Method                                      | Range                   | Units               | Conditions                | Description
+----------           |---------                                    |------                   |--------             |                           |---------
+`conc`               | []                                          | [0, 1.79e+308]          | M                   |                           | concentration
+`weight_p`           | []                                          | [0, 1]                  | None                | relative                  | weight percent
+`molar_p`            | ['nmr', 'sec']                              | [0, 1]                  | None                | relative                  | mole percent
+`phase`              | []                                          | [solid, liquid, gas]    | None                |                           | state of matter
+`color`              | []                                          | string                  | None                |                           | the visual appearance of the chemical 
+`odor`               | []                                          | string                  | None                |                           | a description of the smell of the chemical
+`ref_index`          | []                                          | [0, 1.79e+308]          | None                | temperature               | refractive index; a dimensionless number that describes how fast light travels through the material.
+`density`            | []                                          | [0, 1.79e+308]          | None                | temperature and pressure  | the amount of chemical that fit within a unit of volume.
+`mw`                 | ['nmr', 'ms']                               | [0, 1.79e+308]          | g/mol               |                           | molecular weight 
+`conc`               | []                                          | [0, 1.79e+308]          | M                   |                           | concentration
+`bp`                 | []                                          | [-273.15, 1.79E308]     | degC                | pressure                  | boiling temperature
+`mp`                 | []                                          | [-273.15, 1.79E308]     | degC                |                           | melting temperature
+`flash`              | []                                          | [-273.15, 1.79E308]     | degC                |                           | flash point, the temperature at a which a chemical gives off sufficient vapor to ignite
+`ignite`             | []                                          | [-273.15, 1.79E308]     | degC                |                           | autoignition temperature
+`decomp`             | []                                          | [-273.15, 1.79E308]     | degC                |                           | decomposition temperature
+`vis`                | ['viscometer']                              | [0, 1.79e+308]          | dl/g                | temperature               | viscosity
+`ph`                 | []                                          | [-1.79E308, 1.79E308]   | None                |                           | potential of hydrogen
+`pka`                | []                                          | [-1.79E308, 1.79E308]   | None                |                           | negative base^-10^ logarithm of the acid dissociation constant
+`pkb`                | []                                          | [-1.79E308, 1.79E308]   | None                |                           | negative base^-10^ logarithm of the base dissociation constant
+`solubility`         | []                                          | [0, 1.79E308]           | mg/mL               | temperature and solvent   | the ability to dissolve
+`vapor_pres`         | []                                          | [0, 1.70E308]           | kPa                 | temperature               | vapor pressure
+`heat_vap`           | []                                          | [0, 1.79E308]           | kj/mol              | temperature               | heat of vaporization
+`surface_ten`        | []                                          | [0, 1.79E308]           | N/m                 | temperature               | surface tension
+`mag_susc`           | []                                          | [-1.79E308, 1.79E308]   | ml/mol              |                           | magnetic susceptibility
+`dipole`             | []                                          | [0, 1.79E308]           | debye               |                           | dipole moment
 
 ### Keywords
 

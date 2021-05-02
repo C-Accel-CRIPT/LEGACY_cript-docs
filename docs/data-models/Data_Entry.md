@@ -39,3 +39,11 @@ capabilities for any embedded document.
 
 ![Data_Schema](../img/directed_data_model.svg)
 
+
+
+
+![Data_Schema](../img/V1_Example_one_expt.svg)
+
+
+
+![Data_Schema](../img/V1_Example_mult_expt.svg)

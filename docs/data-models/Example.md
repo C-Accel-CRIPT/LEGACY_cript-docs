@@ -337,8 +337,8 @@ The following materials nodes:
       "mat_id": 1,
       "pref_name": "poly(styrene)",
       "names": ["poly(styrene)","poly(vinylbenzene)"],
-      "chem_repeat": "C8H8",
-      "smiles": "{[$]CC(c1ccccc1)[$]}",
+      "chem_repeat": ["C8H8"],
+      "bigsmiles": "[H]{[>][<]C(C[>])c1ccccc1[<]}C(C)CC",
       "cas": "100-42-5"
     }
   ],
@@ -433,7 +433,7 @@ The following materials nodes:
         {"key": "equivalence", "value": 2042}
       ]
     },
-        { 
+    { 
       "_id": "507f191e810c19729de860eh",
       "name": "butanol",
       "type": "quench"
@@ -448,6 +448,14 @@ The following materials nodes:
   "conditions": [
     {"key": "time", "value": [60]},
     {"key": "temp", "value": [25]}
+  ],
+  "properties": [
+    {
+      "key": "yield_mass",
+      "method": "scale",
+      "value": 0.47,
+      "uncer": 0.02
+    }
   ],
   "keywords": ["polymerization", "living_poly", "anionic", "solution"]
 }
@@ -492,6 +500,446 @@ The following materials nodes:
 
 ![Diblock bottlebrush synthesis and assembly Network](../img/V1_Example_BB.svg)
 
+#### Material node
+
+[Material node other](../data-models/Materials_O.md)
+
+[Material node polymers](../data-models/Materials_P.md)
+
+The following materials nodes:
+
+* Polystyrene
+* Diblock BB
+* Thin Film 1
+
+```json
+{
+  "_id": "507f191e810c19729de860ef",
+  "class": "material_p",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "607f191e810c19729de860et",
+    "num": "v0.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "polystyrene",
+  "identifiers": [
+    {
+      "mat_id": 1,
+      "pref_name": "poly(styrene)",
+      "names": ["poly(styrene)","poly(vinylbenzene)"],
+      "chem_repeat": ["C8H8"],
+      "bigsmiles": "CCC(C){[<][<]C(C[>])c1ccccc1[>]}CCOC(=O)C1CC2C=CC1C2",
+      "cas": "100-42-5"
+    }
+  ],
+  "process": {"_id": "507f191e810c19729de860pe", "name": "anionic polymerization"},
+  "properties": [
+     {
+       "mat_id": 0,
+       "key": "m_n",
+       "method": "nmr",
+       "value": 4800,
+       "uncer": 400,
+       "data_id": "507f191e810c19729de860em"
+     },
+     {
+       "mat_id": 0,
+       "key": "m_n",
+       "method": "sec",
+       "value": 5200,
+       "uncer": 100,
+       "data_id": "507f191e810c19729de860er"
+     },
+     {
+       "mat_id": 0,
+       "key": "d",
+       "method": "sec",
+       "value": 1.03,
+       "uncer": 0.01,
+       "data_id": "507f191e810c19729de860er"
+     },
+     {
+       "mat_id": 1,
+       "component": "{[$]CC(c1ccccc1)[$]}",
+       "key": "m_n",
+       "method": "nmr",
+       "value": 4600,
+       "uncer": 400,
+       "data_id": "507f191e810c19729de860em"
+     },
+     {
+       "mat_id": 1,
+       "component": "{[$]CC(c1ccccc1)[$]}",
+       "key": "m_n",
+       "method": "sec",
+       "value": 5000,
+       "uncer": 100,
+       "data_id": "507f191e810c19729de860er"
+     },
+     {
+       "mat_id": 1,
+       "component": "{[$]CC(c1ccccc1)[$]}",
+       "key": "d",
+       "method": "sec",
+       "value": 1.03,
+       "uncer": 0.01,
+       "data_id": "507f191e810c19729de860er"
+     }
+   ]
+}
+```
+
+
+
+```json
+{
+  "_id": "507f191e810c19729de860ez",
+  "class": "material_p",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "607f191e810c19729de860ss",
+    "num": "v0.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "Diblock bottlebrush",
+  "identifiers": [
+    {
+      "mat_id": 1,
+      "pref_name": "Diblock bottlebrush of poly(styrene) and poly(lactic acid)",
+      "names": ["diblock bottlebrush of poly(styrene) and poly(lactic acid)", "(PS-b-PLA) diblock bottlebrush"],
+      "chem_repeat": ["C8H8","C3H4O2"],
+      "bigsmiles": ""
+    },
+    {
+      "mat_id": 2,
+      "pref_name": "poly(styrene) bottlebrush",
+      "names": ["poly(styrene)","poly(vinylbenzene)"],
+      "chem_repeat": ["C8H8"],
+      "bigsmiles": ""
+    },
+    {
+      "mat_id": 3,
+      "pref_name": "poly(styrene)",
+      "_id": "507f191e810c19729de860ef"
+    }
+  ],
+  "process": {"_id": "507f191e810c19729de860de", "name": "ROMP"},
+  "properties": [
+    {
+      "mat_id": 0,
+      "component": "{[$]CC(c1ccccc1)[$]}",
+      "key": "molar_p",
+      "method": "nmr",
+      "value": 0.46,
+      "uncer": 0.04,
+      "conditions": [{"key": "relative", "name": "{[>]CC(O[>])C(=O)[<][<]}"}],
+      "data_id": "507f191e810c19729de860td"
+     },
+    {
+      "mat_id": 1,
+      "key": "molar_p",
+      "method": "sec",
+      "value": 0.92,
+      "uncer": 0.02,
+      "conditions": [{"key": "relative", "mat_id": 2}, {"key": "relative", "mat_id": 3}],
+      "data_id": "507f191e810c19729de860en"
+     },
+    {
+      "mat_id": 2,
+      "key": "molar_p",
+      "method": "sec",
+      "value": 0.05,
+      "uncer": 0.02,
+      "conditions": [{"key": "relative", "mat_id": 1}, {"key": "relative", "mat_id": 3}],
+      "data_id": "507f191e810c19729de860en"
+     },
+     {
+      "mat_id": 1,
+      "key": "m_n",
+      "method": "sec",
+      "value": 603000,
+      "uncer": 30000,
+      "data_id": "507f191e810c19729de860en"
+     },
+    {
+      "mat_id": 1,
+      "key": "d",
+      "method": "sec",
+      "value": 1.03,
+      "uncer": 0.01,
+      "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": 2,
+      "key": "m_n",
+      "method": "sec",
+      "value": 290000,
+      "uncer": 30000,
+      "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": 2,
+      "key": "d",
+      "method": "sec",
+      "value": 1.05,
+      "uncer": 0.01,
+      "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": 3,
+      "key": "m_n",
+      "method": "sec",
+      "value": 4800,
+      "uncer": 200,
+      "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": 3,
+      "key": "d",
+      "method": "sec",
+      "value": 1.05,
+      "uncer": 0.01,
+      "data_id": "507f191e810c19729de860en"
+     },
+     {
+      "mat_id": "507f191e810c19729de860ef;1",
+      "component": "{[$]CC(c1ccccc1)[$]}",
+      "key": "m_n",
+      "method": "sec",
+      "value": 4600,
+      "uncer": 400
+     },
+     {
+      "mat_id": "507f191e810c19729de860ef;1",
+      "component": "{[$]CC(c1ccccc1)[$]}",
+      "key": "m_n",
+      "method": "sec",
+      "value": 5000,
+      "uncer": 100
+     },
+     {
+      "mat_id": "507f191e810c19729de860ef;1",
+      "component": "{[$]CC(c1ccccc1)[$]}",
+      "key": "d",
+      "method": "sec",
+      "value": 1.03,
+      "uncer": 0.01
+     },
+     {
+      "mat_id": "507f191e810c19729de860eg;1",
+      "component": "{[>]CC(O[>])C(=O)[<][<]}",
+      "key": "m_n",
+      "method": "sec",
+      "value": 4700,
+      "uncer": 400
+     },
+     {
+      "mat_id": "507f191e810c19729de860eg;1",
+      "component": "{[>]CC(O[>])C(=O)[<][<]}",
+      "key": "m_n",
+      "method": "sec",
+      "value": 5200,
+      "uncer": 100
+     },
+     {
+      "mat_id": "507f191e810c19729de860eg;1",
+      "component": "{[>]CC(O[>])C(=O)[<][<]}",
+      "key": "d",
+      "method": "sec",
+      "value": 1.09,
+      "uncer": 0.01
+     }
+   ],
+  "data": [
+    {"_id": "507f191e810c19729de860rr", "name": "solution neutron scattering", "type": ["s_neutron"]},
+    {"_id": "507f191e810c19729de860ro", "name": "frequency sweep", "type": ["g_prime", "g_doub_prime"]}
+  ]
+}
+```
+
+```json
+{
+  "_id": "507f191e810c19729de860za",
+  "class": "material_p",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "607f191e810c19729de860ss",
+    "num": "v0.1"
+  },
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "Thin Film 1",
+  "identifiers": [
+    {
+      "mat_id": 1,
+      "pref_name": "Diblock bottlebrush",
+      "_id": "507f191e810c19729de860ez"
+    }
+  ],
+  "process": {"_id": "507f191e810c19729de860dd", "name": "Spin Coat"},
+  "properties": [
+        {
+       "mat_id": 0,
+       "key": "lamda_max_ref",
+       "method": "uv_vis",
+       "value": 650,
+       "data_id": "507f191e810c19729de860gh"
+     },
+    {
+       "mat_id": 0,
+       "key": "optical_fwhm_ref",
+       "method": "uv_vis",
+       "value": 200,
+       "data_id": "507f191e810c19729de860gh"
+     },
+    {
+       "mat_id": "507f191e810c19729de860ez;0",
+       "component": "{[$]CC(c1ccccc1)[$]}",
+       "key": "molar_p",
+       "method": "nmr",
+       "value": 0.46,
+       "uncer": 0.04,
+       "conditions": [{"key": "relative", "name": "{[>]CC(O[>])C(=O)[<][<]}"}],
+       "data_id": "507f191e810c19729de860td"
+     },
+    {
+       "mat_id": "507f191e810c19729de860ez;1",
+       "key": "molar_p",
+       "method": "sec",
+       "value": 0.92,
+       "uncer": 0.02,
+       "conditions": [{"key": "relative", "mat_id": "507f191e810c19729de860ez;2"}, {"key": "relative", "mat_id": "507f191e810c19729de860ez;3"}],
+       "data_id": "507f191e810c19729de860en"
+     },
+    {
+       "mat_id": "507f191e810c19729de860ez;2",
+       "key": "molar_p",
+       "method": "sec",
+       "value": 0.05,
+       "uncer": 0.02,
+       "conditions": [{"key": "relative", "mat_id": "507f191e810c19729de860ez;1"}, {"key": "relative", "mat_id": "507f191e810c19729de860ez;3"}],
+       "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": "507f191e810c19729de860ez;1",
+       "key": "m_n",
+       "method": "sec",
+       "value": 603000,
+       "uncer": 30000,
+       "data_id": "507f191e810c19729de860en"
+     },
+    {
+       "mat_id": "507f191e810c19729de860ez;1",
+       "key": "d",
+       "method": "sec",
+       "value": 1.03,
+       "uncer": 0.01,
+       "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": "507f191e810c19729de860ez;2",
+       "key": "m_n",
+       "method": "sec",
+       "value": 290000,
+       "uncer": 30000,
+       "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": "507f191e810c19729de860ez;2",
+       "key": "d",
+       "method": "sec",
+       "value": 1.05,
+       "uncer": 0.01,
+       "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": "507f191e810c19729de860ez;3",
+       "key": "m_n",
+       "method": "sec",
+       "value": 4800,
+       "uncer": 200,
+       "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": "507f191e810c19729de860ez;3",
+       "key": "d",
+       "method": "sec",
+       "value": 1.05,
+       "uncer": 0.01,
+       "data_id": "507f191e810c19729de860en"
+     },
+     {
+       "mat_id": "507f191e810c19729de860ef;1",
+       "component": "{[$]CC(c1ccccc1)[$]}",
+       "key": "m_n",
+       "method": "sec",
+       "value": 4600,
+       "uncer": 400
+     },
+     {
+       "mat_id": "507f191e810c19729de860ef;1",
+       "component": "{[$]CC(c1ccccc1)[$]}",
+       "key": "m_n",
+       "method": "sec",
+       "value": 5000,
+       "uncer": 100
+     },
+     {
+       "mat_id": "507f191e810c19729de860ef;1",
+       "component": "{[$]CC(c1ccccc1)[$]}",
+       "key": "d",
+       "method": "sec",
+       "value": 1.03,
+       "uncer": 0.01
+     },
+     {
+       "mat_id": "507f191e810c19729de860eg;1",
+       "component": "{[>]CC(O[>])C(=O)[<][<]}",
+       "key": "m_n",
+       "method": "sec",
+       "value": 4700,
+       "uncer": 400
+     },
+     {
+       "mat_id": "507f191e810c19729de860eg;1",
+       "component": "{[>]CC(O[>])C(=O)[<][<]}",
+       "key": "m_n",
+       "method": "sec",
+       "value": 5200,
+       "uncer": 100
+     },
+     {
+       "mat_id": "507f191e810c19729de860eg;1",
+       "component": "{[>]CC(O[>])C(=O)[<][<]}",
+       "key": "d",
+       "method": "sec",
+       "value": 1.09,
+       "uncer": 0.01
+     }
+   ],
+  "data": [
+    {"_id": "507f191e810c19729de860rt", "name": "tem imaging", "type": ["tem_height"]},
+    {"_id": "507f191e810c19729de860ry", "name": "photos of print", "type": ["photo"]}
+  ]
+}
+```
+
+
+
+#### Process node
+
+[Process node](../data-models/Process.md)
+
+
+
+#### Data node
+
+[Data node](../data-models/Data.md)
+
+
 
 ---
 
@@ -499,35 +947,129 @@ The following materials nodes:
 
 ![Kinetic analysis of ROMP Network](../img/V1_Example_ROMP.svg)
 
+
+#### Material node
+
+[Material node other](../data-models/Materials_O.md)
+
+[Material node polymers](../data-models/Materials_P.md)
+
+
+
+
+
+#### Process node
+
+[Process node](../data-models/Process.md)
+
+```json
 {
-    "materials": [
-      {"_id": "507f191e810c19729de860ec", "name": "G3 Catalyst", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"_id": "507f191e810c19729de860ed", "name": "dichloromethane", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"_id": "507f191e810c19729de860ee", "name": "norbornene-imide", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"_id": "507f191e810c19729de860ef", "name": "ethyl vinyl ether", "_idproc": "507f191e810c19729de860pe", "role": "ingr"},
-      {"_id": "507f191e810c19729de860ds", "name": "poly(norborene-imide)", "_idproc": "507f191e810c19729de860pe", "role": "prod"}
-    ],
-    "process": [
-      {"_id": "507f191e810c19729de860pe", "name": "ROMP polymerization", "_idout": "507f191e810c19729de860ds"}
-    ],
-    "data": [
-      {"_id": "507f191e810c19729de860md", "name": "1H NMR", "_idprod": "507f191e810c19729de860ds", "_idprod": "507f191e810c19729de860ds"},
-      {"_id": "507f191e810c19729de860me", "name": "SEC", "_idprod": "507f191e810c19729de860ds", "_idprod": "507f191e810c19729de860ds"}
-    ]
+  "_id": "507f191e810c19729de860pe",
+  "class": "process",
+  "version_schema": "v0.1",
+  "version_control": {
+    "_id": "607f191e810c19729de860et",
+    "num": "v0.1"
   },
-  "attr": {
-    "pub": [
-      {"_id": "507f191e810c19729de860em", "title": "Kinetic Study of Living Ring-Opening Metathesis Polymerization"}
-    ],
-    "ref": [
-      {"_id": "507f191e810c19729de860en", "title": "Kinetic Study of Anionic Living Polymerization"}
-    ]
-  }
+  "last_modified": "2021-04-20 18:27:50",
+  "created": "2021-04-20 18:06:04",
+  "name": "NMR ROMP 1",
+  "ingredients": [
+    { 
+      "_id": "507f191e810c19729de860aa",
+      "name": "Norbornene imide",
+      "type": "monomer",
+      "quantities": [
+        {"key": "volume", "value": 0.075},
+        {"key": "mole", "value": 0.000303},
+        {"key": "equivalence", "value": 100}
+      ]
+    },
+    { 
+      "_id": "507f191e810c19729de860ab",
+      "name": "Grubbs Cat. 3",
+      "type": "initiator",
+      "quantities": [
+        {"key": "mass", "value": 0.00268},
+        {"key": "mole", "value": 0.00000303},
+        {"key": "equivalence", "value": 1}
+      ]
+    },
+    { 
+      "_id": "507f191e810c19729de860ac",
+      "name": "CDCl3",
+      "type": "solvent",
+      "quantities": [
+        {"key": "volume", "value": 0.65}
+      ]
+    },
+    { 
+      "_id": "507f191e810c19729de860ad",
+      "name": "Ethyl Vinyl Ether",
+      "type": "quench",
+      "quantities": []
+    },
+    {
+      "_id": "507f191e810c19729de860ae",
+      "name": "hexane",
+      "type": "workup",
+      "quantities": []
+    }
+  ],
+  "procedure": "In a glovebox, G3 was dissolved in CDCl3. In a separate vial, norbornene was dissolved in CDCl3. The two solutions were rapidly added to an NMR tube, and shaken. Then the NMR tube was taken out of the glovebox and placed in an NMR at 25 oC.The reaction kinetics were followed by monitoring the appearance of the polymer (5.75 ppm) and disappearance of monomer olefin peak (6.28 ppm) over at least 3 half-lives in the 1H NMR. Upon completion of the kinetic experiment the polymer is precipitated into hexane.",
+  "data": [{"_id": "507f191e810c19729de860at", "name": "1H NMR kinetics", "type": ["nmr_kinetics"]}],
+  "conditions": [
+    {"key": "time", "value": [5]},
+    {"key": "temp", "value": [25]},
+    {"key": "inert", "value": [1]}
+  ],
+  "properties": [
+    {
+      "key": "rate_const",
+      "method": "nmr",
+      "value": 1.47,
+      "uncer": 0.02,
+      "unit": "1/min",
+      "data": {"_id": "507f191e810c19729de860at", "name": "1H NMR kinetics", "type": ["nmr_kinetics"]}
+    },
+    {
+      "key": "conv_mon",
+      "method": "nmr",
+      "value": 0.98,
+      "uncer": 0.01,
+      "data": {"_id": "507f191e810c19729de860at", "name": "1H NMR kinetics", "type": ["nmr_kinetics"]}
+    }
+  ],
+  "keywords": ["polymerization", "kinetics", "living_poly", "romp", "solution"]
+}
+```
+
+#### Data node
+
+[Data node](../data-models/Data.md)
+
+
+
 
 ---
 
 ### Experiment 4: Simulation
 
+#### Material node
+
+[Material node other](../data-models/Materials_O.md)
+
+[Material node polymers](../data-models/Materials_P.md)
+
+
+#### Simulation node
+
+[Simulation node](../data-models/Simulation.md)
+
+
+#### Data node
+
+[Data node](../data-models/Data.md)
 
 
 ---

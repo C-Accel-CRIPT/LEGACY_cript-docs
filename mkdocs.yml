@@ -16,7 +16,9 @@ markdown_extensions:
 - pymdownx.caret
 - pymdownx.tilde
 
-repo_url:
+repo_url: https://criptapp.herokuapp.com/index/
+repo_name: CRIPT App
+
 
 nav:
     - Home:

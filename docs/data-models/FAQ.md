@@ -2,8 +2,7 @@
 ^^Are mixtures supported?^^
 
 * Yes, in the [Materials node](../data-models/Materials_P.md) the identifiers section is a list, which means multiple identifiers from each of the 
-  mixtures components can be added.
-
+  mixtures components can be added. Also, see [diblock BB exmaple](../Example/#experiment-2-diblock-bottlebrush-synthesis-and-assembly)
 
 
 ^^What format should units be in?^^

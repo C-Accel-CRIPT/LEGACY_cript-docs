@@ -178,15 +178,19 @@ Properties consist of the following structure:
   "note": "string"
 }
 ```
+A complete list of methods  can be found [here](../Materials_P/#methods)
 
-Key              | Method              | Range            | Units     | Description
-----------       |---------            |------            |--------   |---------
-`conv_mon`       | ['nmr', 'sec']      | [0, 1.2]         | None      | how much monomer that has reacted
-`conv_init`      | ['nmr', 'sec']      | [0, 1.2]         | None      | how much initiator that has reacted
-`init_eff`       | ['nmr', 'sec']      | [0, 1.2]         | None      | The proportion of initiators that result in an active propagating species
-`selectivity`    | []                  | [0,, 1.79e+308]  | None      |
-`yield`
-`rates`
+Key              | Method              | Range                  | Units       | Description
+----------       |---------            |------                  |--------     |---------
+`conv_mon`       | ['nmr', 'sec']      | [0, 1.2]               | None        | how much monomer that has reacted
+`conv_init`      | ['nmr', 'sec']      | [0, 1.2]               | None        | how much initiator that has reacted
+`init_eff`       | ['nmr', 'sec']      | [0, 1.2]               | None        | The proportion of initiators that result in an active propagating species
+`selectivity`    | ['nmr', 'sec']      | [0, 1.79e+308]         | None        | selectivity
+`yield`          | ['nmr', 'sec']      | [0, 1.2]               | None        | yield 
+`yield_mass`     | ['scale']           | [0, 1.79e+308]         | g           | yield by mass
+`rate_const`     | []                  | [-1.79e+308, 1.79e+308]| user-define | rate constant
+
+
 
 #### Keywords 
 

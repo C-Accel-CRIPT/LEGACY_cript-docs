@@ -72,15 +72,15 @@ Key                | Data Type    | Units    | Description
 `sample`           | list[dict]   |          | [sample node](../data-models/Sample.md)
 `sample/_id`       | objectId()   |          | id of sample
 `sample/name`      | string       |          | name of sample
-`sample/prop`      | list[dict]   |          | properties of sample 
-`data`             | list[dict]   |          | [data node](../data-models/Data.md)
-`data/_id`         | objectId()   |          | id of data
-`data/name`        | string       |          | name of data
-`data/type`        | string       |          | type of data
+`sample/prop`      | list[dict]   |          | properties of sample
 `process`          | dict         |          | The [process](../data-models/Process.md) that produced the material.
 `process/_id`      | objectId()   |          | id of process
 `process/name`     | string       |          | name of process
 `properties`       | list[dict]   |          | [see properties section](../Materials_P/#properties)
+`data`             | list[dict]   |          | [data node](../data-models/Data.md)
+`data/_id`         | objectId()   |          | id of data
+`data/name`        | string       |          | name of data
+`data/type`        | list[string] |          | type of data
 `keywords`         | list[string] |          | [see keywords section below](../Materials_P/#keywords)
 `source`           | string       |          | source of material
 `lot_number`       | string       |          | lot number
@@ -131,15 +131,25 @@ Properties consist of the following structure:
 
 ```json
 {
-  "mat_id": integer,
+  "mat_id": interger or string,
   "component": string,
-  "key": string, 
-  "method": string, 
-  "value": double, 
-  "uncer": double, 
+  "key": string,
+  "method": string,
+  "value": double,
+  "uncer": double,
   "unit": string,
   "data_id": ObjectID,
-  "conditions": [{"key": string, "value": double, "unit": string, "uncer": double, "_id": ObjectID, "name": string}],
+  "conditions": [
+    {
+      "key": string, 
+      "value": double, 
+      "unit": string, 
+      "uncer": double, 
+      "_id": ObjectID, 
+      "name": string, 
+      "mat_id": interger or string
+    }
+  ],
   "note": "string"
 }
 ```
@@ -165,7 +175,8 @@ The range bound is limited to the largest number that can be stored in 64 bits (
 Key                  | Method                                      |Range                    |Units                | Conditions                | Description
 ----------           |---------                                    |------                   |--------             |---------                  |---------
 `conc`               | []                                          | [0, 1.79e+308]          | M                   |                           | concentration
-`weight_p`           | []                                          | [0, 1]                  | None                |                           | weight percent
+`weight_p`           | []                                          | [0, 1]                  | None                | relative                  | weight percent
+`molar_p`            | ['nmr', 'sec']                              | [0, 1]                  | None                | relative                  | mole percent
 `m_n`                | ['nmr', 'sec', 'maldi', 'osmtic_pres']      | [0, 1.79e+308]          | g/mol               |                           | Average molecular weight on the bases of moles or first moment of the molecular weight distribution.
 `m_w`                | ['nmr', 'sec', 'maldi', 'ls']               | [0, 1.79e+308]          | g/mol               |                           | Average molecular weight on the bases of weight.
 `d`                  | ['sec', 'maldi']                            | [1, 1.79e+308]          |                     |                           | Ratio of weight averaged molecular weight over number average molecular weight.
@@ -224,17 +235,26 @@ Key                  | Method                 |Range                    |Units  
 `virial_coef`        | []                     | [0, 1.79e+308]          | cm^3 * mole/gram^2  |                           |
 `inter_Parm`         | []                     | [0, 1.79e+308]          | cm^3 * mole/gram^2  |                           | A measure of the interaction between molecules and the medium in which it is dissolved in.
 `melt_flow`          | []                     | [0, 1.79e+308]          | g                   |                           | the mass of polymer flowing through a capillary of a specific diameter and length by a pressure of a specified time
+`lamda_max_ref`      | ['uv_vis']             | [0, 1.79e+308]          | nm                  |                           | the peak wavelength of reflection 
+`lamda_max_abs`      | ['uv_vis']             | [0, 1.79e+308]          | nm                  |                           | the peak wavelength of absorbance 
+`lamda_max_tran`     | ['uv_vis']             | [0, 1.79e+308]          | nm                  |                           | the peak wavelength of transmission   
+`optical_fwhm_ref`   | ['uv_vis']             | [0, 1.79e+308]          | nm                  |                           | Full width at half maximum of a reflection
+`optical_fwhm_abs`   | ['uv_vis']             | [0, 1.79e+308]          | nm                  |                           | Full width at half maximum of a absorbance
+`optical_fwhm_tran`  | ['uv_vis']             | [0, 1.79e+308]          | nm                  |                           | Full width at half maximum of a transmission
+
+
 
 
 #### Conditions
 
-Key                   | Units     | Location   | Description
--------------         | ----      | ----       | ----
-`time`                | min       | value      | time
-`temperature`         | degC      | value      | temperature
-`pressure`            | kPa       | value      | pressure (absolute)
-`solvent`             | none      | _id, name  | solvent; material node
-`standard`            | none      | _id, name  | measurement standard (ASTM, ISO)
+Key                   | Units     | Location      | Description
+-------------         | ----      | ----          | ----
+`time`                | min       | value         | time
+`temperature`         | degC      | value         | temperature
+`pressure`            | kPa       | value         | pressure (absolute)
+`solvent`             | none      | _id, name     | solvent; material node
+`standard`            | none      | _id, name     | measurement standard (ASTM, ISO)
+`relative`            | none      | name, mat_id  | mat_id or bigSMILES filled into name 
 
 
 #### Methods
@@ -272,7 +292,7 @@ Key                | Description
 `afm`              | Atomic force microscopy
 `tem`              | Transmission electron microscopy
 `sem`              | Scanning electron microscopy
-
+`scale`            | Scale 
 
 
 ### Keywords
