@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - develop
+      - Version_1
 jobs:
   deploy:
     runs-on: ubuntu-latest
