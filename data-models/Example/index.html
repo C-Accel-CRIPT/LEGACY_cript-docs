@@ -1,0 +1,1878 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2">
+    
+    
+      
+        <title>Example - CRIPT Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#example" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CRIPT Documentation" class="md-header__button md-logo" aria-label="CRIPT Documentation" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CRIPT Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Example
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://criptapp.herokuapp.com/index/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CRIPT App
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Data Schema
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../software-tools/" class="md-tabs__link">
+        Software Tools
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../web-application/" class="md-tabs__link">
+        Web Application
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CRIPT Documentation" class="md-nav__button md-logo" aria-label="CRIPT Documentation" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    CRIPT Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://criptapp.herokuapp.com/index/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CRIPT App
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      <label class="md-nav__link" for="__nav_2">
+        Data Schema
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Data Schema" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Data Schema
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Polymers/" class="md-nav__link">
+        Challenges of Polymer Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data_Entry/" class="md-nav__link">
+        Data Model Explained
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Users/" class="md-nav__link">
+        Users
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Groups/" class="md-nav__link">
+        Groups
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Publications/" class="md-nav__link">
+        Publications
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Collections/" class="md-nav__link">
+        Collections
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Experiments/" class="md-nav__link">
+        Experiments
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Materials_P/" class="md-nav__link">
+        Materials - polymers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Materials_O/" class="md-nav__link">
+        Materials - other
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Process/" class="md-nav__link">
+        Process
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Simulation/" class="md-nav__link">
+        Simulation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sample/" class="md-nav__link">
+        Sample
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data/" class="md-nav__link">
+        Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Model_lake/" class="md-nav__link">
+        Model Lake
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data_Lake/" class="md-nav__link">
+        Data Lake
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Version_Control/" class="md-nav__link">
+        Version Control
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Example
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Example
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-group-collection" class="md-nav__link">
+    User, Group, Collection
+  </a>
+  
+    <nav class="md-nav" aria-label="User, Group, Collection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    User
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group" class="md-nav__link">
+    Group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collection" class="md-nav__link">
+    Collection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    Experiments
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiment-1-anionic-polymerization-of-styrene" class="md-nav__link">
+    Experiment 1: Anionic polymerization of styrene
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-2-diblock-bottlebrush-synthesis-and-assembly" class="md-nav__link">
+    Experiment 2: Diblock bottlebrush synthesis and assembly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-3-kinetic-analysis-of-romp" class="md-nav__link">
+    Experiment 3: Kinetic analysis of ROMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experiment-4-simulation" class="md-nav__link">
+    Experiment 4: Simulation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publication" class="md-nav__link">
+    Publication
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQ/" class="md-nav__link">
+        FAQ
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Software Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Software Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Software Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software-tools/" class="md-nav__link">
+        CRIPT API
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Web Application
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web Application" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Web Application
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../web-application/" class="md-nav__link">
+        CRIPT Web Application
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        About
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        Under Construction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h1>
+<p>To show how the data schema can be implemented, we will go through an example. We start by creating a user, group, and collection. 
+Then we will create several real-world experiments.</p>
+<p><img alt="Example Network" src="../../img/V1_Example_Full.svg" /></p>
+<h2 id="user-group-collection">User, Group, Collection<a class="headerlink" href="#user-group-collection" title="Permanent link">&para;</a></h2>
+<p>For a new user, the first step that needs to be done is to create a 'user'. Once the 'user' is created, then
+the user can either join an existing 'group' or create a new 'group'. Typically, 'groups' are created and own by a supervisor
+since 'groups' maintain ownership over 'collections'/'experiments' (such as a principal investigator for an academic lab). 
+In this example, we will create a new 'group' named: "CRIPT Team". With a 'user' now in a 'group', we can create a 'collection' that 
+will hold the experiments. </p>
+<p><img alt="User, Group, Collection Network" src="../../img/V1_Example_User_Group_coll.svg" /></p>
+<h3 id="user">User<a class="headerlink" href="#user" title="Permanent link">&para;</a></h3>
+<p><a href="../Users/">User node</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f1720633b3e6e70e529c7&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ver_sch&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ver_con&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860cb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:07:57&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:02:08&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Dylan W&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;dylan@cript.edu&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;owns_groups&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f180c633b3e6e70e529c8&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CRIPT Team&quot;</span><span class="p">}],</span>
+  <span class="nt">&quot;in_groups&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f180c633b3e6e70e529c8&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;MIT&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f180c633b3e6e70e529c7&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Olsen Lab&quot;</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;publication&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eq&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Recent trends in catalytic polymerizations&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860er&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kinetic study of living ring-opening metathesis polymerization with third-generation Grubbs catalysts&quot;</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;orcid&quot;</span><span class="p">:</span> <span class="s2">&quot;0000-0000-0000-0001&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;organization&quot;</span><span class="p">:</span> <span class="s2">&quot;Mass. Institute of Technology&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;position&quot;</span><span class="p">:</span> <span class="s2">&quot;Research Assistant&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="User Network" src="../../img/V1_Example_User.SVG" /></p>
+<h3 id="group">Group<a class="headerlink" href="#group" title="Permanent link">&para;</a></h3>
+<p><a href="../data-models/Group.md">Group node</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f180c633b3e6e70e529c8&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;group&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CRIPT Team&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;collection&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CRIPT Demo&quot;</span><span class="p">,</span> <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+  <span class="nt">&quot;parent_group&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Olsen Lab&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Citrine&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+  <span class="nt">&quot;publication&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span><span class="p">,</span> <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Synthesis of new polymer&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+  <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;https://cript.mit.edu/&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;cript@mit.edu&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="User Network" src="../../img/V1_Example_group.SVG" /></p>
+<h3 id="collection">Collection<a class="headerlink" href="#collection" title="Permanent link">&para;</a></h3>
+<p><a href="../Collections/">Collection node</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f180c633b3e6e70e529c8&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;coll&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CRIPT Demo&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;number_experiments&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+  <span class="nt">&quot;experiment&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anionic polymerization of styrene&quot;</span><span class="p">,</span> <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Diblock bottlebrush synthesis and assembly&quot;</span><span class="p">,</span> <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">}</span>
+  <span class="p">],</span>
+    <span class="nt">&quot;child_collection&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Kinetic analysis of ROMP&quot;</span><span class="p">,</span> <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><img alt="User Network" src="../../img/V1_Example_Coll.SVG" /></p>
+<hr />
+<hr />
+<h2 id="experiments">Experiments<a class="headerlink" href="#experiments" title="Permanent link">&para;</a></h2>
+<p>When defining an experiment it is best to start with the ingredient material nodes, followed by process, data nodes. 
+After that the final product material node can be defined, followed by the experiment node. </p>
+<h3 id="experiment-1-anionic-polymerization-of-styrene">Experiment 1: Anionic polymerization of styrene<a class="headerlink" href="#experiment-1-anionic-polymerization-of-styrene" title="Permanent link">&para;</a></h3>
+<p>The following example is the anionic polymerization of styrene with secBuLi in a mixture of THF and Toluene. The reaction
+is then quenched with butanol and precipitated into methanol to obtain the final product, polystyrene. </p>
+<p>Following the above suggestions, we can start by defining the ingredient material nodes. Both styrene and secbuli solution are 
+written out below. These materials nodes contain information with regard to identity (name, SMILES string, CAS number), and properties
+(molecular weight, boiling point, etc.). The second node to be defined will be a process node. The process node<br />
+contains links to the ingredient material nodes as well as the quantities of each material used in the polymerization. 
+The polymerization node also contains experimental procedure details and conditions under which the process was preformed 
+under (reaction time, temperature). Next the data nodes can be defined, in which both a <sup>1</sup>H NMR and SEC analysis was preformed
+to get M<sub>n</sub> and dispersity. Finally, we can define the product material node, polystyrene. Here we can include the same identity, 
+property data. All these nodes then are referenced in an experimental node. </p>
+<p><img alt="User Network" src="../../img/V1_Example_Expt_1.svg" /></p>
+<h4 id="experiment-node">Experiment node<a class="headerlink" href="#experiment-node" title="Permanent link">&para;</a></h4>
+<p><a href="../data-models/Experiment.md">Experiment node</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ec&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;expt&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Anionic polymerization of styrene&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;nodes&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;materials&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ec&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SecBuLi&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ed&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;toluene&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ee&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;styrene&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eg&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;THF&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eh&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;butanol&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ei&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;methanol&quot;</span><span class="p">},</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;polystyrene&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;id_proc&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860pe&quot;</span><span class="p">,</span> 
+        <span class="nt">&quot;id_data&quot;</span><span class="p">:[</span><span class="s2">&quot;507f191e810c19729de860md&quot;</span><span class="p">,</span> <span class="s2">&quot;507f191e810c19729de860me&quot;</span><span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;process&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860pe&quot;</span><span class="p">,</span> 
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;anionic polymerization&quot;</span><span class="p">,</span> 
+      <span class="nt">&quot;id_mat&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;507f191e810c19729de860ec&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;507f191e810c19729de860ed&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;507f191e810c19729de860ee&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;507f191e810c19729de860eg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;507f191e810c19729de860eh&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;507f191e810c19729de860ei&quot;</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860md&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1H NMR&quot;</span><span class="p">},</span>
+      <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860me&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SEC&quot;</span><span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;reference&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1139/v60-254&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="material-node">Material node<a class="headerlink" href="#material-node" title="Permanent link">&para;</a></h4>
+<p><a href="../Materials_O/">Material node other</a></p>
+<p><a href="../Materials_P/">Material node polymers</a></p>
+<p>The following materials nodes:</p>
+<ul>
+<li>styrene</li>
+<li>secBuLi solution</li>
+<li>polystyrene</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ee&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;material_p&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860eb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;styrene&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;identifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;styrene&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;styrene&quot;</span><span class="p">,</span><span class="s2">&quot;vinylbenzene&quot;</span><span class="p">,</span> <span class="s2">&quot;phenylethylene&quot;</span><span class="p">,</span> <span class="s2">&quot;ethenylbenzene&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;chem_form&quot;</span><span class="p">:</span> <span class="s2">&quot;C8H8&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;smiles&quot;</span><span class="p">:</span> <span class="s2">&quot;C=Cc1ccccc1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cas&quot;</span><span class="p">:</span> <span class="s2">&quot;100-42-5&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;pubChem_cid&quot;</span><span class="p">:</span> <span class="s2">&quot;7501 &quot;</span><span class="p">,</span>
+      <span class="nt">&quot;inchi_key&quot;</span><span class="p">:</span> <span class="s2">&quot;PPBRXRYQALVLMV-UHFFFAOYSA-N&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;phase&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;liquid&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;colorless&quot;</span><span class="p">},</span> 
+    <span class="p">{</span><span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mw&quot;</span><span class="p">,</span> <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;prescribed&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">104.15</span><span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;density&quot;</span><span class="p">,</span> 
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.906</span><span class="p">,</span> 
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">}]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;bp&quot;</span><span class="p">,</span> 
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">145</span><span class="p">,</span> 
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;pressure&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">}]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mp&quot;</span><span class="p">,</span> 
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">-30</span><span class="p">,</span> 
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;pressure&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">}]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;solubility&quot;</span><span class="p">,</span> 
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span> 
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;solvent&quot;</span><span class="p">,</span> <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860ea&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span>  <span class="s2">&quot;water&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;vapor_pres&quot;</span><span class="p">,</span> 
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.666</span><span class="p">,</span> 
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;styrene&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;Sigma-Aldrich&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;storage&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;temp&quot;</span><span class="p">:</span> <span class="mi">-20</span><span class="p">,</span> <span class="nt">&quot;atm&quot;</span><span class="p">:</span> <span class="s2">&quot;argon&quot;</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ec&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;material_p&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860ew&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SecBuLi solution&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;identifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;sec-butyllithium&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;sec-butyllithium&quot;</span><span class="p">,</span> <span class="s2">&quot;lithium-2-butanide&quot;</span><span class="p">,</span> <span class="s2">&quot;SecBuLi&quot;</span><span class="p">,</span> <span class="s2">&quot;sBuLi&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;chem_form&quot;</span><span class="p">:</span> <span class="s2">&quot;C4H9Li1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;smiles&quot;</span><span class="p">:</span> <span class="s2">&quot;[Li]C(C)CC&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cas&quot;</span><span class="p">:</span> <span class="s2">&quot;598-30-1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;pubChem_cid&quot;</span><span class="p">:</span> <span class="s2">&quot;102446 &quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cyclohexane&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860es&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;phase&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;liquid&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;color&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mw&quot;</span><span class="p">,</span> <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;prescribed&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">64.06</span><span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;density&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.769</span><span class="p">,</span>
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;temperature&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">}]</span>
+    <span class="p">},</span>
+    <span class="p">{</span><span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;conc&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.4</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;Sigma-Aldrich&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;storage&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;temp&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nt">&quot;atm&quot;</span><span class="p">:</span> <span class="s2">&quot;argon&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;material_p&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860et&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;polystyrene&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;identifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;poly(styrene)&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;poly(styrene)&quot;</span><span class="p">,</span><span class="s2">&quot;poly(vinylbenzene)&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;chem_repeat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C8H8&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;bigsmiles&quot;</span><span class="p">:</span> <span class="s2">&quot;[H]{[&gt;][&lt;]C(C[&gt;])c1ccccc1[&lt;]}C(C)CC&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cas&quot;</span><span class="p">:</span> <span class="s2">&quot;100-42-5&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;process&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860pe&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;anionic polymerization&quot;</span><span class="p">},</span>
+   <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;nmr&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4800</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">5200</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860er&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.03</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860er&quot;</span>
+     <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="process-node">Process node<a class="headerlink" href="#process-node" title="Permanent link">&para;</a></h4>
+<p><a href="../Process/">Process node</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860pe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860et&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;anionic polymerization&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ingredients&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;SecBuLi&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;initiator&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.017</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mole&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.022</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;equivalence&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ed&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;toluene&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;solvent&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">8.7</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mole&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">94.4</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;equivalence&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4234</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;styrene&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;monomer&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.455</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mole&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">4.27</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;equivalence&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">191.5</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eg&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;THF&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;solvent&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">3.28</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">3.7</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mole&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">45.5</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;equivalence&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">2042</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eh&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;butanol&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;quench&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;methanol&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;workup&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;procedure&quot;</span><span class="p">:</span> <span class="s2">&quot;In an argon filled glovebox, a round bottom flask was filled with 216 ml of dried toluene. The solution of secBuLi (3 ml, 3.9 mmol) was added next, followed by styrene (22.3 g, 176 mmol) to initiate the polymerization. The reaction mixture immediately turned orange. After 30 min, the reaction was quenched with the addition of 3 ml of methanol. The polymer was isolated by precipitation in methanol 3 times and dried under vacuum.&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">60</span><span class="p">]},</span>
+    <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;temp&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">]}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;yield_mass&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;scale&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.47</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.02</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;polymerization&quot;</span><span class="p">,</span> <span class="s2">&quot;living_poly&quot;</span><span class="p">,</span> <span class="s2">&quot;anionic&quot;</span><span class="p">,</span> <span class="s2">&quot;solution&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="data-node">Data node<a class="headerlink" href="#data-node" title="Permanent link">&para;</a></h4>
+<p><a href="../Data/">Data node</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860md&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860et&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1H NMR&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;nmr_h1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;expt&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;file&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ed&quot;</span><span class="p">,</span><span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;csv&quot;</span><span class="p">},</span>
+  <span class="nt">&quot;sample_preparation&quot;</span><span class="p">:</span> <span class="s2">&quot;Dissolved 10 mg of polymer into 0.6 ml of CDCl3.&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;solvent&quot;</span><span class="p">,</span> <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860md&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CDCl3&quot;</span><span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;equipment&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Nuclear Magnetic Resonance (NMR) spectra were recorded on a Bruker AVANCE III 500 MHz.&quot;</span><span class="p">},</span>
+  <span class="nt">&quot;calibration&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Spectra referenced to the residual solvent signal: CDCl3 (1H 7.26 ppm)&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="experiment-2-diblock-bottlebrush-synthesis-and-assembly">Experiment 2: Diblock bottlebrush synthesis and assembly<a class="headerlink" href="#experiment-2-diblock-bottlebrush-synthesis-and-assembly" title="Permanent link">&para;</a></h3>
+<p><img alt="Diblock bottlebrush synthesis and assembly Network" src="../../img/V1_Example_BB.svg" /></p>
+<h4 id="material-node_1">Material node<a class="headerlink" href="#material-node_1" title="Permanent link">&para;</a></h4>
+<p><a href="../Materials_O/">Material node other</a></p>
+<p><a href="../Materials_P/">Material node polymers</a></p>
+<p>The following materials nodes:</p>
+<ul>
+<li>Polystyrene</li>
+<li>Diblock BB</li>
+<li>Thin Film 1</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;material_p&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860et&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;polystyrene&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;identifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;poly(styrene)&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;poly(styrene)&quot;</span><span class="p">,</span><span class="s2">&quot;poly(vinylbenzene)&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;chem_repeat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C8H8&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;bigsmiles&quot;</span><span class="p">:</span> <span class="s2">&quot;CCC(C){[&lt;][&lt;]C(C[&gt;])c1ccccc1[&gt;]}CCOC(=O)C1CC2C=CC1C2&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cas&quot;</span><span class="p">:</span> <span class="s2">&quot;100-42-5&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;process&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860pe&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;anionic polymerization&quot;</span><span class="p">},</span>
+  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;nmr&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4800</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">5200</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860er&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.03</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860er&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;nmr&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4600</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">400</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860er&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.03</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860er&quot;</span>
+     <span class="p">}</span>
+   <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;material_p&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860ss&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Diblock bottlebrush&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;identifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Diblock bottlebrush of poly(styrene) and poly(lactic acid)&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;diblock bottlebrush of poly(styrene) and poly(lactic acid)&quot;</span><span class="p">,</span> <span class="s2">&quot;(PS-b-PLA) diblock bottlebrush&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;chem_repeat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C8H8&quot;</span><span class="p">,</span><span class="s2">&quot;C3H4O2&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;bigsmiles&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;poly(styrene) bottlebrush&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;names&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;poly(styrene)&quot;</span><span class="p">,</span><span class="s2">&quot;poly(vinylbenzene)&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;chem_repeat&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;C8H8&quot;</span><span class="p">],</span>
+      <span class="nt">&quot;bigsmiles&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;poly(styrene)&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;process&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860de&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;ROMP&quot;</span><span class="p">},</span>
+  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;molar_p&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;nmr&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.46</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.04</span><span class="p">,</span>
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;{[&gt;]CC(O[&gt;])C(=O)[&lt;][&lt;]}&quot;</span><span class="p">}],</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860td&quot;</span>
+     <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;molar_p&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.92</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}],</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;molar_p&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+      <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}],</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">603000</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.03</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">290000</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.05</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4800</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.05</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+      <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4600</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">400</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">100</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.03</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eg;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[&gt;]CC(O[&gt;])C(=O)[&lt;][&lt;]}&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4700</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">400</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eg;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[&gt;]CC(O[&gt;])C(=O)[&lt;][&lt;]}&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">5200</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">100</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eg;1&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[&gt;]CC(O[&gt;])C(=O)[&lt;][&lt;]}&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.09</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span>
+     <span class="p">}</span>
+   <span class="p">],</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860rr&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;solution neutron scattering&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;s_neutron&quot;</span><span class="p">]},</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ro&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;frequency sweep&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;g_prime&quot;</span><span class="p">,</span> <span class="s2">&quot;g_doub_prime&quot;</span><span class="p">]}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860za&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;material_p&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860ss&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Thin Film 1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;identifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="nt">&quot;pref_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Diblock bottlebrush&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;process&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860dd&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Spin Coat&quot;</span><span class="p">},</span>
+  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;lamda_max_ref&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;uv_vis&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">650</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860gh&quot;</span>
+     <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;optical_fwhm_ref&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;uv_vis&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860gh&quot;</span>
+     <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;0&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;molar_p&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;nmr&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.46</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.04</span><span class="p">,</span>
+       <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;{[&gt;]CC(O[&gt;])C(=O)[&lt;][&lt;]}&quot;</span><span class="p">}],</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860td&quot;</span>
+     <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;molar_p&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.92</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+       <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;2&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;3&quot;</span><span class="p">}],</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;2&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;molar_p&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+       <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;1&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;relative&quot;</span><span class="p">,</span> <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;3&quot;</span><span class="p">}],</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">603000</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+    <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.03</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;2&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">290000</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;2&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.05</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;3&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4800</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ez;3&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.05</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+       <span class="nt">&quot;data_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860en&quot;</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4600</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">400</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">100</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ef;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[$]CC(c1ccccc1)[$]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.03</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eg;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[&gt;]CC(O[&gt;])C(=O)[&lt;][&lt;]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">4700</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">400</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eg;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[&gt;]CC(O[&gt;])C(=O)[&lt;][&lt;]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;m_n&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">5200</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mi">100</span>
+     <span class="p">},</span>
+     <span class="p">{</span>
+       <span class="nt">&quot;mat_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860eg;1&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;component&quot;</span><span class="p">:</span> <span class="s2">&quot;{[&gt;]CC(O[&gt;])C(=O)[&lt;][&lt;]}&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;sec&quot;</span><span class="p">,</span>
+       <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.09</span><span class="p">,</span>
+       <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span>
+     <span class="p">}</span>
+   <span class="p">],</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860rt&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tem imaging&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tem_height&quot;</span><span class="p">]},</span>
+    <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ry&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;photos of print&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;photo&quot;</span><span class="p">]}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="process-node_1">Process node<a class="headerlink" href="#process-node_1" title="Permanent link">&para;</a></h4>
+<p><a href="../Process/">Process node</a></p>
+<h4 id="data-node_1">Data node<a class="headerlink" href="#data-node_1" title="Permanent link">&para;</a></h4>
+<p><a href="../Data/">Data node</a></p>
+<hr />
+<h3 id="experiment-3-kinetic-analysis-of-romp">Experiment 3: Kinetic analysis of ROMP<a class="headerlink" href="#experiment-3-kinetic-analysis-of-romp" title="Permanent link">&para;</a></h3>
+<p><img alt="Kinetic analysis of ROMP Network" src="../../img/V1_Example_ROMP.svg" /></p>
+<h4 id="material-node_2">Material node<a class="headerlink" href="#material-node_2" title="Permanent link">&para;</a></h4>
+<p><a href="../Materials_O/">Material node other</a></p>
+<p><a href="../Materials_P/">Material node polymers</a></p>
+<h4 id="process-node_2">Process node<a class="headerlink" href="#process-node_2" title="Permanent link">&para;</a></h4>
+<p><a href="../Process/">Process node</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860pe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;version_control&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;607f191e810c19729de860et&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;NMR ROMP 1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ingredients&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860aa&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Norbornene imide&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;monomer&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.075</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mole&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.000303</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;equivalence&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ab&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Grubbs Cat. 3&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;initiator&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mass&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.00268</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mole&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.00000303</span><span class="p">},</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;equivalence&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ac&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CDCl3&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;solvent&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;volume&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.65</span><span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span> 
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ad&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Ethyl Vinyl Ether&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;quench&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860ae&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;hexane&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;workup&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;quantities&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;procedure&quot;</span><span class="p">:</span> <span class="s2">&quot;In a glovebox, G3 was dissolved in CDCl3. In a separate vial, norbornene was dissolved in CDCl3. The two solutions were rapidly added to an NMR tube, and shaken. Then the NMR tube was taken out of the glovebox and placed in an NMR at 25 oC.The reaction kinetics were followed by monitoring the appearance of the polymer (5.75 ppm) and disappearance of monomer olefin peak (6.28 ppm) over at least 3 half-lives in the 1H NMR. Upon completion of the kinetic experiment the polymer is precipitated into hexane.&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860at&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1H NMR kinetics&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;nmr_kinetics&quot;</span><span class="p">]}],</span>
+  <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">]},</span>
+    <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;temp&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">]},</span>
+    <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;inert&quot;</span><span class="p">,</span> <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;rate_const&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;nmr&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">1.47</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+      <span class="nt">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;1/min&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860at&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1H NMR kinetics&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;nmr_kinetics&quot;</span><span class="p">]}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;conv_mon&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;nmr&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.98</span><span class="p">,</span>
+      <span class="nt">&quot;uncer&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+      <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860at&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;1H NMR kinetics&quot;</span><span class="p">,</span> <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;nmr_kinetics&quot;</span><span class="p">]}</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;polymerization&quot;</span><span class="p">,</span> <span class="s2">&quot;kinetics&quot;</span><span class="p">,</span> <span class="s2">&quot;living_poly&quot;</span><span class="p">,</span> <span class="s2">&quot;romp&quot;</span><span class="p">,</span> <span class="s2">&quot;solution&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="data-node_2">Data node<a class="headerlink" href="#data-node_2" title="Permanent link">&para;</a></h4>
+<p><a href="../Data/">Data node</a></p>
+<hr />
+<h3 id="experiment-4-simulation">Experiment 4: Simulation<a class="headerlink" href="#experiment-4-simulation" title="Permanent link">&para;</a></h3>
+<h4 id="material-node_3">Material node<a class="headerlink" href="#material-node_3" title="Permanent link">&para;</a></h4>
+<p><a href="../Materials_O/">Material node other</a></p>
+<p><a href="../Materials_P/">Material node polymers</a></p>
+<h4 id="simulation-node">Simulation node<a class="headerlink" href="#simulation-node" title="Permanent link">&para;</a></h4>
+<p><a href="../Simulation/">Simulation node</a></p>
+<h4 id="data-node_3">Data node<a class="headerlink" href="#data-node_3" title="Permanent link">&para;</a></h4>
+<p><a href="../Data/">Data node</a></p>
+<hr />
+<hr />
+<h2 id="publication">Publication<a class="headerlink" href="#publication" title="Permanent link">&para;</a></h2>
+<p><a href="../Publications/">Publications node</a></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de861ec&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;publication&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ver_sch&quot;</span><span class="p">:</span> <span class="s2">&quot;v0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ver_con&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de861cb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;num&quot;</span><span class="p">:</span> <span class="s2">&quot;v2.1&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;last_modified&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:27:50&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Engineering of Molecular Geometry in Bottlebrush Polymers&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;collection&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="s2">&quot;507f191e810c19729de860em&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bottlebrush Synthesis&quot;</span><span class="p">,</span> <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-20 18:06:04&quot;</span><span class="p">},</span>
+  <span class="nt">&quot;authors&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Walsh, Dylan J.&quot;</span><span class="p">,</span> <span class="s2">&quot;Dutta, Sarit&quot;</span><span class="p">,</span> <span class="s2">&quot;Sing, Charles E.&quot;</span><span class="p">,</span> <span class="s2">&quot;Guironnet, Damien&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;journal&quot;</span><span class="p">:</span> <span class="s2">&quot;Macromolecules&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;publisher&quot;</span><span class="p">:</span> <span class="s2">&quot;American Chemical Society&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;year&quot;</span><span class="p">:</span> <span class="s2">&quot;2019&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;vol&quot;</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span>
+  <span class="nt">&quot;issue&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+  <span class="nt">&quot;page&quot;</span><span class="p">:</span> <span class="s2">&quot;4847-4857&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;doi&quot;</span><span class="p">:</span> <span class="s2">&quot;10.1021/acs.macromol.9b00845&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;issn&quot;</span><span class="p">:</span> <span class="s2">&quot;0024-9297&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;web&quot;</span><span class="p">:</span> <span class="s2">&quot;http://pubs.acs.org/doi/10.1021/acs.macromol.9b00845&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Version_Control/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Version Control" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Version Control
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../FAQ/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQ" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              FAQ
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      
+    
+  </body>
+</html>
